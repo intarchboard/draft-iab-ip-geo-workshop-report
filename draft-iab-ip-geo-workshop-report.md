@@ -9,8 +9,8 @@ number:
 date:
 consensus: true
 v: 3
-area: IAB
-workgroup: IAB
+# area: IAB
+# workgroup: IAB
 keyword:
  - geolocation
  - privacy
