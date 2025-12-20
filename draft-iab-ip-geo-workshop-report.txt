@@ -2,12 +2,12 @@
 
 
 
-IAB                                                           J. Iyengar
+Network Working Group                                         J. Iyengar
 Internet-Draft                                                          
 Intended status: Informational                              J. Livingood
-Expires: 22 June 2026                                                   
+Expires: 23 June 2026                                                   
                                                                 T. Pauly
-                                                        19 December 2025
+                                                        20 December 2025
 
 
          Report from the IAB Workshop on IP Address Geolocation
@@ -15,7 +15,12 @@ Expires: 22 June 2026
 
 Abstract
 
-   TODO Abstract
+   The IAB Workshop on IP Address Geolocation (IP-GEO) was held from
+   December 3-5, 2025, as a three-day virtual meeting.  It covered the
+   use cases and background on using IP addresses as indicators of
+   geolocation, explored various problems and challenges, and discussed
+   future directions and opportunities to improve or replace the current
+   practices.
 
 About This Document
 
@@ -45,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 June 2026.
+   This Internet-Draft will expire on 23 June 2026.
 
 Copyright Notice
 
@@ -65,6 +70,9 @@ Table of Contents
    3.  Security Considerations
    4.  IANA Considerations
    5.  Normative References
+   Appendix A.  Position Papers
+   Appendix B.  Workshop Participatns
+   Appendix C.  Workshop Program Committee
    Acknowledgments
    Authors' Addresses
 
@@ -99,9 +107,21 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
+Appendix A.  Position Papers
+
+   TODO link position papers
+
+Appendix B.  Workshop Participatns
+
+   TODO list participants
+
+Appendix C.  Workshop Program Committee
+
+   TODO list PC members
+
 Acknowledgments
 
-   TODO acknowledge.
+   TODO Acks
 
 Authors' Addresses
 
