@@ -38,7 +38,11 @@ informative:
 
 --- abstract
 
-TODO Abstract
+The IAB Workshop on IP Address Geolocation (IP-GEO) was held from December 3-5, 2025,
+as a three-day virtual meeting. It covered the use cases and background on
+using IP addresses as indicators of geolocation, explored various problems and
+challenges, and discussed future directions and opportunities to improve
+or replace the current practices.
 
 
 --- middle
@@ -65,7 +69,19 @@ This document has no IANA actions.
 
 --- back
 
+# Position Papers
+
+TODO link position papers
+
+# Workshop Participatns
+
+TODO list participants
+
+# Workshop Program Committee
+
+TODO list PC members
+
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+TODO Acks
