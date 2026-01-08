@@ -113,11 +113,32 @@ Table of Contents
 
 5.2.  Informative References
 
+   [GAO]      Gao, P., Lee, E., and Y. Zhang, "On the Use, Challenges,
+              Alternatives of IP Geolocation Data", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-on-the-
+              use-challenges-alternatives-of-ip-geolocation-data-
+              00.pdf>.
+
+   [KATIRA]   Katira, D. and G. Grover, "Incorporating user agency in
+              internet geolocation", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-
+              incorporating-user-agency-in-internet-geolocation-00.pdf>.
+
+   [KLINE]    Kline, E., "Anecdotal History of RFC 8805", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-
+              anecdotal-history-of-rfc-00.pdf>.
+
    [MUKHERJEE]
               Mukherjee, D., "Gaps and problems in current IP-
               Geolocation Approaches", November 2025,
               <https://www.ietf.org/slides/slides-ipgeows-paper-gaps-
               and-problems-in-current-ip-geolocation-approaches-00.pdf>.
+
+   [NYGREN]   Nygren, E. and R. Dhanidina, "Akamai Position Paper for
+              2025 IAB Workshop on IP Address Geolocation", November
+              2025, <https://www.ietf.org/slides/slides-ipgeows-paper-
+              akamai-position-paper-for-iab-workshop-on-ip-address-
+              geolocation-ip-geo-00.pdf>.
 
    [PAULY]    Pauly, T., Schinazi, D., McMullin, C., and D. Mitchell,
               "The IP Geolocation HTTP Client Hint", November 2025,
@@ -140,8 +161,19 @@ Appendix A.  Position Papers
 
    The position papers are listed here:
 
+   *  P.  Gao, E.  Lee, Y.  Zhang: On the Use, Challenges, Alternatives
+      of IP Geolocation Data [GAO]
+
+   *  D.  Katira, G.  Grover: Incorporating user agency in internet
+      geolocation [KATIRA]
+
+   *  E.  Kline: Anecdotal History of RFC 8805 [KLINE]
+
    *  D.  Mukherjee: Gaps and problems in current IP-Geolocation
       Approaches [MUKHERJEE]
+
+   *  E.  Nygren, R.  Dhanidina: Akamai Position Paper for 2025 IAB
+      Workshop on IP Address Geolocation [NYGREN]
 
    *  T.  Pauly, D.  Schinazi, C.  McMullin, D.  Mitchell: The IP
       Geolocation HTTP Client Hint [PAULY]
