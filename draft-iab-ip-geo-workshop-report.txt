@@ -67,11 +67,15 @@ Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-   3.  Security Considerations
-   4.  IANA Considerations
-   5.  References
-     5.1.  Normative References
-     5.2.  Informative References
+   3.  Current Uses and Methods for IP Geolocation
+   4.  Gaps and Issues with Geolocation
+   5.  New Approaches
+   6.  Conclusions and Next Steps
+   7.  Security Considerations
+   8.  IANA Considerations
+   9.  References
+     9.1.  Normative References
+     9.2.  Informative References
    Appendix A.  Position Papers
    Appendix B.  Workshop Participatns
    Appendix C.  Workshop Program Committee
@@ -90,17 +94,25 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Security Considerations
+3.  Current Uses and Methods for IP Geolocation
+
+4.  Gaps and Issues with Geolocation
+
+5.  New Approaches
+
+6.  Conclusions and Next Steps
+
+7.  Security Considerations
 
    TODO Security
 
-4.  IANA Considerations
+8.  IANA Considerations
 
    This document has no IANA actions.
 
-5.  References
+9.  References
 
-5.1.  Normative References
+9.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -111,7 +123,42 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-5.2.  Informative References
+9.2.  Informative References
+
+   [ABLEY]    Abley, J., "Geo-Network Operations at Cloudflare",
+              November 2025, <https://www.ietf.org/slides/slides-
+              ipgeows-paper-geo-network-operations-at-cloudflare-
+              00.pdf>.
+
+   [BARNES]   Barnes, R., "IP Geolocation is Critical for Compliance",
+              November 2025, <https://www.ietf.org/slides/slides-
+              ipgeows-paper-ip-geolocation-is-critical-for-compliance-
+              01.pdf>.
+
+   [BROWN]    Brown, J., "Moving Beyond Geographic Inference", November
+              2025, <https://www.ietf.org/slides/slides-ipgeows-paper-
+              moving-beyond-geographic-inference-00.pdf>.
+
+   [CLARK]    Clark, J., "geocomply.com", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-
+              geocomplycom-00.pdf>.
+
+   [CROGHAN]  Croghan, T., "The Geolocation Conundrum for Small ISPs",
+              November 2025, <https://www.ietf.org/slides/slides-
+              ipgeows-paper-the-geolocation-conundrum-for-small-isps-
+              00.pdf>.
+
+   [ELKINS]   Elkins, N., Nguyen, M., and B. Jouris, "Bridging the Gaps
+              in IP Geolocation: Strengthening Detection and Defense
+              Against Cyber Threats", December 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-
+              bridging-the-gaps-in-ip-geolocation-strengthening-
+              detection-and-defense-against-cyber-threats-00.txt>.
+
+   [FAYED]    Fayed, M., "Does IP geolocation answer the right
+              questions?", November 2025, <https://www.ietf.org/slides/
+              slides-ipgeows-paper-does-ip-geolocation-answer-the-right-
+              questions-00.pdf>.
 
    [GAO]      Gao, P., Lee, E., and Y. Zhang, "On the Use, Challenges,
               Alternatives of IP Geolocation Data", November 2025,
@@ -119,14 +166,63 @@ Table of Contents
               use-challenges-alternatives-of-ip-geolocation-data-
               00.pdf>.
 
+   [GASSER]   Gasser, O., Leung, W., and M. Mouchet, "On the Use,
+              Challenges, Alternatives of IP Geolocation Data", November
+              2025, <https://www.ietf.org/slides/slides-ipgeows-paper-
+              challenges-of-working-with-geofeeds-00.pdf>.
+
+   [HOSFELT]  Hosfelt, R., Haberman, B., Jaeggli, J., and S. Strowes,
+              "Position Paper by Fastly", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-
+              position-paper-by-fastly-for-iab-workshop-on-ip-address-
+              geolocation-00.pdf>.
+
+   [HOWARD]   Howard, L., "IP geolocation paper", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-ip-
+              geolocation-paper-00.pdf>.
+
+   [HUSTON]   Huston, G., "Geolocation and Starlink", September 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-
+              geolocation-and-starlink-00.txt>.
+
+   [IZHIKEVICH]
+              Izhikevich, K., Du, B., Tran, M., Rao, S., Ukani, A., and
+              L. Izhikevich, "Trust, But Verify, Operator-Reported
+              Geolocation", November 2025, <https://www.ietf.org/slides/
+              slides-ipgeows-paper-trust-but-verify-operator-reported-
+              geolocation-00.pdf>.
+
    [KATIRA]   Katira, D. and G. Grover, "Incorporating user agency in
               internet geolocation", November 2025,
               <https://www.ietf.org/slides/slides-ipgeows-paper-
               incorporating-user-agency-in-internet-geolocation-00.pdf>.
 
+   [KHAN]     Khan, K., "From Surveillance to Consent: A Privacy-First
+              Approach to IP Geolocation", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-from-
+              surveillance-to-consent-a-privacy-first-approach-to-ip-
+              geolocation-00.pdf>.
+
+   [KISTELEKI]
+              Kisteleki, R., "RIPE IPmap - The RIPE NCC’s Approach to
+              Infrastructure IP Geolocation", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-ripe-
+              ipmap-the-ripe-nccs-approach-to-infrastructure-ip-
+              geolocation-00.pdf>.
+
    [KLINE]    Kline, E., "Anecdotal History of RFC 8805", November 2025,
               <https://www.ietf.org/slides/slides-ipgeows-paper-
               anecdotal-history-of-rfc-00.pdf>.
+
+   [LAOUAR]   Laouar, A., Desgeorges, L., Schmitt, P., and F. Bronzino,
+              "Rethinking Geolocalization on the Internet", November
+              2025, <https://www.ietf.org/slides/slides-ipgeows-paper-
+              rethinking-geolocalization-on-the-internet-00.pdf>.
+
+   [MATHUR]   Mathur, S., "Improvements Ideas from an IP Geolocation API
+              Provider", November 2025, <https://www.ietf.org/slides/
+              slides-ipgeows-paper-improvements-ideas-from-an-ip-
+              geolocation-api-provider-00.pdf>.
 
    [MUKHERJEE]
               Mukherjee, D., "Gaps and problems in current IP-
@@ -139,6 +235,15 @@ Table of Contents
               2025, <https://www.ietf.org/slides/slides-ipgeows-paper-
               akamai-position-paper-for-iab-workshop-on-ip-address-
               geolocation-ip-geo-00.pdf>.
+
+   [OWENS]    Owens, N., "Starlink", October 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-
+              position-paper-starlink-00.pdf>.
+
+   [PAN]      Pan, J. and J. Zhao, "GeoFeed in the wild: A case study on
+              StarlinkISP.net", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-geofeed-
+              in-the-wild-a-case-study-on-starlinkispnet-00.pdf>.
 
    [PAULY]    Pauly, T., Schinazi, D., McMullin, C., and D. Mitchell,
               "The IP Geolocation HTTP Client Hint", November 2025,
@@ -153,21 +258,93 @@ Table of Contents
               systematic-detection-and-correction-of-ip-geolocation-
               anomalies-in-network-measurements-00.pdf>.
 
+   [SCHATTE]  Schatte, D., "IAB Workshop on IP Address Geolocation",
+              December 2025, <https://www.ietf.org/slides/slides-
+              ipgeows-paper-iab-workshop-on-ip-address-geolocation-
+              daniel-schatte-00.pdf>.
+
+   [SHARMA]   Sharma, O. P., "Position Paper for IAB Workshop on IP
+              Address Geolocation", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-
+              position-paper-for-iab-workshop-on-ip-address-geolocation-
+              ipgeows-00.pdf>.
+
+   [SZAMONEK] Szamonek, Z., "The Need for an Alternative to IP-Based
+              Geolocation", November 2025, <https://www.ietf.org/slides/
+              slides-ipgeows-paper-the-need-for-an-alternative-to-ip-
+              based-geolocation-00.pdf>.
+
+   [TARIQ]    Tariq, M., "IP Address Geolocation – Use Cases, Gaps, and
+              Future Directions", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-ip-
+              address-geolocation-use-cases-gaps-and-future-directions-
+              00.pdf>.
+
+   [VERMEULEN]
+              Vermeulen, K., "IP geolocation through the lens of an
+              academic: Where do we stand?", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-ip-
+              geolocation-through-the-lens-of-an-academic-where-do-we-
+              stand-00.pdf>.
+
 Appendix A.  Position Papers
 
-   29 position papers were accepted to the workshop.  All papers are
+   30 position papers were accepted to the workshop.  All papers are
    available at https://datatracker.ietf.org/group/ipgeows/materials/
    (https://datatracker.ietf.org/group/ipgeows/materials/).
 
    The position papers are listed here:
 
+   *  J.  Abley: Geo-Network Operations at Cloudflare [ABLEY]
+
+   *  R.  Barnes: IP Geolocation is Critical for Compliance [BARNES]
+
+   *  J.  Brown: Moving Beyond Geographic Inference [BROWN]
+
+   *  J.  Clark: geocomply.com [CLARK]
+
+   *  T.  Croghan: The Geolocation Conundrum for Small ISPs [CROGHAN]
+
+   *  N.  Elkins, M.  Nguyen, B.  Jouris: Bridging the Gaps in IP
+      Geolocation: Strengthening Detection and Defense Against Cyber
+      Threats [ELKINS]
+
+   *  M.  Fayed: Does IP geolocation answer the right questions?
+      [FAYED]
+
    *  P.  Gao, E.  Lee, Y.  Zhang: On the Use, Challenges, Alternatives
       of IP Geolocation Data [GAO]
+
+   *  O.  Gasser, W.  Leung, M.  Mouchet: Challenges of Working With
+      Geofeeds [GASSER]
+
+   *  R.  Hosfelt, B.  Haberman, J.  Jaeggli, S.  Strowes: Position
+      paper by Fastly [HOSFELT]
+
+   *  L.  Howard: IP geolocation paper [HOWARD]
+
+   *  G.  Huston: Geolocation and Starlink [HUSTON]
+
+   *  K.  Izhikevich, B.  Du, M.  Tran, S.  Rao, A.  Ukani, L.
+      Izhikevich: Trust, But Verify, Operator-Reported Geolocation
+      [IZHIKEVICH]
 
    *  D.  Katira, G.  Grover: Incorporating user agency in internet
       geolocation [KATIRA]
 
+   *  K.  Khan: From Surveillance to Consent: A Privacy-First Approach
+      to IP Geolocation [KHAN]
+
+   *  R.  Kisteleki: RIPE IPmap - The RIPE NCC’s Approach to
+      Infrastructure IP Geolocation [KISTELEKI]
+
    *  E.  Kline: Anecdotal History of RFC 8805 [KLINE]
+
+   *  A.  Laouar, L.  Desgoerges, P.  Schmitt, F.  Bronzino: Rethinking
+      Geolocalization on the Internet [LAOUAR]
+
+   *  S.  Mathur: Improvements Ideas from an IP Geolocation API Provider
+      [MATHUR]
 
    *  D.  Mukherjee: Gaps and problems in current IP-Geolocation
       Approaches [MUKHERJEE]
@@ -175,12 +352,31 @@ Appendix A.  Position Papers
    *  E.  Nygren, R.  Dhanidina: Akamai Position Paper for 2025 IAB
       Workshop on IP Address Geolocation [NYGREN]
 
+   *  N.  Owens: Starlink [OWENS]
+
+   *  J.  Pan, J.  Zhao: GeoFeed in the wild: A case study on
+      StarlinkISP.net [PAN]
+
    *  T.  Pauly, D.  Schinazi, C.  McMullin, D.  Mitchell: The IP
       Geolocation HTTP Client Hint [PAULY]
 
    *  A.  Ramanathan, S.  A.  Jyothi: Systematic Detection and
       Correction of IP Geolocation Anomalies in Network Measurements
       [RAMANATHAN]
+
+   *  D.  Schatte: IAB Workshop on IP Address Geolocation [SCHATTE]
+
+   *  O.  P.  Sharma: Position Paper for IAB Workshop on IP Address
+      Geolocation [SHARMA]
+
+   *  Z.  Szamonek: The Need for an Alternative to IP-Based Geolocation
+      [SZAMONEK]
+
+   *  M.  Tariq: IP Address Geolocation – Use Cases, Gaps, and Future
+      Directions [TARIQ]
+
+   *  K.  Vermeulen: IP geolocation through the lens of an academic:
+      Where do we stand?  [VERMEULEN]
 
 Appendix B.  Workshop Participatns
 
