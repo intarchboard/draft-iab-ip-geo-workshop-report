@@ -5,9 +5,9 @@
 Network Working Group                                         J. Iyengar
 Internet-Draft                                                          
 Intended status: Informational                              J. Livingood
-Expires: 23 June 2026                                                   
+Expires: 12 July 2026                                                   
                                                                 T. Pauly
-                                                        20 December 2025
+                                                          8 January 2026
 
 
          Report from the IAB Workshop on IP Address Geolocation
@@ -50,11 +50,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 June 2026.
+   This Internet-Draft will expire on 12 July 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -69,7 +69,9 @@ Table of Contents
    2.  Conventions and Definitions
    3.  Security Considerations
    4.  IANA Considerations
-   5.  Normative References
+   5.  References
+     5.1.  Normative References
+     5.2.  Informative References
    Appendix A.  Position Papers
    Appendix B.  Workshop Participatns
    Appendix C.  Workshop Program Committee
@@ -96,7 +98,9 @@ Table of Contents
 
    This document has no IANA actions.
 
-5.  Normative References
+5.  References
+
+5.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -107,9 +111,44 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
+5.2.  Informative References
+
+   [MUKHERJEE]
+              Mukherjee, D., "Gaps and problems in current IP-
+              Geolocation Approaches", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-gaps-
+              and-problems-in-current-ip-geolocation-approaches-00.pdf>.
+
+   [PAULY]    Pauly, T., Schinazi, D., McMullin, C., and D. Mitchell,
+              "The IP Geolocation HTTP Client Hint", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-the-ip-
+              geolocation-http-client-hint-00.pdf>.
+
+   [RAMANATHAN]
+              Ramanathan, A. and S. A. Jyothi, "Systematic Detection and
+              Correction of IP Geolocation Anomalies in Network
+              Measurements", November 2025,
+              <https://www.ietf.org/slides/slides-ipgeows-paper-
+              systematic-detection-and-correction-of-ip-geolocation-
+              anomalies-in-network-measurements-00.pdf>.
+
 Appendix A.  Position Papers
 
-   TODO link position papers
+   29 position papers were accepted to the workshop.  All papers are
+   available at https://datatracker.ietf.org/group/ipgeows/materials/
+   (https://datatracker.ietf.org/group/ipgeows/materials/).
+
+   The position papers are listed here:
+
+   *  D.  Mukherjee: Gaps and problems in current IP-Geolocation
+      Approaches [MUKHERJEE]
+
+   *  T.  Pauly, D.  Schinazi, C.  McMullin, D.  Mitchell: The IP
+      Geolocation HTTP Client Hint [PAULY]
+
+   *  A.  Ramanathan, S.  A.  Jyothi: Systematic Detection and
+      Correction of IP Geolocation Anomalies in Network Measurements
+      [RAMANATHAN]
 
 Appendix B.  Workshop Participatns
 
