@@ -5,9 +5,9 @@
 Network Working Group                                         J. Iyengar
 Internet-Draft                                                          
 Intended status: Informational                              J. Livingood
-Expires: 13 July 2026                                                   
+Expires: 17 July 2026                                                   
                                                                 T. Pauly
-                                                          9 January 2026
+                                                         13 January 2026
 
 
          Report from the IAB Workshop on IP Address Geolocation
@@ -18,9 +18,9 @@ Abstract
    The IAB Workshop on IP Address Geolocation (IP-GEO) was held from
    December 3-5, 2025, as a three-day virtual meeting.  It covered the
    use cases and background on using IP addresses as indicators of
-   geolocation, explored various problems and challenges, and discussed
-   future directions and opportunities to improve or replace the current
-   practices.
+   geolocation, explored various problems and challenges that exist in
+   that ecosystem, and discussed future directions and opportunities to
+   improve or replace the current practices.
 
 About This Document
 
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 July 2026.
+   This Internet-Draft will expire on 17 July 2026.
 
 Copyright Notice
 
@@ -66,16 +66,26 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
+     1.1.  About This Workshop Report Content
    2.  Conventions and Definitions
-   3.  Current Uses and Methods for IP Geolocation
-   4.  Gaps and Issues with Geolocation
-   5.  New Approaches
-   6.  Conclusions and Next Steps
-   7.  Security Considerations
-   8.  IANA Considerations
-   9.  References
-     9.1.  Normative References
-     9.2.  Informative References
+   3.  Workshop Scope and Discussion
+     3.1.  Current Uses of IP Geolocation
+       3.1.1.  Use Cases for Mapping IP Addresses to Geolocation
+       3.1.2.  Current Mechanisms for Mapping IP Addresses to
+               Geolocation
+     3.2.  IP Geolocation Gaps & Issues
+       3.2.1.  Challenges With Geofeeds
+       3.2.2.  Satellite Networks
+       3.2.3.  Privacy Impacts
+     3.3.  Future of Geolocation: Exploring Better Methods
+       3.3.1.  New Approaches
+       3.3.2.  What do/can/should we do?
+   4.  Conclusions and Key Takeways
+   5.  Security Considerations
+   6.  IANA Considerations
+   7.  References
+     7.1.  Normative References
+     7.2.  Informative References
    Appendix A.  Position Papers
    Appendix B.  Workshop Participatns
    Appendix C.  Workshop Program Committee
@@ -84,7 +94,50 @@ Table of Contents
 
 1.  Introduction
 
-   TODO Introduction
+   The Internet Architecture Board (IAB) holds occasional workshops
+   designed to consider long-term issues and strategies for the
+   Internet, and to suggest future directions for the Internet
+   architecture.  This long-term planning function of the IAB is
+   complementary to the ongoing engineering efforts performed by working
+   groups of the Internet Engineering Task Force (IETF).
+
+   Many services on the Internet use some form of mapping between IP
+   addresses and a particular geolocation (such as inferring that
+   traffic originating from a particular IP address means the traffic
+   originates from a particular city).  This is a widespread practice in
+   many aspects of Internet and web traffic, even though IP addresses
+   are not designed or guaranteed to have a singular or fixed location
+   associated with them.
+
+   Thus, practices around IP geolocation have a significant impact on
+   the architecture and realities of deploying systems on the Internet,
+   but they frequently not documented or incompletely documented in
+   standards.
+
+   The IAB convened a virtual workshop on IP Address Geolocation from
+   December 3-5, 2025.  The workshop aimed to:
+
+   *  Understand the current use cases for publishing, discovering, and
+      consuming IP address geolocation data
+
+   *  Explore areas for improvement, both in ways to update or replace
+      IP geolocation mechanisms
+
+   *  Consider mechanisms that satisfy the use cases without relying on
+      geolocating IP addresses
+
+1.1.  About This Workshop Report Content
+
+   This document is a report on the proceedings of the workshop.  The
+   views and positions documented in this report are expressed during
+   the workshop by participants and do not necessarily reflect IAB's
+   views and positions.
+
+   Furthermore, the content of the report comes from presentations given
+   by workshop participants and notes taken during the discussions,
+   without interpretation or validation.  Thus, the content of this
+   report follows the flow and dialogue of the workshop but does not
+   attempt to capture a consensus.
 
 2.  Conventions and Definitions
 
@@ -94,25 +147,42 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Current Uses and Methods for IP Geolocation
+3.  Workshop Scope and Discussion
 
-4.  Gaps and Issues with Geolocation
+3.1.  Current Uses of IP Geolocation
 
-5.  New Approaches
+3.1.1.  Use Cases for Mapping IP Addresses to Geolocation
 
-6.  Conclusions and Next Steps
+3.1.2.  Current Mechanisms for Mapping IP Addresses to Geolocation
 
-7.  Security Considerations
+3.2.  IP Geolocation Gaps & Issues
 
-   TODO Security
+3.2.1.  Challenges With Geofeeds
 
-8.  IANA Considerations
+3.2.2.  Satellite Networks
+
+3.2.3.  Privacy Impacts
+
+3.3.  Future of Geolocation: Exploring Better Methods
+
+3.3.1.  New Approaches
+
+3.3.2.  What do/can/should we do?
+
+4.  Conclusions and Key Takeways
+
+5.  Security Considerations
+
+   This document is a workshop report and does not impact the security
+   of the Internet.
+
+6.  IANA Considerations
 
    This document has no IANA actions.
 
-9.  References
+7.  References
 
-9.1.  Normative References
+7.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -123,7 +193,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-9.2.  Informative References
+7.2.  Informative References
 
    [ABLEY]    Abley, J., "Geo-Network Operations at Cloudflare",
               November 2025, <https://www.ietf.org/slides/slides-

@@ -12,8 +12,8 @@
        The IAB Workshop on IP Address Geolocation (IP-GEO) was held from December 3-5, 2025,
 as a three-day virtual meeting. It covered the use cases and background on
 using IP addresses as indicators of geolocation, explored various problems and
-challenges, and discussed future directions and opportunities to improve
-or replace the current practices. 
+challenges that exist in that ecosystem, and discussed future directions
+and opportunities to improve or replace the current practices. 
     " name="description">
 <meta content="xml2rfc 3.31.0" name="generator">
 <meta content="geolocation" name="keyword">
@@ -1055,7 +1055,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Iyengar, et al.</td>
-<td class="center">Expires 13 July 2026</td>
+<td class="center">Expires 17 July 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-iab-ip-geo-workshop-report-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-01-09" class="published">9 January 2026</time>
+<time datetime="2026-01-13" class="published">13 January 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-07-13">13 July 2026</time></dd>
+<dd class="expires"><time datetime="2026-07-17">17 July 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1094,8 +1094,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-abstract-1">The IAB Workshop on IP Address Geolocation (IP-GEO) was held from December 3-5, 2025,
 as a three-day virtual meeting. It covered the use cases and background on
 using IP addresses as indicators of geolocation, explored various problems and
-challenges, and discussed future directions and opportunities to improve
-or replace the current practices.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+challenges that exist in that ecosystem, and discussed future directions
+and opportunities to improve or replace the current practices.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1127,7 +1127,7 @@ or replace the current practices.<a href="#section-abstract-1" class="pilcrow">�
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 13 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 17 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1155,53 +1155,90 @@ or replace the current practices.<a href="#section-abstract-1" class="pilcrow">�
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-about-this-workshop-report-" class="internal xref">About This Workshop Report Content</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-current-uses-and-methods-fo" class="internal xref">Current Uses and Methods for IP Geolocation</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-gaps-and-issues-with-geoloc" class="internal xref">Gaps and Issues with Geolocation</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-new-approaches" class="internal xref">New Approaches</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-conclusions-and-next-steps" class="internal xref">Conclusions and Next Steps</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-references" class="internal xref">References</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-workshop-scope-and-discussi" class="internal xref">Workshop Scope and Discussion</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
-                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="auto internal xref">9.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-current-uses-of-ip-geolocat" class="internal xref">Current Uses of IP Geolocation</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.1">
+                    <p id="section-toc.1-1.3.2.1.2.1.1"><a href="#section-3.1.1" class="auto internal xref">3.1.1</a>.  <a href="#name-use-cases-for-mapping-ip-ad" class="internal xref">Use Cases for Mapping IP Addresses to Geolocation</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
-                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="auto internal xref">9.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.2">
+                    <p id="section-toc.1-1.3.2.1.2.2.1"><a href="#section-3.1.2" class="auto internal xref">3.1.2</a>.  <a href="#name-current-mechanisms-for-mapp" class="internal xref">Current Mechanisms for Mapping IP Addresses to Geolocation</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-ip-geolocation-gaps-issues" class="internal xref">IP Geolocation Gaps &amp; Issues</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
+                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-challenges-with-geofeeds" class="internal xref">Challenges With Geofeeds</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
+                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-satellite-networks" class="internal xref">Satellite Networks</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.3">
+                    <p id="section-toc.1-1.3.2.2.2.3.1"><a href="#section-3.2.3" class="auto internal xref">3.2.3</a>.  <a href="#name-privacy-impacts" class="internal xref">Privacy Impacts</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-future-of-geolocation-explo" class="internal xref">Future of Geolocation: Exploring Better Methods</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.1">
+                    <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="auto internal xref">3.3.1</a>.  <a href="#name-new-approaches" class="internal xref">New Approaches</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.2">
+                    <p id="section-toc.1-1.3.2.3.2.2.1"><a href="#section-3.3.2" class="auto internal xref">3.3.2</a>.  <a href="#name-what-do-can-should-we-do" class="internal xref">What do/can/should we do?</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-conclusions-and-key-takeway" class="internal xref">Conclusions and Key Takeways</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-position-papers" class="internal xref">Position Papers</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-workshop-participatns" class="internal xref">Workshop Participatns</a></p>
+</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-position-papers" class="internal xref">Position Papers</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#appendix-C" class="auto internal xref">Appendix C</a>.  <a href="#name-workshop-program-committee" class="internal xref">Workshop Program Committee</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-workshop-participatns" class="internal xref">Workshop Participatns</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-C" class="auto internal xref">Appendix C</a>.  <a href="#name-workshop-program-committee" class="internal xref">Workshop Program Committee</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
-            <p id="section-toc.1-1.14.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1212,7 +1249,47 @@ or replace the current practices.<a href="#section-abstract-1" class="pilcrow">�
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">TODO Introduction<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">The Internet Architecture Board (IAB) holds occasional workshops designed to consider
+long-term issues and strategies for the Internet, and to suggest future directions for
+the Internet architecture. This long-term planning function of the IAB is complementary
+to the ongoing engineering efforts performed by working groups of the
+Internet Engineering Task Force (IETF).<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">Many services on the Internet use some form of mapping between IP addresses and a
+particular geolocation (such as inferring that traffic originating from a particular
+IP address means the traffic originates from a particular city). This is a widespread
+practice in many aspects of Internet and web traffic, even though IP addresses are
+not designed or guaranteed to have a singular or fixed location associated with them.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">Thus, practices around IP geolocation have a significant impact on the architecture
+and realities of deploying systems on the Internet, but they frequently not documented
+or incompletely documented in standards.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">The IAB convened a virtual workshop on IP Address Geolocation from December 3-5, 2025.
+The workshop aimed to:<a href="#section-1-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1-5.1">
+          <p id="section-1-5.1.1">Understand the current use cases for publishing, discovering, and consuming IP address
+geolocation data<a href="#section-1-5.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.2">
+          <p id="section-1-5.2.1">Explore areas for improvement, both in ways to update or replace IP geolocation mechanisms<a href="#section-1-5.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.3">
+          <p id="section-1-5.3.1">Consider mechanisms that satisfy the use cases without relying on geolocating IP addresses<a href="#section-1-5.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<div id="about-this-workshop-report-content">
+<section id="section-1.1">
+        <h3 id="name-about-this-workshop-report-">
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-about-this-workshop-report-" class="section-name selfRef">About This Workshop Report Content</a>
+        </h3>
+<p id="section-1.1-1">This document is a report on the proceedings of the workshop. The views and positions
+documented in this report are expressed during the workshop by participants and do not
+necessarily reflect IAB's views and positions.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">Furthermore, the content of the report comes from presentations given by workshop
+participants and notes taken during the discussions, without interpretation or
+validation. Thus, the content of this report follows the flow and dialogue of the
+workshop but does not attempt to capture a consensus.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1226,59 +1303,115 @@ described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</s
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="current-uses-and-methods-for-ip-geolocation">
+<div id="workshop-scope-and-discussion">
 <section id="section-3">
-      <h2 id="name-current-uses-and-methods-fo">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-current-uses-and-methods-fo" class="section-name selfRef">Current Uses and Methods for IP Geolocation</a>
-    </h2>
+      <h2 id="name-workshop-scope-and-discussi">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-workshop-scope-and-discussi" class="section-name selfRef">Workshop Scope and Discussion</a>
+      </h2>
+<div id="current-uses-of-ip-geolocation">
+<section id="section-3.1">
+        <h3 id="name-current-uses-of-ip-geolocat">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-current-uses-of-ip-geolocat" class="section-name selfRef">Current Uses of IP Geolocation</a>
+        </h3>
+<div id="use-cases-for-mapping-ip-addresses-to-geolocation">
+<section id="section-3.1.1">
+          <h4 id="name-use-cases-for-mapping-ip-ad">
+<a href="#section-3.1.1" class="section-number selfRef">3.1.1. </a><a href="#name-use-cases-for-mapping-ip-ad" class="section-name selfRef">Use Cases for Mapping IP Addresses to Geolocation</a>
+        </h4>
 </section>
 </div>
-<div id="gaps-and-issues-with-geolocation">
-<section id="section-4">
-      <h2 id="name-gaps-and-issues-with-geoloc">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-gaps-and-issues-with-geoloc" class="section-name selfRef">Gaps and Issues with Geolocation</a>
-    </h2>
+<div id="current-mechanisms-for-mapping-ip-addresses-to-geolocation">
+<section id="section-3.1.2">
+          <h4 id="name-current-mechanisms-for-mapp">
+<a href="#section-3.1.2" class="section-number selfRef">3.1.2. </a><a href="#name-current-mechanisms-for-mapp" class="section-name selfRef">Current Mechanisms for Mapping IP Addresses to Geolocation</a>
+        </h4>
 </section>
 </div>
+</section>
+</div>
+<div id="ip-geolocation-gaps-issues">
+<section id="section-3.2">
+        <h3 id="name-ip-geolocation-gaps-issues">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-ip-geolocation-gaps-issues" class="section-name selfRef">IP Geolocation Gaps &amp; Issues</a>
+        </h3>
+<div id="challenges-with-geofeeds">
+<section id="section-3.2.1">
+          <h4 id="name-challenges-with-geofeeds">
+<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-challenges-with-geofeeds" class="section-name selfRef">Challenges With Geofeeds</a>
+        </h4>
+</section>
+</div>
+<div id="satellite-networks">
+<section id="section-3.2.2">
+          <h4 id="name-satellite-networks">
+<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-satellite-networks" class="section-name selfRef">Satellite Networks</a>
+        </h4>
+</section>
+</div>
+<div id="privacy-impacts">
+<section id="section-3.2.3">
+          <h4 id="name-privacy-impacts">
+<a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-privacy-impacts" class="section-name selfRef">Privacy Impacts</a>
+        </h4>
+</section>
+</div>
+</section>
+</div>
+<div id="future-of-geolocation-exploring-better-methods">
+<section id="section-3.3">
+        <h3 id="name-future-of-geolocation-explo">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-future-of-geolocation-explo" class="section-name selfRef">Future of Geolocation: Exploring Better Methods</a>
+        </h3>
 <div id="new-approaches">
-<section id="section-5">
-      <h2 id="name-new-approaches">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-new-approaches" class="section-name selfRef">New Approaches</a>
-    </h2>
+<section id="section-3.3.1">
+          <h4 id="name-new-approaches">
+<a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-new-approaches" class="section-name selfRef">New Approaches</a>
+        </h4>
 </section>
 </div>
-<div id="conclusions-and-next-steps">
-<section id="section-6">
-      <h2 id="name-conclusions-and-next-steps">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-conclusions-and-next-steps" class="section-name selfRef">Conclusions and Next Steps</a>
+<div id="what-docanshould-we-do">
+<section id="section-3.3.2">
+          <h4 id="name-what-do-can-should-we-do">
+<a href="#section-3.3.2" class="section-number selfRef">3.3.2. </a><a href="#name-what-do-can-should-we-do" class="section-name selfRef">What do/can/should we do?</a>
+        </h4>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="conclusions-and-key-takeways">
+<section id="section-4">
+      <h2 id="name-conclusions-and-key-takeway">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-conclusions-and-key-takeway" class="section-name selfRef">Conclusions and Key Takeways</a>
     </h2>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-7">
+<section id="section-5">
       <h2 id="name-security-considerations">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-7-1">TODO Security<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">This document is a workshop report and does not impact the security of the Internet.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-8">
+<section id="section-6">
       <h2 id="name-iana-considerations">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-8-1">This document has no IANA actions.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">This document has no IANA actions.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
-<section id="section-9">
+<section id="section-7">
       <h2 id="name-references">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-9.1">
+<section id="section-7.1">
         <h3 id="name-normative-references">
-<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -1293,9 +1426,9 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-9.2">
+<section id="section-7.2">
         <h3 id="name-informative-references">
-<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="ABLEY">[ABLEY]</dt>
