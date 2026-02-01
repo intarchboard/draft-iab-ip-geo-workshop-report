@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-29T01:59:45.609527+00:00",
+  "timestamp": "2026-02-01T02:24:03.734872+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -50,5 +50,32 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOQr9O0c7AOspf",
+      "title": "Updates from Jason",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/1",
+      "state": "OPEN",
+      "author": "jlivingood",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Expanded sections on current uses, challenges, and future methods of IP geolocation, including user-declared locations and measurement-based techniques.",
+      "createdAt": "2026-01-29T20:50:49Z",
+      "updatedAt": "2026-01-29T20:50:50Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "26930f3e357d3addb284c1261abdb9e601d9cc94",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "jlivingood-patch-1",
+      "headRefOid": "afe5a77e7435ab509e183404d382bbd8029be33b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
