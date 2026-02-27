@@ -32,7 +32,7 @@ and opportunities to improve or replace the current practices.
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.32.5
-    wcwidth 0.2.14
+    wcwidth 0.3.0
 -->
 <link href="draft-iab-ip-geo-workshop-report.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -173,7 +173,7 @@ and opportunities to improve or replace the current practices.
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Oxygen Mono';
@@ -181,7 +181,8 @@ and opportunities to improve or replace the current practices.
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 }
 
 @font-face {
@@ -573,6 +574,7 @@ aside, blockquote {
 }
 blockquote {
   margin: 1em 0;
+  border-left: 2px var(--pilcrow-strong) solid;
 }
 cite {
   display: block;
@@ -643,7 +645,7 @@ a.pilcrow {
   }
 }
 @media not print {
-  :hover > a.pilcrow {
+  :hover > a.pilcrow, a.pilcrow:focus {
     opacity: 1;
   }
   a.pilcrow[href]:hover {
@@ -1051,11 +1053,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">IP-Geo Workshop</td>
-<td class="right">January 2026</td>
+<td class="right">February 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Iyengar, et al.</td>
-<td class="center">Expires 17 July 2026</td>
+<td class="center">Expires 31 August 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1070,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-iab-ip-geo-workshop-report-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-01-13" class="published">13 January 2026</time>
+<time datetime="2026-02-27" class="published">27 February 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-07-17">17 July 2026</time></dd>
+<dd class="expires"><time datetime="2026-08-31">31 August 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1127,7 +1129,7 @@ and opportunities to improve or replace the current practices.<a href="#section-
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 17 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 31 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1166,79 +1168,98 @@ and opportunities to improve or replace the current practices.<a href="#section-
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-workshop-scope-and-discussi" class="internal xref">Workshop Scope and Discussion</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-current-uses-of-ip-geolocat" class="internal xref">Current Uses of IP Geolocation</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.1">
-                    <p id="section-toc.1-1.3.2.1.2.1.1"><a href="#section-3.1.1" class="auto internal xref">3.1.1</a>.  <a href="#name-use-cases-for-mapping-ip-ad" class="internal xref">Use Cases for Mapping IP Addresses to Geolocation</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.2">
-                    <p id="section-toc.1-1.3.2.1.2.2.1"><a href="#section-3.1.2" class="auto internal xref">3.1.2</a>.  <a href="#name-current-mechanisms-for-mapp" class="internal xref">Current Mechanisms for Mapping IP Addresses to Geolocation</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-ip-geolocation-gaps-issues" class="internal xref">IP Geolocation Gaps &amp; Issues</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
-                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-challenges-with-geofeeds" class="internal xref">Challenges With Geofeeds</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
-                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-satellite-networks" class="internal xref">Satellite Networks</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.3">
-                    <p id="section-toc.1-1.3.2.2.2.3.1"><a href="#section-3.2.3" class="auto internal xref">3.2.3</a>.  <a href="#name-privacy-impacts" class="internal xref">Privacy Impacts</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-future-of-geolocation-explo" class="internal xref">Future of Geolocation: Exploring Better Methods</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.1">
-                    <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="auto internal xref">3.3.1</a>.  <a href="#name-new-approaches" class="internal xref">New Approaches</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.2">
-                    <p id="section-toc.1-1.3.2.3.2.2.1"><a href="#section-3.3.2" class="auto internal xref">3.3.2</a>.  <a href="#name-what-do-can-should-we-do" class="internal xref">What do/can/should we do?</a></p>
-</li>
-                </ul>
-</li>
-            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-conclusions-and-key-takeway" class="internal xref">Conclusions and Key Takeways</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-references" class="internal xref">References</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-current-uses-of-ip-geolocat" class="internal xref">Current Uses of IP Geolocation</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-network-optimization-and-cd" class="internal xref">Network Optimization and CDN Selection</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-content-rights-management-a" class="internal xref">Content Rights Management and Licensing</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-fraud-detection-and-securit" class="internal xref">Fraud Detection and Security</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-regulatory-and-legal-compli" class="internal xref">Regulatory and Legal Compliance</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5">
+                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="auto internal xref">4.5</a>.  <a href="#name-targeted-advertising" class="internal xref">Targeted Advertising</a></p>
 </li>
             </ul>
 </li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-ip-geolocation-gaps-issues" class="internal xref">IP Geolocation Gaps &amp; Issues</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-the-magic-of-proprietary-da" class="internal xref">The "Magic" of Proprietary Databases</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-the-impact-of-ipv4-markets-" class="internal xref">The Impact of IPv4 Markets and Transfers</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
+                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-mobile-networks-and-cgnat" class="internal xref">Mobile Networks and CGNAT</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
+                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-vpns-proxies-and-evasion" class="internal xref">VPNs, Proxies, and Evasion</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.5">
+                <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="auto internal xref">5.5</a>.  <a href="#name-lack-of-granularity-and-acc" class="internal xref">Lack of Granularity and Accuracy</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-future-of-geolocation-explo" class="internal xref">Future of Geolocation: Exploring Better Methods</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-user-declared-and-feed-base" class="internal xref">User-Declared and Feed-Based Location (RFC 8805)</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-measurement-based-geolocati" class="internal xref">Measurement-Based Geolocation</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-splitting-location-from-ide" class="internal xref">Splitting Location from Identity</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
+                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-data-provenance-and-rpki" class="internal xref">Data Provenance and RPKI</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-conclusions-and-key-takeway" class="internal xref">Conclusions and Key Takeways</a></p>
+</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-position-papers" class="internal xref">Position Papers</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-workshop-participatns" class="internal xref">Workshop Participatns</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-C" class="auto internal xref">Appendix C</a>.  <a href="#name-workshop-program-committee" class="internal xref">Workshop Program Committee</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
+                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
+                <p id="section-toc.1-1.10.2.2.1"><a href="#section-10.2" class="auto internal xref">10.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-position-papers" class="internal xref">Position Papers</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-workshop-participatns" class="internal xref">Workshop Participatns</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
+            <p id="section-toc.1-1.13.1"><a href="#appendix-C" class="auto internal xref">Appendix C</a>.  <a href="#name-workshop-program-committee" class="internal xref">Workshop Program Committee</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
+            <p id="section-toc.1-1.14.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15">
+            <p id="section-toc.1-1.15.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1308,110 +1329,218 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-workshop-scope-and-discussi">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-workshop-scope-and-discussi" class="section-name selfRef">Workshop Scope and Discussion</a>
       </h2>
-<div id="current-uses-of-ip-geolocation">
-<section id="section-3.1">
-        <h3 id="name-current-uses-of-ip-geolocat">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-current-uses-of-ip-geolocat" class="section-name selfRef">Current Uses of IP Geolocation</a>
-        </h3>
-<div id="use-cases-for-mapping-ip-addresses-to-geolocation">
-<section id="section-3.1.1">
-          <h4 id="name-use-cases-for-mapping-ip-ad">
-<a href="#section-3.1.1" class="section-number selfRef">3.1.1. </a><a href="#name-use-cases-for-mapping-ip-ad" class="section-name selfRef">Use Cases for Mapping IP Addresses to Geolocation</a>
-        </h4>
+<p id="section-3-1">The workshop's discussion was wide-ranging. It first covered how IP Geolocation is currently used. Then it went over existing challenges with the solutions to these existing use cases today and finally explored potential options for the future.<a href="#section-3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="current-mechanisms-for-mapping-ip-addresses-to-geolocation">
-<section id="section-3.1.2">
-          <h4 id="name-current-mechanisms-for-mapp">
-<a href="#section-3.1.2" class="section-number selfRef">3.1.2. </a><a href="#name-current-mechanisms-for-mapp" class="section-name selfRef">Current Mechanisms for Mapping IP Addresses to Geolocation</a>
-        </h4>
+<div id="current-uses-of-ip-geolocation">
+<section id="section-4">
+      <h2 id="name-current-uses-of-ip-geolocat">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-current-uses-of-ip-geolocat" class="section-name selfRef">Current Uses of IP Geolocation</a>
+      </h2>
+<p id="section-4-1">The workshop participants identified a diverse set of use cases for IP Geolocation, ranging from critical network operations to commercial applications and regulatory compliance. It was noted that while IP addresses were originally designed as topological identifiers, they have become overloaded as proxies for physical location.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<div id="network-optimization-and-cdn-selection">
+<section id="section-4.1">
+        <h3 id="name-network-optimization-and-cd">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-network-optimization-and-cd" class="section-name selfRef">Network Optimization and CDN Selection</a>
+        </h3>
+<p id="section-4.1-1">Content Delivery Networks (CDNs) and cloud providers utilize geolocation data to route end-user traffic to the "closest" data center or edge node. While network latency (topological distance) is the ideal metric, physical location is often used as a heuristic for initial server selection. Misalignment here results in suboptimal routing and increased latency for users.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="content-rights-management-and-licensing">
+<section id="section-4.2">
+        <h3 id="name-content-rights-management-a">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-content-rights-management-a" class="section-name selfRef">Content Rights Management and Licensing</a>
+        </h3>
+<p id="section-4.2-1">A primary driver for IP geolocation remains the enforcement of territorial licensing agreements for streaming video, which is the largest volume of data at peak hour on the internet today. Streaming services and media broadcasters rely heavily on IP-to-location mapping to restrict content availability based on country or region (Geo-blocking). Participants noted that this creates a high-stakes environment where accuracy is directly tied to contractual compliance.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="fraud-detection-and-security">
+<section id="section-4.3">
+        <h3 id="name-fraud-detection-and-securit">
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-fraud-detection-and-securit" class="section-name selfRef">Fraud Detection and Security</a>
+        </h3>
+<p id="section-4.3-1">Financial institutions and identity providers use geolocation as a signal for risk assessment. "Impossible travel" (a user logging in from two distant countries within a short timeframe) or traffic originating from sanctioned regions are standard triggers for security alerts.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="regulatory-and-legal-compliance">
+<section id="section-4.4">
+        <h3 id="name-regulatory-and-legal-compli">
+<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-regulatory-and-legal-compli" class="section-name selfRef">Regulatory and Legal Compliance</a>
+        </h3>
+<p id="section-4.4-1">Operators increasingly use IP geolocation to comply with local laws, including:<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.4-2.1">
+            <p id="section-4.4-2.1.1"><strong>Gambling and Betting regulations:</strong> Restricting access to users within specific jurisdictions.<a href="#section-4.4-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.4-2.2">
+            <p id="section-4.4-2.2.1"><strong>Taxation:</strong> Determining the applicable VAT or sales tax based on the consumer's location.<a href="#section-4.4-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.4-2.3">
+            <p id="section-4.4-2.3.1"><strong>Law Enforcement:</strong> Investigating cybercrime by mapping IP addresses to physical jurisdictions for warrant service.<a href="#section-4.4-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
+<div id="targeted-advertising">
+<section id="section-4.5">
+        <h3 id="name-targeted-advertising">
+<a href="#section-4.5" class="section-number selfRef">4.5. </a><a href="#name-targeted-advertising" class="section-name selfRef">Targeted Advertising</a>
+        </h3>
+<p id="section-4.5-1">The ad-tech ecosystem relies on geolocation to serve localized advertisements. While less critical than rights management, this represents the highest volume of geolocation queries globally.<a href="#section-4.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="ip-geolocation-gaps-issues">
-<section id="section-3.2">
-        <h3 id="name-ip-geolocation-gaps-issues">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-ip-geolocation-gaps-issues" class="section-name selfRef">IP Geolocation Gaps &amp; Issues</a>
+<section id="section-5">
+      <h2 id="name-ip-geolocation-gaps-issues">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-ip-geolocation-gaps-issues" class="section-name selfRef">IP Geolocation Gaps &amp; Issues</a>
+      </h2>
+<p id="section-5-1">Day 1 discussions highlighted that the current ecosystem is fragile, opaque, and often inaccurate. The fundamental disconnect between the logical layer (IP) and the physical layer (Geography) creates several systemic gaps. The most noticeable to end users is when they are shown search results or other content from a local area that does not correspond to their current location.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<div id="the-magic-of-proprietary-databases">
+<section id="section-5.1">
+        <h3 id="name-the-magic-of-proprietary-da">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-the-magic-of-proprietary-da" class="section-name selfRef">The "Magic" of Proprietary Databases</a>
         </h3>
-<div id="challenges-with-geofeeds">
-<section id="section-3.2.1">
-          <h4 id="name-challenges-with-geofeeds">
-<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-challenges-with-geofeeds" class="section-name selfRef">Challenges With Geofeeds</a>
-        </h4>
+<p id="section-5.1-1">A recurring theme was the opacity of commercial GeoIP databases. Participants expressed concern that:<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.1-2.1">
+            <p id="section-5.1-2.1.1">Methodologies for determining location are proprietary secrets.<a href="#section-5.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.1-2.2">
+            <p id="section-5.1-2.2.1">There is no standardized feedback loop for ISPs to correct erroneous data in third-party databases.<a href="#section-5.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.1-2.3">
+            <p id="section-5.1-2.3.1">Updates are asynchronous; an IP block transferred from an ISP in Asia to one in Europe may remain "located" in Asia in some databases for weeks or months.<a href="#section-5.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
 </section>
 </div>
-<div id="satellite-networks">
-<section id="section-3.2.2">
-          <h4 id="name-satellite-networks">
-<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-satellite-networks" class="section-name selfRef">Satellite Networks</a>
-        </h4>
+<div id="the-impact-of-ipv4-markets-and-transfers">
+<section id="section-5.2">
+        <h3 id="name-the-impact-of-ipv4-markets-">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-the-impact-of-ipv4-markets-" class="section-name selfRef">The Impact of IPv4 Markets and Transfers</a>
+        </h3>
+<p id="section-5.2-1">With IPv4 exhaustion, the secondary market for address space is active. Blocks are frequently sold and moved globally. The "legacy" location data often sticks to these blocks in WHOIS registries or static datasets, leading to persistent misidentification of the new owners' locations.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="privacy-impacts">
-<section id="section-3.2.3">
-          <h4 id="name-privacy-impacts">
-<a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-privacy-impacts" class="section-name selfRef">Privacy Impacts</a>
-        </h4>
+<div id="mobile-networks-and-cgnat">
+<section id="section-5.3">
+        <h3 id="name-mobile-networks-and-cgnat">
+<a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-mobile-networks-and-cgnat" class="section-name selfRef">Mobile Networks and CGNAT</a>
+        </h3>
+<p id="section-5.3-1">Carrier-Grade NAT (CGNAT) and mobile architecture present significant challenges. A mobile device may be physically located in one city, but its traffic may exit to the internet via a gateway in a different region. Geo-locating the IP identifies the gateway, not the user, rendering the data coarse or misleading for hyper-local applications.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="vpns-proxies-and-evasion">
+<section id="section-5.4">
+        <h3 id="name-vpns-proxies-and-evasion">
+<a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-vpns-proxies-and-evasion" class="section-name selfRef">VPNs, Proxies, and Evasion</a>
+        </h3>
+<p id="section-5.4-1">The widespread use of VPNs and Private Relays (e.g., Apple iCloud Private Relay) effectively breaks IP-based geolocation. While this is a feature for privacy-conscious users, it defeats the utility of IP geolocation for rights management and fraud detection, leading to an "arms race" between detection services and obfuscation tools.<a href="#section-5.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="lack-of-granularity-and-accuracy">
+<section id="section-5.5">
+        <h3 id="name-lack-of-granularity-and-acc">
+<a href="#section-5.5" class="section-number selfRef">5.5. </a><a href="#name-lack-of-granularity-and-acc" class="section-name selfRef">Lack of Granularity and Accuracy</a>
+        </h3>
+<p id="section-5.5-1">While country-level accuracy is generally high (estimated &gt;95%), city-level or coordinate-level accuracy degrades significantly. Participants noted instances where IP geolocation defaults to the geographical center of a country or state when specific data is missing, creating "digital sinkholes" (e.g., the farm in Kansas mapped to millions of IPs).<a href="#section-5.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="future-of-geolocation-exploring-better-methods">
-<section id="section-3.3">
-        <h3 id="name-future-of-geolocation-explo">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-future-of-geolocation-explo" class="section-name selfRef">Future of Geolocation: Exploring Better Methods</a>
+<section id="section-6">
+      <h2 id="name-future-of-geolocation-explo">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-future-of-geolocation-explo" class="section-name selfRef">Future of Geolocation: Exploring Better Methods</a>
+      </h2>
+<p id="section-6-1">The workshop concluded the by exploring architectural shifts that could improve the reliability and transparency of geolocation data without sacrificing user privacy.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<div id="user-declared-and-feed-based-location-rfc-8805">
+<section id="section-6.1">
+        <h3 id="name-user-declared-and-feed-base">
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-user-declared-and-feed-base" class="section-name selfRef">User-Declared and Feed-Based Location (RFC 8805)</a>
         </h3>
-<div id="new-approaches">
-<section id="section-3.3.1">
-          <h4 id="name-new-approaches">
-<a href="#section-3.3.1" class="section-number selfRef">3.3.1. </a><a href="#name-new-approaches" class="section-name selfRef">New Approaches</a>
-        </h4>
+<p id="section-6.1-1">There was strong consensus on moving away from "guessing" location toward "declaring" it. The adoption of <strong>RFC 8805 (A Format for Self-Published IP Geolocation Feeds)</strong> was highlighted as a critical path forward.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.1-2.1">
+            <p id="section-6.1-2.1.1"><strong>Mechanism:</strong> ISPs and content providers publish a CSV file mapping their prefixes to geocodes.<a href="#section-6.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.1-2.2">
+            <p id="section-6.1-2.2.1"><strong>Benefit:</strong> This provides an authoritative source of truth directly from the network operator, removing the guesswork of third-party aggregators.<a href="#section-6.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.1-2.3">
+            <p id="section-6.1-2.3.1"><strong>Challenge:</strong> Incentivizing ISPs to publish and maintain these feeds requires demonstrating operational ROI.<a href="#section-6.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
 </section>
 </div>
-<div id="what-docanshould-we-do">
-<section id="section-3.3.2">
-          <h4 id="name-what-do-can-should-we-do">
-<a href="#section-3.3.2" class="section-number selfRef">3.3.2. </a><a href="#name-what-do-can-should-we-do" class="section-name selfRef">What do/can/should we do?</a>
-        </h4>
+<div id="measurement-based-geolocation">
+<section id="section-6.2">
+        <h3 id="name-measurement-based-geolocati">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-measurement-based-geolocati" class="section-name selfRef">Measurement-Based Geolocation</a>
+        </h3>
+<p id="section-6.2-1">Discussions touched on active measurement techniques. Rather than relying on static databases, future systems could utilize active latency measurements (ping triangulation or RTT analysis) from distributed vantage points to multilaterate the topological location of an IP address. This ties location closer to network topology rather than administrative registry data.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="splitting-location-from-identity">
+<section id="section-6.3">
+        <h3 id="name-splitting-location-from-ide">
+<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-splitting-location-from-ide" class="section-name selfRef">Splitting Location from Identity</a>
+        </h3>
+<p id="section-6.3-1">Architecturally, the workshop considered if the application layer should handle location verification (e.g., via browser Geolocation API or GPS) rather than the network layer. This shifts the trust model:<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3-2.1">
+            <p id="section-6.3-2.1.1"><strong>Current:</strong> Trust the IP address (which can be spoofed/proxied).<a href="#section-6.3-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.3-2.2">
+            <p id="section-6.3-2.2.1"><strong>Future:</strong> Trust a signed token from the device or a trusted location authority.<a href="#section-6.3-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
+<div id="data-provenance-and-rpki">
+<section id="section-6.4">
+        <h3 id="name-data-provenance-and-rpki">
+<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-data-provenance-and-rpki" class="section-name selfRef">Data Provenance and RPKI</a>
+        </h3>
+<p id="section-6.4-1">Looking ahead, there is interest in leveraging the Resource Public Key Infrastructure (RPKI) to sign geolocation data. This would allow consumers of the data to cryptographically verify that the location assertion comes from the legitimate holder of the IP prefix, preventing hijacking of location data.<a href="#section-6.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="conclusions-and-key-takeways">
-<section id="section-4">
+<section id="section-7">
       <h2 id="name-conclusions-and-key-takeway">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-conclusions-and-key-takeway" class="section-name selfRef">Conclusions and Key Takeways</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-conclusions-and-key-takeway" class="section-name selfRef">Conclusions and Key Takeways</a>
     </h2>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-5">
+<section id="section-8">
       <h2 id="name-security-considerations">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">This document is a workshop report and does not impact the security of the Internet.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-8-1">This document is a workshop report and does not impact the security of the Internet.<a href="#section-8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-6">
+<section id="section-9">
       <h2 id="name-iana-considerations">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-6-1">This document has no IANA actions.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-9-1">This document has no IANA actions.<a href="#section-9-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
-<section id="section-7">
+<section id="section-10">
       <h2 id="name-references">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-7.1">
+<section id="section-10.1">
         <h3 id="name-normative-references">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -1426,9 +1555,9 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-7.2">
+<section id="section-10.2">
         <h3 id="name-informative-references">
-<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="ABLEY">[ABLEY]</dt>
