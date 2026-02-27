@@ -287,7 +287,7 @@ Table of Contents
    forward.
 
    *  *Mechanism:* ISPs and content providers publish a CSV file mapping
-      their prefixes to geocodes.
+      theirprefixes to geocodes.
 
    *  *Benefit:* This provides an authoritative source of truth directly
       from the network operator, removing the guesswork of third-party
