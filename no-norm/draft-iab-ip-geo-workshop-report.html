@@ -1,0 +1,2196 @@
+<!DOCTYPE html>
+<html lang="en" class="Internet-Draft">
+<head>
+<meta charset="utf-8">
+<meta content="Common,Latin" name="scripts">
+<meta content="initial-scale=1.0" name="viewport">
+<title>Report from the IAB Workshop on IP Address Geolocation</title>
+<meta content="Jana Iyengar" name="author">
+<meta content="Jason Livingood" name="author">
+<meta content="Tommy Pauly" name="author">
+<meta content="
+       The IAB Workshop on IP Address Geolocation (IP-GEO) was held from December 3-5, 2025,
+as a three-day virtual meeting. It covered the use cases and background on
+using IP addresses as indicators of geolocation, explored various problems and
+challenges that exist in that ecosystem, and discussed future directions
+and opportunities to improve or replace the current practices. 
+    " name="description">
+<meta content="xml2rfc 3.31.0" name="generator">
+<meta content="geolocation" name="keyword">
+<meta content="privacy" name="keyword">
+<meta content="geofeed" name="keyword">
+<meta content="draft-iab-ip-geo-workshop-report-latest" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.31.0
+    Python 3.12.12
+    ConfigArgParse 1.7
+    google-i18n-address 3.1.1
+    intervaltree 3.2.1
+    Jinja2 3.1.6
+    lxml 6.0.2
+    platformdirs 4.5.1
+    pycountry 24.6.1
+    PyYAML 6.0.3
+    requests 2.32.5
+    wcwidth 0.3.0
+-->
+<link href="draft-iab-ip-geo-workshop-report.xml" rel="alternate" type="application/rfc+xml">
+<link href="#copyright" rel="license">
+<style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Lora SemiBold'), local('Lora-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+}
+
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
+  --background-color: #fff;
+  --text-color: #222;
+  --title-color: #191919;
+  --link-color: #2a6496;
+  --highlight-color: #f9f9f9;
+  --line-color: #eee;
+  --pilcrow-weak: #ddd;
+  --pilcrow-strong: #bbb;
+  --small-font-size: 14.5px;
+  --font-mono: 'Oxygen Mono', monospace;
+  --font-title: "Sofia Sans Semi Condensed", sans-serif;
+  scrollbar-color: #bbb #eee;
+}
+body {
+  max-width: 600px;
+  margin: 75px auto;
+  padding: 0 5px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font: 16px/22px "Lora", serif;
+  scroll-behavior: smooth;
+}
+
+.ears {
+  display: none;
+}
+
+/* headings */
+section {
+  clear: both;
+}
+.section-number {
+  padding-right: 0.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 680;
+  margin: 0.8em 0 0.3em;
+  font-size-adjust: 0.5;
+  color: var(--title-color);
+}
+h1#title {
+  font-size: 32px;
+  line-height: 40px;
+  clear: both;
+}
+h1#title, h1#rfcnum {
+  margin: 1.5em 0 0.2em;
+}
+h1#rfcnum + h1#title {
+  margin: 0.2em 0;
+}
+
+h1, h2, h3 {
+  font-size: 22px;
+  line-height: 27px;
+}
+h4, h5, h6 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* general structure */
+.author {
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+#abstract+p {
+  font-size: 18px;
+  line-height: 24px;
+}
+#abstract+p code, #abstract+p samp, #abstract+p tt {
+  font-size: 16px;
+  line-height: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0.5em 0;
+  text-align: left;
+}
+div {
+  margin: 0;
+}
+.alignRight.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignRight.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignRight {
+  margin: 1em 0;
+}
+.alignRight > *:first-child {
+  border: none;
+  margin: 0;
+  float: right;
+  clear: both;
+}
+.alignRight > *:nth-child(2) {
+  clear: both;
+  display: block;
+  border: none;
+}
+svg {
+  display: block;
+}
+/* font-family isn't space-separated, but =~ will have to do */
+svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
+  font-family: var(--font-mono);
+}
+.alignCenter.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignCenter.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignCenter {
+  margin: 1em 0;
+}
+.alignCenter > *:first-child {
+  border: none;
+  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+     support flexbox yet.
+  */
+  display: table;
+  margin: 0 auto;
+}
+
+/* lists */
+ol, ul {
+  padding: 0;
+  margin: 0 0 0.5em 2em;
+  & :is(ol, ul) {
+    margin-left: 1em;
+  }
+}
+li {
+  margin: 0 0 0.25em 0;
+}
+ul.empty, .ulEmpty {
+  list-style-type: none;
+  & li {
+    margin-top: 0.5em;
+  }
+}
+:is(ul, ol).compact, .ulCompact, .olCompact {
+  margin: 0 0 0 2em;
+  & li {
+    margin: 0;
+    & :first-child { margin-top: 0; }
+    & :last-child { margin-bottom: 0; }
+  }
+}
+
+/* definition lists */
+dl {
+  clear: left;
+  --indent: 3ch;
+  /* --indent: attr(indent ch); not supported in any browser, but we can dream */
+  &.olPercent {
+    --indent: 5ch;
+    & > dt {
+      min-width: calc(var(--indent) - 2ch);
+    }
+  }
+  &.olPercent > dt {
+    float: none;
+  }
+
+  dl > dd > & {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+}
+dl:not(.dlNewline) > dt {
+  float: left;
+  margin-right: 2ch;
+  min-width: 8ch;
+}
+dl > dd {
+  margin-bottom: .8em;
+  margin-left: var(--indent) !important; /* stupid element overrides */
+  min-height: 2ex;
+}
+:is(dl.compact, .dlCompact) > dd {
+  margin-bottom: 0;
+  & > :is(:first-child, .break:first-child + *) {
+    margin-top: 0;
+  }
+  & > :is(:last-child) {
+    margin-bottom: 0;
+  }
+}
+:is(dd, span).break {
+  display: none;
+}
+
+/* links */
+a, a[href].selfRef:hover {
+  text-decoration: none;
+}
+a[href] {
+  color: var(--link-color);
+}
+a[href].selfRef, .iref + a[href].internal {
+  color: var(--text-color);
+}
+a[href]:hover {
+  text-decoration: underline;
+}
+a[href].selfRef:hover {
+  background-color: var(--highlight-color);
+}
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
+  white-space: nowrap;
+}
+
+/* Figures */
+tt, code, pre {
+  background-color: var(--highlight-color);
+  font: 14px/22px var(--font-mono);
+}
+tt, code {
+  /* changing the font for inline elements leads to different ascender
+     and descender heights; as we want to retain baseline alignment,
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
+  line-height: 0;
+}
+:is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
+  font-size: 84%;
+}
+pre {
+  border: 1px solid var(--line-color);
+  font-size: 13.5px;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  margin: 5px;
+  padding: 5px;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0.5em 0;
+  padding: 0;
+}
+figure blockquote {
+  margin: 0.8em 0.4em 0.4em;
+}
+figcaption, caption {
+  font-style: italic;
+  margin: 0.5em 1.5em;
+  text-align: left;
+  caption-side: bottom;
+}
+@media screen {
+  /* Auto-collapse boilerplate. */
+  :is(#status-of-memo, #copyright) p {
+    margin: -2px 0;
+    max-height: 0;
+    transition: max-height 2s ease, margin 0.5s ease 0.5s;
+    overflow: hidden;
+  }
+  :is(#status-of-memo, #copyright):hover p,
+  :is(#status-of-memo, #copyright) h2:target ~ p {
+    margin: 0.5em 0;
+    max-height: 500px;
+    overflow: auto;
+  }
+  pre, svg {
+    display: inline-block;
+    /* In the horizontal direction, sometimes people make over-sized figures.
+       Scrollbars for those is therefore necessary: auto adds them as necessary..
+       In the vertical direction, the line-height can combine with the font
+       asender/descender height to produce scrollbars: hidden avoids that. */
+    overflow: auto hidden;
+  }
+  pre {
+    max-width: 100%;
+    width: calc(100% - 22px - 1em);
+  }
+  svg {
+    max-width: calc(100% - 22px - 1em);
+  }
+  figure pre {
+    display: block;
+    width: calc(100% - 25px);
+  }
+  :is(pre, svg) + .pilcrow {
+    display: inline-block;
+    vertical-align: text-bottom;
+    padding-bottom: 8px;
+  }
+}
+
+/* aside, blockquote */
+aside, blockquote {
+  margin-left: 0;
+  padding: 0 2em;
+  font-style: italic;
+}
+blockquote {
+  margin: 1em 0;
+  border-left: 2px var(--pilcrow-strong) solid;
+}
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
+/* tables */
+table {
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 1em;
+  border-collapse: collapse;
+}
+table.right {
+  margin-left: auto;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+table.left {
+  margin-right: auto;
+}
+table .text-left {
+  text-align: left;
+}
+table .text-center {
+  text-align: center;
+}
+table .text-right {
+  text-align: right;
+}
+
+thead, tbody {
+  border: 1px solid var(--line-color);
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 5px 10px;
+}
+th {
+  background-color: var(--line-color);
+}
+:is(tr:nth-child(2n), thead+tbody > tr:nth-child(2n+1)) > td {
+  background-color: var(--background-color);
+}
+:is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
+  background-color: var(--highlight-color);
+}
+table caption {
+  margin: 0;
+  padding: 3px 0 3px 1em;
+}
+table p {
+  margin: 0;
+}
+
+/* pilcrow */
+a.pilcrow {
+  margin-left: 3px;
+  opacity: 0.2;
+  user-select: none;
+  &[href] {
+    color: var(--pilcrow-weak);
+    &:hover { text-decoration: none; }
+  }
+}
+@media not print {
+  :hover > a.pilcrow, a.pilcrow:focus {
+    opacity: 1;
+  }
+  a.pilcrow[href]:hover {
+    color: var(--pilcrow-strong);
+    background-color: transparent;
+  }
+}
+@media print {
+  a.pilcrow {
+    display: none;
+  }
+}
+
+/* misc */
+hr {
+  border: 0;
+  border-top: 1px solid var(--line-color);
+}
+.bcp14 {
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: var(--small-font-size);
+}
+.role {
+  font-variant: all-small-caps;
+}
+sub, sup {
+  line-height: 1;
+  font-size: 80%;
+}
+
+/* info block */
+#identifiers {
+  margin: 0;
+  font-size: var(--small-font-size);
+  line-height: 18px;
+  --identifier-width: 15ch;
+  & dt {
+    width: var(--identifier-width);
+    min-width: var(--identifier-width);
+    clear: left;
+    float: left;
+    text-align: right;
+    margin-right: 1ch;
+  }
+  & dd {
+    margin: 0;
+    margin-left: calc(1em + var(--identifier-width)) !important;
+    min-width: 5em;
+  }
+  & .authors {
+    & .author {
+      display: inline-block;
+      margin-right: 1.5em;
+    }
+    & .org {
+      font-style: italic;
+    }
+  }
+}
+
+/* The prepared/rendered info at the very bottom of the page */
+.docInfo {
+  color: #999;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 2em;
+}
+.docInfo .prepared {
+  float: right;
+}
+
+/* table of contents */
+#toc {
+  padding: 0.75em 0 2em 0;
+  margin-bottom: 1em;
+
+  & nav {
+    & ul {
+      margin: 0 0.5em 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    & li {
+      line-height: 1.3em;
+      margin: 2px 0;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+  }
+  & a.xref {
+    white-space: normal;
+  }
+}
+
+.references {
+  & > dt {
+    text-align: right;
+    font-weight: bold;
+    min-width: 10ch;
+    margin-right: 1.5ch;
+    &:target::before {
+      content: "⇒";
+      margin: 0 10px 0 -25px;
+    }
+  }
+  & > dd {
+    margin-left: 12ch !important;
+    overflow: visible;
+    & .refInstance {
+      margin-bottom: 0.8em;
+    }
+    & .ascii {
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+#rfc\.index\.index + ul {
+  margin-left: 0;
+}
+
+/* authors */
+address.vcard {
+  font-style: normal;
+  max-width: 20em;
+  margin: 1em auto 1em 0;
+
+  & .nameRole {
+    font-weight: 700;
+    margin-left: 0;
+  }
+  & .label {
+    margin: 0.5em 0;
+  }
+  & .type {
+    display: none;
+  }
+  & .alternative-contact {
+    margin: 0.5em 0 0.25em 0;
+  }
+  & .non-ascii {
+    margin: 0 0 0 2em;
+  }
+  & div.left {
+    text-align: left;
+  }
+  & div.right {
+    text-align: right;
+  }
+}
+
+hr.addr {
+  border-top: 1px dashed;
+  margin: 0;
+  color: #ddd;
+  max-width: calc(100% - 16px);
+}
+@media (min-width: 500px) {
+  #authors-addresses > section {
+    column-count: 2;
+    column-gap: 20px;
+  }
+  #authors-addresses > section > h2 {
+    column-span: all;
+  }
+  /* hack for break-inside: avoid-column */
+  #authors-addresses address {
+    display: inline-block;
+    break-inside: avoid-column;
+  }
+}
+
+/* Comments */
+.rfcEditorRemove p:first-of-type {
+  font-style: italic;
+}
+.cref {
+  background-color: rgba(249, 232, 105, 0.3);
+  padding: 2px 4px;
+}
+.crefSource {
+  font-style: italic;
+}
+
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+    & > ul { margin-bottom: 2em; }
+    & ul {
+      margin: 0 0 0 4px;
+      & :is(p, li) {
+        margin: 2px 0;
+      }
+    }
+  }
+  #toc a.toplink {
+    float: right;
+  }
+}
+@media not screen {
+  #toc a.toplink {
+    display: none;
+  }
+}
+
+
+/* TOC layout for smaller screens */
+@media screen and (max-width: 929px) {
+  #toc {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 1px 0 0 0;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    opacity: 0.6;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 2px 0 2px 6px;
+    padding-right: 1em;
+    font-size: 18px;
+    line-height: 24px;
+    min-width: 190px;
+    text-align: right;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+    &::before { /* css hamburger */
+      float: right;
+      position: relative;
+      width: 1em;
+      height: 1px;
+      left: -164px;
+      margin: 8px 0 0 0;
+      background: white none repeat scroll 0 0;
+      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+      content: "";
+    }
+  }
+  #toc nav {
+    display: none;
+    background-color: var(--background-color);
+    padding: 0.5em 1em 1em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    height: calc(100vh - 48px);
+    border-left: 1px solid #ddd;
+  }
+  #toc.active {
+    opacity: 1;
+    & nav { display: block; }
+  }
+  /* Make the collapsed ToC header render white on gray also when it's a link */
+  #toc h2 a,
+  #toc h2 a:is(:link, :focus, :hover),
+  #toc a.toplink,
+  #toc a.toplink:hover {
+    color: white;
+    background-color: #444;
+    text-decoration: none;
+  }
+  #toc a.toplink {
+    margin: 2px 0.5em 0;
+  }
+}
+
+/* TOC layout for wide screens */
+@media screen and (min-width: 930px) {
+  body {
+    padding-right: 360px;
+    padding-right: calc(min(180px + 20%, 500px));
+  }
+  #toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    right: calc(50vw - 480px);
+    width: 312px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 0.25em 1em 1em 0;
+  }
+  #toc nav {
+    display: block;
+    height: calc(90vh - 84px);
+    bottom: 0;
+    padding: 0.5em 0 2em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+  img { /* future proofing */
+    max-width: 100%;
+    height: auto;
+  }
+  #toc a.toplink {
+    margin: 8px 0.5em 0;
+  }
+}
+
+/* pagination */
+@media print {
+  body {
+    width: 100%;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  #n-copyright-notice {
+    border-bottom: none;
+  }
+  #toc, #n-introduction {
+    page-break-before: always;
+  }
+  #toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  figure, pre, .vcard {
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  :is(h2, h3, h4, h5, h6)+*, dd {
+    page-break-before: avoid;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 10pt;
+  }
+  table {
+    border: 1px solid #ddd;
+  }
+  td {
+    border-top: 1px solid #ddd;
+  }
+}
+
+@page :first {
+  padding-top: 0;
+  @top-left {
+    content: normal;
+    border: none;
+  }
+  @top-center {
+    content: normal;
+    border: none;
+  }
+  @top-right {
+    content: normal;
+    border: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin-bottom: 45mm;
+  padding-top: 20px;
+}
+
+/* Dark mode. */
+@media (prefers-color-scheme: dark) {
+:root {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
+}
+
+/* SVG Trick: a prefix match works because only black and white are allowed */
+svg :is([stroke="black"], [stroke^="#000"]) {
+  stroke: var(--text-color);
+}
+svg :is([stroke="white"], [stroke^="#fff"]) {
+  stroke: var(--background-color);
+}
+svg :is([fill="black"], [fill^="#000"], :not([fill])) {
+  fill: var(--text-color);
+}
+svg :is([fill="white"], [fill^="#fff"]) {
+  fill: var(--background-color);
+}
+</style>
+
+</head>
+<body class="xml2rfc">
+<table class="ears">
+<thead><tr>
+<td class="left">Internet-Draft</td>
+<td class="center">IP-Geo Workshop</td>
+<td class="right">February 2026</td>
+</tr></thead>
+<tfoot><tr>
+<td class="left">Iyengar, et al.</td>
+<td class="center">Expires 1 September 2026</td>
+<td class="right">[Page]</td>
+</tr></tfoot>
+</table>
+<div id="external-metadata" class="document-information"></div>
+<div id="internal-metadata" class="document-information">
+<dl id="identifiers">
+<dt class="label-workgroup">Workgroup:</dt>
+<dd class="workgroup">Network Working Group</dd>
+<dt class="label-internet-draft">Internet-Draft:</dt>
+<dd class="internet-draft">draft-iab-ip-geo-workshop-report-latest</dd>
+<dt class="label-published">Published:</dt>
+<dd class="published">
+<time datetime="2026-02-28" class="published">28 February 2026</time>
+    </dd>
+<dt class="label-intended-status">Intended Status:</dt>
+<dd class="intended-status">Informational</dd>
+<dt class="label-expires">Expires:</dt>
+<dd class="expires"><time datetime="2026-09-01">1 September 2026</time></dd>
+<dt class="label-authors">Authors:</dt>
+<dd class="authors">
+<div class="author">
+      <div class="author-name">J. Iyengar</div>
+</div>
+<div class="author">
+      <div class="author-name">J. Livingood</div>
+</div>
+<div class="author">
+      <div class="author-name">T. Pauly</div>
+</div>
+</dd>
+</dl>
+</div>
+<h1 id="title">Report from the IAB Workshop on IP Address Geolocation</h1>
+<section id="section-abstract">
+      <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
+<p id="section-abstract-1">The IAB Workshop on IP Address Geolocation (IP-GEO) was held from December 3-5, 2025,
+as a three-day virtual meeting. It covered the use cases and background on
+using IP addresses as indicators of geolocation, explored various problems and
+challenges that exist in that ecosystem, and discussed future directions
+and opportunities to improve or replace the current practices.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+</section>
+<section class="note rfcEditorRemove" id="section-note.1">
+      <h2 id="name-about-this-document">
+<a href="#name-about-this-document" class="section-name selfRef">About This Document</a>
+      </h2>
+<p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">
+        The latest revision of this draft can be found at <span><a href="https://intarchboard.github.io/draft-iab-ip-geo-workshop-report/draft-iab-ip-geo-workshop-report.html">https://intarchboard.github.io/draft-iab-ip-geo-workshop-report/draft-iab-ip-geo-workshop-report.html</a></span>.
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-iab-ip-geo-workshop-report/">https://datatracker.ietf.org/doc/draft-iab-ip-geo-workshop-report/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">Source for this draft and an issue tracker can be found at
+        <span><a href="https://github.com/intarchboard/draft-iab-ip-geo-workshop-report">https://github.com/intarchboard/draft-iab-ip-geo-workshop-report</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+</section>
+<div id="status-of-memo">
+<section id="section-boilerplate.1">
+        <h2 id="name-status-of-this-memo">
+<a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
+        </h2>
+<p id="section-boilerplate.1-1">
+        This Internet-Draft is submitted in full conformance with the
+        provisions of BCP 78 and BCP 79.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-2">
+        Internet-Drafts are working documents of the Internet Engineering Task
+        Force (IETF). Note that other groups may also distribute working
+        documents as Internet-Drafts. The list of current Internet-Drafts is
+        at <span><a href="https://datatracker.ietf.org/drafts/current/">https://datatracker.ietf.org/drafts/current/</a></span>.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-3">
+        Internet-Drafts are draft documents valid for a maximum of six months
+        and may be updated, replaced, or obsoleted by other documents at any
+        time. It is inappropriate to use Internet-Drafts as reference
+        material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-4">
+        This Internet-Draft will expire on 1 September 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="copyright">
+<section id="section-boilerplate.2">
+        <h2 id="name-copyright-notice">
+<a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
+        </h2>
+<p id="section-boilerplate.2-1">
+            Copyright (c) 2026 IETF Trust and the persons identified as the
+            document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.2-2">
+            This document is subject to BCP 78 and the IETF Trust's Legal
+            Provisions Relating to IETF Documents
+            (<span><a href="https://trustee.ietf.org/license-info">https://trustee.ietf.org/license-info</a></span>) in effect on the date of
+            publication of this document. Please review these documents
+            carefully, as they describe your rights and restrictions with
+            respect to this document.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="toc">
+<section id="section-toc.1">
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
+<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        </h2>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-about-this-workshop-report-" class="internal xref">About this workshop report content</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-current-uses-of-ip-geolocat" class="internal xref">Current uses of IP geolocation</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-why-is-ip-geolocation-used" class="internal xref">Why is IP geolocation used?</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.1">
+                    <p id="section-toc.1-1.3.2.1.2.1.1"><a href="#section-3.1.1" class="auto internal xref">3.1.1</a>.  <a href="#name-localized-and-relevant-cont" class="internal xref">Localized and Relevant Content</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.2">
+                    <p id="section-toc.1-1.3.2.1.2.2.1"><a href="#section-3.1.2" class="auto internal xref">3.1.2</a>.  <a href="#name-targeted-advertising" class="internal xref">Targeted Advertising</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.3">
+                    <p id="section-toc.1-1.3.2.1.2.3.1"><a href="#section-3.1.3" class="auto internal xref">3.1.3</a>.  <a href="#name-network-optimization-and-cd" class="internal xref">Network Optimization and CDN Selection</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.4">
+                    <p id="section-toc.1-1.3.2.1.2.4.1"><a href="#section-3.1.4" class="auto internal xref">3.1.4</a>.  <a href="#name-content-rights-management-a" class="internal xref">Content Rights Management and Licensing</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.5">
+                    <p id="section-toc.1-1.3.2.1.2.5.1"><a href="#section-3.1.5" class="auto internal xref">3.1.5</a>.  <a href="#name-fraud-detection-and-securit" class="internal xref">Fraud Detection and Security</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.6">
+                    <p id="section-toc.1-1.3.2.1.2.6.1"><a href="#section-3.1.6" class="auto internal xref">3.1.6</a>.  <a href="#name-regulatory-and-legal-compli" class="internal xref">Regulatory and Legal Compliance</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-what-are-the-current-ip-geo" class="internal xref">What are the current IP geolocation mechanisms?</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-what-does-ip-geolocation-me" class="internal xref">What does IP geolocation mean?</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-ip-geolocation-gaps-issues" class="internal xref">IP geolocation gaps &amp; issues</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-architectural-issues" class="internal xref">Architectural issues</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-geofeed-gaps-and-inaccuraci" class="internal xref">Geofeed gaps and inaccuracies</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-ecosystem-issues" class="internal xref">Ecosystem issues</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-location-based-issues" class="internal xref">Location-based issues</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5">
+                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="auto internal xref">4.5</a>.  <a href="#name-privacy-issues" class="internal xref">Privacy issues</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-considering-the-future-of-g" class="internal xref">Considering the future of geolocation</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-why-should-ip-geolocation-c" class="internal xref">Why should IP geolocation change?</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-in-what-ways-could-ip-geolo" class="internal xref">In what ways could IP geolocation change?</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
+                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-considerations-for-future-w" class="internal xref">Considerations for future work</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
+                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-further-work-and-considerat" class="internal xref">Further work and consideration is needed</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-position-papers" class="internal xref">Position Papers</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-workshop-participatns" class="internal xref">Workshop Participatns</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#appendix-C" class="auto internal xref">Appendix C</a>.  <a href="#name-workshop-program-committee" class="internal xref">Workshop Program Committee</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
+            <p id="section-toc.1-1.13.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+</li>
+        </ul>
+</nav>
+</section>
+</div>
+<div id="introduction">
+<section id="section-1">
+      <h2 id="name-introduction">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      </h2>
+<p id="section-1-1">The Internet Architecture Board (IAB) holds occasional workshops designed to consider
+long-term issues and strategies for the Internet, and to suggest future directions for
+the Internet architecture. This long-term planning function of the IAB is complementary
+to the ongoing engineering efforts performed by working groups of the
+Internet Engineering Task Force (IETF).<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">Many services on the Internet use some form of mapping between IP addresses and a
+particular geolocation (such as inferring that traffic originating from a particular
+IP address means the traffic originates from a particular city). This is a widespread
+practice in many aspects of Internet and web traffic, even though IP addresses are
+not designed or guaranteed to have a singular or fixed location associated with them.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">Thus, practices around IP geolocation have a significant impact on the architecture
+and realities of deploying systems on the Internet, but they frequently not documented
+or incompletely documented in standards.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">The IAB convened a virtual workshop on IP Address Geolocation from December 3-5, 2025.
+The workshop aimed to:<a href="#section-1-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1-5.1">
+          <p id="section-1-5.1.1">Understand the current use cases for publishing, discovering, and consuming IP address
+geolocation data (<a href="#use-cases" class="auto internal xref">Section 3</a>)<a href="#section-1-5.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.2">
+          <p id="section-1-5.2.1">Explore areas for improvement, both in ways to update or replace IP geolocation mechanisms (<a href="#gaps-issues" class="auto internal xref">Section 4</a>)<a href="#section-1-5.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.3">
+          <p id="section-1-5.3.1">Consider mechanisms that satisfy the use cases without relying on geolocating IP addresses (<a href="#future" class="auto internal xref">Section 5</a>)<a href="#section-1-5.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<div id="about-this-workshop-report-content">
+<section id="section-1.1">
+        <h3 id="name-about-this-workshop-report-">
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-about-this-workshop-report-" class="section-name selfRef">About this workshop report content</a>
+        </h3>
+<p id="section-1.1-1">This document is a report on the proceedings of the workshop. The views and positions
+documented in this report are expressed during the workshop by participants and do not
+necessarily reflect IAB's views and positions.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">Furthermore, the content of the report comes from presentations given by workshop
+participants and notes taken during the discussions, without interpretation or
+validation. Thus, the content of this report follows the flow and dialogue of the
+workshop but does not attempt to capture a consensus.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="conventions-and-definitions">
+<section id="section-2">
+      <h2 id="name-conventions-and-definitions">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
+      </h2>
+<p id="section-2-1">Throughout this document, the following terms are used:<a href="#section-2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2-2.1">
+          <p id="section-2-2.1.1">"IP geolocation" is used to refer to the notion of mapping an IP address
+to one or more physical locations.<a href="#section-2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-2.2">
+          <p id="section-2-2.2.1">A "geofeed" refers to a file that provides IP geolocation information.
+In this document, this is usually specifically referring to the format defined
+in <span>[<a href="#GEOFEED" class="cite xref">GEOFEED</a>]</span>.<a href="#section-2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+</section>
+</div>
+<div id="use-cases">
+<section id="section-3">
+      <h2 id="name-current-uses-of-ip-geolocat">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-current-uses-of-ip-geolocat" class="section-name selfRef">Current uses of IP geolocation</a>
+      </h2>
+<p id="section-3-1">The initial discussion of the workshop focused on identifying the current
+use cases for IP geolocation, and how they interact with today's mechanisms
+and ecosystem around IP geolocation.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<div id="why-is-ip-geolocation-used">
+<section id="section-3.1">
+        <h3 id="name-why-is-ip-geolocation-used">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-why-is-ip-geolocation-used" class="section-name selfRef">Why is IP geolocation used?</a>
+        </h3>
+<p id="section-3.1-1">Some of the identified use cases were focused on optimizations to user experience
+or network behavior, such as:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.1-2.1">
+            <p id="section-3.1-2.1.1">Automatically choosing appropriate language or regional settings for content<a href="#section-3.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.1-2.2">
+            <p id="section-3.1-2.2.1">Providing relevant nearby content (for searches or serving advertisements)<a href="#section-3.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.1-2.3">
+            <p id="section-3.1-2.3.1">Optimizing network routes and server selection, generally used to optimize Content Delivery Network (CDNs)<a href="#section-3.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-3.1-3">For these use cases, errors in IP geolocation cause annoyance or performance issues,
+but are generally recoverable (the user can change the location or update their search).<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.1-4">Other use cases treat the accuracy of the IP geolocation as a more critical piece of
+information:<a href="#section-3.1-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.1-5.1">
+            <p id="section-3.1-5.1.1">Enforcing legal or compliance-related requirements<a href="#section-3.1-5.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.1-5.2">
+            <p id="section-3.1-5.2.1">Enforcing contractual requirements between corporations<a href="#section-3.1-5.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.1-5.3">
+            <p id="section-3.1-5.3.1">Providing information for disaster relief or law enforcement when other location signals are unavailable<a href="#section-3.1-5.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-3.1-6">IP geolocation is often not the only signal used to satisfy these use cases,
+but it is often used as an important piece of them.<a href="#section-3.1-6" class="pilcrow">¶</a></p>
+<p id="section-3.1-7">All of these use cases are relying on IP geolocation being a passive and
+implicit signal, without explicit intent being communicated on network connections.<a href="#section-3.1-7" class="pilcrow">¶</a></p>
+<p id="section-3.1-8">Details of some of these use cases are included below.<a href="#section-3.1-8" class="pilcrow">¶</a></p>
+<div id="localized-and-relevant-content">
+<section id="section-3.1.1">
+          <h4 id="name-localized-and-relevant-cont">
+<a href="#section-3.1.1" class="section-number selfRef">3.1.1. </a><a href="#name-localized-and-relevant-cont" class="section-name selfRef">Localized and Relevant Content</a>
+          </h4>
+<p id="section-3.1.1-1">As discussed in <span>[<a href="#KLINE" class="cite xref">KLINE</a>]</span>, one of the major motivations for the development
+of the current geofeed format <span>[<a href="#GEOFEED" class="cite xref">GEOFEED</a>]</span> was to improve how search results
+were displayed based on client IP addresses. When users are performing
+searches or accessing sites that localize content, and the IP geolocation is
+incorrect, the user may be presented with content that is not relevant
+(seeing results for a far away city when searching for "pizza near me")
+or isn't localized appropriately (seeing content in an unexpected language,
+or prices in an unexpected currency).<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.1-2">In the case of the development of <span>[<a href="#GEOFEED" class="cite xref">GEOFEED</a>]</span>, these issues were seen
+when deploying IPv6, highlighting that the ecosystem had mainly only mapped
+out IPv4 addresses previously.<a href="#section-3.1.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="targeted-advertising">
+<section id="section-3.1.2">
+          <h4 id="name-targeted-advertising">
+<a href="#section-3.1.2" class="section-number selfRef">3.1.2. </a><a href="#name-targeted-advertising" class="section-name selfRef">Targeted Advertising</a>
+          </h4>
+<p id="section-3.1.2-1">The ad-tech ecosystem relies on geolocation to serve localized advertisements. While
+less critical than rights management, this represents the highest volume of
+geolocation queries globally.<a href="#section-3.1.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-optimization-and-cdn-selection">
+<section id="section-3.1.3">
+          <h4 id="name-network-optimization-and-cd">
+<a href="#section-3.1.3" class="section-number selfRef">3.1.3. </a><a href="#name-network-optimization-and-cd" class="section-name selfRef">Network Optimization and CDN Selection</a>
+          </h4>
+<p id="section-3.1.3-1">Content Delivery Networks (CDNs) and cloud providers utilize geolocation data to
+route end-user traffic to the "closest" data center or edge node. While network
+latency (topological distance) is the ideal metric, physical location is often
+used as a heuristic for initial server selection. Misalignment here results in
+suboptimal routing and increased latency for users.<a href="#section-3.1.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="content-rights-management-and-licensing">
+<section id="section-3.1.4">
+          <h4 id="name-content-rights-management-a">
+<a href="#section-3.1.4" class="section-number selfRef">3.1.4. </a><a href="#name-content-rights-management-a" class="section-name selfRef">Content Rights Management and Licensing</a>
+          </h4>
+<p id="section-3.1.4-1">A primary driver for IP geolocation remains the enforcement of territorial licensing
+agreements for streaming video, which is the largest volume of data at peak hour on
+the internet today. Streaming services and media broadcasters rely heavily on
+IP-to-location mapping to restrict content availability based on country or region
+(Geo-blocking). Participants noted that this creates a high-stakes environment where accuracy is directly tied to contractual compliance.<a href="#section-3.1.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="fraud-detection-and-security">
+<section id="section-3.1.5">
+          <h4 id="name-fraud-detection-and-securit">
+<a href="#section-3.1.5" class="section-number selfRef">3.1.5. </a><a href="#name-fraud-detection-and-securit" class="section-name selfRef">Fraud Detection and Security</a>
+          </h4>
+<p id="section-3.1.5-1">Financial institutions and identity providers use geolocation as a signal for risk
+assessment. "Impossible travel" (a user logging in from two distant countries
+within a short timeframe) or traffic originating from sanctioned regions are
+standard triggers for security alerts.<a href="#section-3.1.5-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="regulatory-and-legal-compliance">
+<section id="section-3.1.6">
+          <h4 id="name-regulatory-and-legal-compli">
+<a href="#section-3.1.6" class="section-number selfRef">3.1.6. </a><a href="#name-regulatory-and-legal-compli" class="section-name selfRef">Regulatory and Legal Compliance</a>
+          </h4>
+<p id="section-3.1.6-1">Operators increasingly use IP geolocation to comply with local laws, including:<a href="#section-3.1.6-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.1.6-2.1">
+              <p id="section-3.1.6-2.1.1">Gambling and Betting regulations: Restricting access to users within specific jurisdictions.<a href="#section-3.1.6-2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.1.6-2.2">
+              <p id="section-3.1.6-2.2.1">Taxation: Determining the applicable VAT or sales tax based on the consumer's location.<a href="#section-3.1.6-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-3.1.6-2.3">
+              <p id="section-3.1.6-2.3.1">Law Enforcement: Investigating cybercrime by mapping IP addresses to physical jurisdictions for warrant service.<a href="#section-3.1.6-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+</section>
+</div>
+<div id="what-are-the-current-ip-geolocation-mechanisms">
+<section id="section-3.2">
+        <h3 id="name-what-are-the-current-ip-geo">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-what-are-the-current-ip-geo" class="section-name selfRef">What are the current IP geolocation mechanisms?</a>
+        </h3>
+<p id="section-3.2-1">Geofeeds are defined by <span>[<a href="#GEOFEED" class="cite xref">GEOFEED</a>]</span> as CSV-formatted mappings from IP address
+subnets to locations, by country/region and city. <span>[<a href="#RFC9632" class="cite xref">RFC9632</a>]</span> additionally
+defines how to discover this data and to authenticate it using the
+Resource Public Key Infrastructure (RPKI).<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">Often, servers that are checking IP geolocation information are not directly
+consuming geofeed information, but instead use the services of one or more
+IP geolocation providers. These services provide not only a mapping from IP
+address to location, but add in other information, such as notions of
+IP address "reputation" (indicating if they think this IP address represents
+traffic from a human user, an automated bot, or a malicious attacker) or
+a categorization (indicating if an address is associated with proxied or
+VPN traffic).<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.2-3">IP geolocation providers use various signals to improve the
+accuracy of their mapping from IP address to location, and have notions
+of confidence in the validity of the mapping. The workshop noted that
+various providers won't necessarily agree on mappings; and, even when
+they do agree, that does not guarantee that the mapping is accurate.
+Additionally, the certainty around a location mapping is not something
+expressed in a standard format for geofeeds, so ambiguity is hidden.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.2-4">The workshop discussion noted that current mechanisms generally assume that
+there is a single (generally stable) location associated with an IP address.
+This is flawed for various reasons: an associated location may change (as
+in cellular networks or satellite networks), and often there may be many
+users at different locations behind a single address.<a href="#section-3.2-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="what-does-ip-geolocation-mean">
+<section id="section-3.3">
+        <h3 id="name-what-does-ip-geolocation-me">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-what-does-ip-geolocation-me" class="section-name selfRef">What does IP geolocation mean?</a>
+        </h3>
+<p id="section-3.3-1">One of the key points that was raised in discussion was that different use cases
+and different parties involved in using IP geolocation can have vastly different assumptions
+about what a particular IP-address-to-location mapping means. For any use case or
+deployment, a question needs to be asked: what is the claim being made about
+the IP geolocation mapping?<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-2">There are various possible interpretations of a mapping. The location could mean:<a href="#section-3.3-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3-3.1">
+            <p id="section-3.3-3.1.1">The physical location of a user<a href="#section-3.3-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-3.2">
+            <p id="section-3.3-3.2.1">The location of a network egress<a href="#section-3.3-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-3.3">
+            <p id="section-3.3-3.3.1">The location of network infrastructure<a href="#section-3.3-3.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-3.4">
+            <p id="section-3.3-3.4.1">The regulatory jurisdiction associated with a network<a href="#section-3.3-3.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-3.3-4">Geofeeds provide mappings of IP addresses to locations, but they do not define
+any ontology to describe what these mappings are claiming.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="gaps-issues">
+<section id="section-4">
+      <h2 id="name-ip-geolocation-gaps-issues">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-ip-geolocation-gaps-issues" class="section-name selfRef">IP geolocation gaps &amp; issues</a>
+      </h2>
+<p id="section-4-1">The workshop also focused discussion around identifying challenges with
+the status quo mechanisms, specifically looking at gaps in current solutions
+and issues that they raise.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">These issues fall into different categories, detailed here.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<div id="architectural-issues">
+<section id="section-4.1">
+        <h3 id="name-architectural-issues">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-architectural-issues" class="section-name selfRef">Architectural issues</a>
+        </h3>
+<p id="section-4.1-1">At an achitectural level, IP addresses are not designed to be indications
+of physical location. This point was brought up in many contexts. This
+underlying issue causes various problems:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1-2.1">
+            <p id="section-4.1-2.1.1">Geolocation effectiveness is reduced; accuracy issues often stem from
+the IP address being a poor indicator of location due to not having
+stable location or a one-to-one relationship with users.<a href="#section-4.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.1-2.2">
+            <p id="section-4.1-2.2.1">Privacy and lack of consent; the passive nature of looking at IP
+addresses and mapping them to locations means that users can have
+their location targeted without their knowledge, consent, or ability
+to opt out.<a href="#section-4.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.1-2.3">
+            <p id="section-4.1-2.3.1">Lack of support in standardization; IP geolocation is a very impactful
+part of deployment realities and heavily influences the experience users
+have, but changes to network protocols don't necessarily account for
+the impact on IP geolocation. This is seen in cases where deployments as
+varied as IPv6 address support on servers and privacy proxy systems all
+needed significant work and engagement with IP geolocation providers
+to ensure that user experiences still functioned.<a href="#section-4.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.1-2.4">
+            <p id="section-4.1-2.4.1">Assumptions about the usefulness of geolocation; physical location
+does not necessarily correspond to network topologies, so systems assuming
+that closer physical locations will be faster can be detrimental to
+network performance.<a href="#section-4.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.1-2.5">
+            <p id="section-4.1-2.5.1">Inconsistent effectiveness for security; IP geolocation is often
+used as an element of security or compliance checks, but often has errors
+and is hard to validate. It cannot be relied on for security properties,
+but ends up being used as such in some scenarios.<a href="#section-4.1-2.5.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
+<div id="geofeed-gaps-and-inaccuracies">
+<section id="section-4.2">
+        <h3 id="name-geofeed-gaps-and-inaccuraci">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-geofeed-gaps-and-inaccuraci" class="section-name selfRef">Geofeed gaps and inaccuracies</a>
+        </h3>
+<p id="section-4.2-1">Many of the issues raised were concerned with specifics of geofeeds.
+These take various forms, such as details that cannot currently be expressed
+in geofeeds, or inaccurate content in feeds.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-2">The issues raised include:<a href="#section-4.2-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.2-3.1">
+            <p id="section-4.2-3.1.1">Entries cannot express an address being mapped to multiple locations, or
+express varying levels of confidence in a location mapping<a href="#section-4.2-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.2-3.2">
+            <p id="section-4.2-3.2.1">Names of regions and cities may not be consistent across geofeeds (due to
+typos, different languages, etc.)<a href="#section-4.2-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.2-3.3">
+            <p id="section-4.2-3.3.1">Identities of regions and cities may vary or have problematic geopolitical
+nuances<a href="#section-4.2-3.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.2-3.4">
+            <p id="section-4.2-3.4.1">False specificity occurs when feeds map an address to a city, but the
+location associated with the address is much bigger than the city<a href="#section-4.2-3.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.2-3.5">
+            <p id="section-4.2-3.5.1">Geofeed entries may be blatantly incorrect due to staleness or intentional
+inaccuracies<a href="#section-4.2-3.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.2-3.6">
+            <p id="section-4.2-3.6.1">Geofeeds may be out of date or stale, without a time-to-live or refresh mechanism<a href="#section-4.2-3.6.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-4.2-4">Some of the biggest challenges for providing an accurate geofeed are in dealing
+with satellite networks or mobile networks using Carrier-Grade NATs (CGNAT).
+A client device may have a particular true location, but its traffic may exit
+to the internet via a gateway in a different region. Geo-locating the IP
+identifies the gateway, not the user, rendering the data coarse or misleading
+for hyper-local applications.<a href="#section-4.2-4" class="pilcrow">¶</a></p>
+<p id="section-4.2-5">While country-level accuracy in geofeedds is generally high (estimated &gt;95%), city-level
+or coordinate-level accuracy degrades significantly. Participants noted instances
+where IP geolocation defaults to the geographical center of a country or state
+when specific data is missing, creating "digital sinkholes" (e.g., a farm in
+Kansas mapped to millions of IP addresses).<a href="#section-4.2-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="ecosystem-issues">
+<section id="section-4.3">
+        <h3 id="name-ecosystem-issues">
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-ecosystem-issues" class="section-name selfRef">Ecosystem issues</a>
+        </h3>
+<p id="section-4.3-1">Some issues relate to the deployment and commercial realities of the
+IP geolocation ecosystem.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.3-2">IP geolocation providers currently use differing proprietary formats and
+techniques. Methodologies for determining location are proprietary, and
+there is no standardized feedback loop for Internet Service Providers (ISPs)
+to correct erroneous data in third-party databases.<a href="#section-4.3-2" class="pilcrow">¶</a></p>
+<p id="section-4.3-3">Additionally, updating the version of a IP geolocation database used by a server
+is asynchronous, and can be a manual process. When there is a major change, such
+as when an IP address block is transferred from an ISP in Asia to one in Europe,
+the addresses may remain "located" in Asia in some databases for weeks or months.<a href="#section-4.3-3" class="pilcrow">¶</a></p>
+<p id="section-4.3-4">With IPv4 exhaustion, the secondary market for address space is active and exacerbates
+these problems. IP address blocks are frequently sold and moved globally. The "legacy"
+location data often sticks to these blocks in WHOIS registries or static datasets,
+leading to persistent misidentification of the new owners' locations.<a href="#section-4.3-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="location-based-issues">
+<section id="section-4.4">
+        <h3 id="name-location-based-issues">
+<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-location-based-issues" class="section-name selfRef">Location-based issues</a>
+        </h3>
+<p id="section-4.4-1">Assigning geolocation to addresses is fraught with issues around location borders.
+The discussion covered anecdotes of incorrect behavior that came from mobile
+devices being used near jurisdictional borders between two countries, where
+the device's IP geolocation could frequently "jump" between countries. Similarly,
+on borders between timezones, the correct behavior is often ambiguous if derived
+from IP addresses alone.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="privacy-issues">
+<section id="section-4.5">
+        <h3 id="name-privacy-issues">
+<a href="#section-4.5" class="section-number selfRef">4.5. </a><a href="#name-privacy-issues" class="section-name selfRef">Privacy issues</a>
+        </h3>
+<p id="section-4.5-1">As discussed in <span>[<a href="#RFC6973" class="cite xref">RFC6973</a>]</span>, IP addresses can be used as identifiers to correlate
+user activity and reveal user identity. IP addresses are often considered
+Personally Identifiable Information (PII), and the correlation to geolocation
+makes this very sensitive information that can be correlated to other metadata
+that identifies users.<a href="#section-4.5-1" class="pilcrow">¶</a></p>
+<p id="section-4.5-2">The source IP addresses of a connection established by a client device working
+on behalf of a user does not come along with any specific consent for how the IP
+address will be used, and does not imply intent.<a href="#section-4.5-2" class="pilcrow">¶</a></p>
+<p id="section-4.5-3">Virtual Private Networks (VPNs) or proxies (such as privacy proxies discussed in
+<span>[<a href="#RFC9614" class="cite xref">RFC9614</a>]</span>) allow users to anonymize their specific IP addresses to avoid
+correlation. However, this can also come with a degredation in behavior by
+servers that rely on IP geolocation services to determine how to serve content.
+Sometimes VPNs or proxies intentionally obfuscate or change how the user is
+represented to IP geolocation providers; but other deployments of privacy services
+do use geofeeds to preserve the general user location to avoid user experience
+or compliance issues.<a href="#section-4.5-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="future">
+<section id="section-5">
+      <h2 id="name-considering-the-future-of-g">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-considering-the-future-of-g" class="section-name selfRef">Considering the future of geolocation</a>
+      </h2>
+<p id="section-5-1">The final day of the workshop focused on next steps around IP geolocation,
+both in how to improve mechanisms and in how to build mechanisms that address
+the use cases in new ways.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">One key recognition from the workshop was that IP geolocation, and the
+ecosystem around it, isn't going to go away or disappear. While it was
+not necessarily an intentional part of the Internet architecture, large
+parts of how the Internet functions have been established based on assumptions.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-3">However, it was also recognized that the role and functionality of IP geolocation
+can change, and in many ways ought to change. This section discusses some
+of the considerations raised, and suggests next steps.<a href="#section-5-3" class="pilcrow">¶</a></p>
+<div id="why-should-ip-geolocation-change">
+<section id="section-5.1">
+        <h3 id="name-why-should-ip-geolocation-c">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-why-should-ip-geolocation-c" class="section-name selfRef">Why should IP geolocation change?</a>
+        </h3>
+<p id="section-5.1-1">Various motivations for changing the status quo of the IP geolocation ecosystem
+were raised:<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.1-2.1">
+            <p id="section-5.1-2.1.1">Existing geofeeds have technical gaps that need addressing in order
+to scale well and continue to be used effectively<a href="#section-5.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.1-2.2">
+            <p id="section-5.1-2.2.1">New network deployments, such as satellite networks and privacy proxies,
+are stretching and challenging the status quo mechanisms<a href="#section-5.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.1-2.3">
+            <p id="section-5.1-2.3.1">Pressure from new policies or regulations add requirements for accurate
+assessment of client location, which IP addresses cannot always provide<a href="#section-5.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.1-2.4">
+            <p id="section-5.1-2.4.1">The bar for security and privacy is increasing, challenging the
+use of passive identifiers like IP addresses being used to tag location<a href="#section-5.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-5.1-3">These various motivations and pressures are often in conflict, and create
+requirements in different directions. Economic and regulatory incentives
+have shaped the status quo mechanisms, and will continue to shape the evolution
+of this space.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.1-4">The technical community, and the various stakeholders in the ecosystem,
+play an important role in deciding how to handle these pressures and drive
+the change in the space of IP geolocation.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="in-what-ways-could-ip-geolocation-change">
+<section id="section-5.2">
+        <h3 id="name-in-what-ways-could-ip-geolo">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-in-what-ways-could-ip-geolo" class="section-name selfRef">In what ways could IP geolocation change?</a>
+        </h3>
+<p id="section-5.2-1">Two high-level categories of changes were discussed.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-2">First, there are a number of ways in which geofeeds themselves can be improved:<a href="#section-5.2-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.2-3.1">
+            <p id="section-5.2-3.1.1">Add the ability to express infrastructure vs. user locations<a href="#section-5.2-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-3.2">
+            <p id="section-5.2-3.2.1">Get beyond the assumption that an IP address always maps to a single location<a href="#section-5.2-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-3.3">
+            <p id="section-5.2-3.3.1">Better handle the dynamic nature of geolocation (time-to-live indications, timestamps,
+live updates to feeds)<a href="#section-5.2-3.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-3.4">
+            <p id="section-5.2-3.4.1">More accurately represent the granularity and specificity of geolocation mappings; be
+able to express certainty levels<a href="#section-5.2-3.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-3.5">
+            <p id="section-5.2-3.5.1">Improve tooling for publishing, validating, and consuming geofeeds<a href="#section-5.2-3.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-3.6">
+            <p id="section-5.2-3.6.1">Improve measurements for determining accurate geolocation<a href="#section-5.2-3.6.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-3.7">
+            <p id="section-5.2-3.7.1">Rely more on the RPKI to more reliably verify location claims<a href="#section-5.2-3.7.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-5.2-4">Second, and more ambitiously, the community can consider alternative solutions
+to the use cases behind IP geolocation that do not rely on IP address mapping.
+<span>[<a href="#SZAMONEK" class="cite xref">SZAMONEK</a>]</span>, <span>[<a href="#LAOUAR" class="cite xref">LAOUAR</a>]</span>, and <span>[<a href="#PAULY" class="cite xref">PAULY</a>]</span> propose various ways forward here. These
+explore ways to let users provide location hints with consent, and involve
+trying to provide explicit signals that involve trust and verifiability.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
+<p id="section-5.2-5">Across both of these categories, communicating information with more intentionality
+and clarity is a key change.<a href="#section-5.2-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="considerations-for-future-work">
+<section id="section-5.3">
+        <h3 id="name-considerations-for-future-w">
+<a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-considerations-for-future-w" class="section-name selfRef">Considerations for future work</a>
+        </h3>
+<p id="section-5.3-1">When looking toward future work, the workshop discussion raised some key points to
+consider:<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.3-2.1">
+            <p id="section-5.3-2.1.1">The community should work to explain clearly what geofeeds and IP geolocation are
+able to solve, and what problems they are ill-suited for.<a href="#section-5.3-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.3-2.2">
+            <p id="section-5.3-2.2.1">As new technologies are introduced (either updated geofeeds or new alternative mechanisms),
+there need to be clear plans for transitions and incremental adoption.<a href="#section-5.3-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.3-2.3">
+            <p id="section-5.3-2.3.1">New solutions need to avoid "ossification" and build in ways to continue to evolve
+and update.<a href="#section-5.3-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.3-2.4">
+            <p id="section-5.3-2.4.1">New solutions should be careful designed to avoid creating worse privacy problems. For example,
+a pressure to have explicit signals for location could lead to increased sharing of more
+specific user location coordinates (such as from GPS data).<a href="#section-5.3-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.3-2.5">
+            <p id="section-5.3-2.5.1">It is unlikely that any one new technical solution can address the various use cases
+that currently passively use IP geolocation. Different technical solutions will be
+fit for purpose for different use cases, and will not be one-size-fits-all.<a href="#section-5.3-2.5.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
+<div id="further-work-and-consideration-is-needed">
+<section id="section-5.4">
+        <h3 id="name-further-work-and-considerat">
+<a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-further-work-and-considerat" class="section-name selfRef">Further work and consideration is needed</a>
+        </h3>
+<p id="section-5.4-1">A final conclusion of the workshop was that collaboration and discussion amongst the
+various stakeholders in this space will be a necessary part of making technical
+improvements. Not all of the stakeholders in this space are currently actively participating
+in standards discussions within the IETF, but standards work would benefit from
+working on improvements in this space.<a href="#section-5.4-1" class="pilcrow">¶</a></p>
+<p id="section-5.4-2">Some of the stakeholders include, but are not limited to:<a href="#section-5.4-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.4-3.1">
+            <p id="section-5.4-3.1.1">IP geolocation providers<a href="#section-5.4-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-3.2">
+            <p id="section-5.4-3.2.1">Client device platforms<a href="#section-5.4-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-3.3">
+            <p id="section-5.4-3.3.1">Content publishers<a href="#section-5.4-3.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-3.4">
+            <p id="section-5.4-3.4.1">Network operators<a href="#section-5.4-3.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-3.5">
+            <p id="section-5.4-3.5.1">Data brokers<a href="#section-5.4-3.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-3.6">
+            <p id="section-5.4-3.6.1">Enterprises<a href="#section-5.4-3.6.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-3.7">
+            <p id="section-5.4-3.7.1">Firewall operators and vendors<a href="#section-5.4-3.7.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-3.8">
+            <p id="section-5.4-3.8.1">VPN / proxy operators and vendors<a href="#section-5.4-3.8.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-3.9">
+            <p id="section-5.4-3.9.1">IP address leasers<a href="#section-5.4-3.9.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-3.10">
+            <p id="section-5.4-3.10.1">Policymakers<a href="#section-5.4-3.10.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-3.11">
+            <p id="section-5.4-3.11.1">End users<a href="#section-5.4-3.11.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-5.4-4">The exact shape of a forum for this community is not yet determined, but this
+report encourages further work and discussion in this space.<a href="#section-5.4-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-6">
+      <h2 id="name-security-considerations">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-6-1">This document is a workshop report and does not impact the security of the Internet.<a href="#section-6-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="iana-considerations">
+<section id="section-7">
+      <h2 id="name-iana-considerations">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      </h2>
+<p id="section-7-1">This document has no IANA actions.<a href="#section-7-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-8">
+      <h2 id="name-informative-references">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+      </h2>
+<dl class="references">
+<dt id="ABLEY">[ABLEY]</dt>
+      <dd>
+<span class="refAuthor">Abley, J.</span>, <span class="refTitle">"Geo-Network Operations at Cloudflare"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-geo-network-operations-at-cloudflare-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-geo-network-operations-at-cloudflare-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="BARNES">[BARNES]</dt>
+      <dd>
+<span class="refAuthor">Barnes, R.</span>, <span class="refTitle">"IP Geolocation is Critical for Compliance"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-ip-geolocation-is-critical-for-compliance-01.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-ip-geolocation-is-critical-for-compliance-01.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="BROWN">[BROWN]</dt>
+      <dd>
+<span class="refAuthor">Brown, J.</span>, <span class="refTitle">"Moving Beyond Geographic Inference"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-moving-beyond-geographic-inference-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-moving-beyond-geographic-inference-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="CLARK">[CLARK]</dt>
+      <dd>
+<span class="refAuthor">Clark, J.</span>, <span class="refTitle">"geocomply.com"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-geocomplycom-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-geocomplycom-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="CROGHAN">[CROGHAN]</dt>
+      <dd>
+<span class="refAuthor">Croghan, T.</span>, <span class="refTitle">"The Geolocation Conundrum for Small ISPs"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-the-geolocation-conundrum-for-small-isps-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-the-geolocation-conundrum-for-small-isps-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="ELKINS">[ELKINS]</dt>
+      <dd>
+<span class="refAuthor">Elkins, N.</span>, <span class="refAuthor">Nguyen, M.</span>, and <span class="refAuthor">B. Jouris</span>, <span class="refTitle">"Bridging the Gaps in IP Geolocation: Strengthening Detection and Defense Against Cyber Threats"</span>, <time datetime="2025-12" class="refDate">December 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-bridging-the-gaps-in-ip-geolocation-strengthening-detection-and-defense-against-cyber-threats-00.txt">https://www.ietf.org/slides/slides-ipgeows-paper-bridging-the-gaps-in-ip-geolocation-strengthening-detection-and-defense-against-cyber-threats-00.txt</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="FAYED">[FAYED]</dt>
+      <dd>
+<span class="refAuthor">Fayed, M.</span>, <span class="refTitle">"Does IP geolocation answer the right questions?"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-does-ip-geolocation-answer-the-right-questions-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-does-ip-geolocation-answer-the-right-questions-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="GAO">[GAO]</dt>
+      <dd>
+<span class="refAuthor">Gao, P.</span>, <span class="refAuthor">Lee, E.</span>, and <span class="refAuthor">Y. Zhang</span>, <span class="refTitle">"On the Use, Challenges, Alternatives of IP Geolocation Data"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-on-the-use-challenges-alternatives-of-ip-geolocation-data-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-on-the-use-challenges-alternatives-of-ip-geolocation-data-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="GASSER">[GASSER]</dt>
+      <dd>
+<span class="refAuthor">Gasser, O.</span>, <span class="refAuthor">Leung, W.</span>, and <span class="refAuthor">M. Mouchet</span>, <span class="refTitle">"On the Use, Challenges, Alternatives of IP Geolocation Data"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-challenges-of-working-with-geofeeds-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-challenges-of-working-with-geofeeds-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="GEOFEED">[GEOFEED]</dt>
+      <dd>
+<span class="refAuthor">Kline, E.</span>, <span class="refAuthor">Duleba, K.</span>, <span class="refAuthor">Szamonek, Z.</span>, <span class="refAuthor">Moser, S.</span>, and <span class="refAuthor">W. Kumari</span>, <span class="refTitle">"A Format for Self-Published IP Geolocation Feeds"</span>, <span class="seriesInfo">RFC 8805</span>, <span class="seriesInfo">DOI 10.17487/RFC8805</span>, <time datetime="2020-08" class="refDate">August 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8805">https://www.rfc-editor.org/rfc/rfc8805</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="HOSFELT">[HOSFELT]</dt>
+      <dd>
+<span class="refAuthor">Hosfelt, R.</span>, <span class="refAuthor">Haberman, B.</span>, <span class="refAuthor">Jaeggli, J.</span>, and <span class="refAuthor">S. Strowes</span>, <span class="refTitle">"Position Paper by Fastly"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-position-paper-by-fastly-for-iab-workshop-on-ip-address-geolocation-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-position-paper-by-fastly-for-iab-workshop-on-ip-address-geolocation-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="HOWARD">[HOWARD]</dt>
+      <dd>
+<span class="refAuthor">Howard, L.</span>, <span class="refTitle">"IP geolocation paper"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-ip-geolocation-paper-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-ip-geolocation-paper-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="HUSTON">[HUSTON]</dt>
+      <dd>
+<span class="refAuthor">Huston, G.</span>, <span class="refTitle">"Geolocation and Starlink"</span>, <time datetime="2025-09" class="refDate">September 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-geolocation-and-starlink-00.txt">https://www.ietf.org/slides/slides-ipgeows-paper-geolocation-and-starlink-00.txt</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="IZHIKEVICH">[IZHIKEVICH]</dt>
+      <dd>
+<span class="refAuthor">Izhikevich, K.</span>, <span class="refAuthor">Du, B.</span>, <span class="refAuthor">Tran, M.</span>, <span class="refAuthor">Rao, S.</span>, <span class="refAuthor">Ukani, A.</span>, and <span class="refAuthor">L. Izhikevich</span>, <span class="refTitle">"Trust, But Verify, Operator-Reported Geolocation"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-trust-but-verify-operator-reported-geolocation-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-trust-but-verify-operator-reported-geolocation-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="KATIRA">[KATIRA]</dt>
+      <dd>
+<span class="refAuthor">Katira, D.</span> and <span class="refAuthor">G. Grover</span>, <span class="refTitle">"Incorporating user agency in internet geolocation"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-incorporating-user-agency-in-internet-geolocation-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-incorporating-user-agency-in-internet-geolocation-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="KHAN">[KHAN]</dt>
+      <dd>
+<span class="refAuthor">Khan, K.</span>, <span class="refTitle">"From Surveillance to Consent: A Privacy-First Approach to IP Geolocation"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-from-surveillance-to-consent-a-privacy-first-approach-to-ip-geolocation-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-from-surveillance-to-consent-a-privacy-first-approach-to-ip-geolocation-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="KISTELEKI">[KISTELEKI]</dt>
+      <dd>
+<span class="refAuthor">Kisteleki, R.</span>, <span class="refTitle">"RIPE IPmap - The RIPE NCC’s Approach to Infrastructure IP Geolocation"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-ripe-ipmap-the-ripe-nccs-approach-to-infrastructure-ip-geolocation-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-ripe-ipmap-the-ripe-nccs-approach-to-infrastructure-ip-geolocation-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="KLINE">[KLINE]</dt>
+      <dd>
+<span class="refAuthor">Kline, E.</span>, <span class="refTitle">"Anecdotal History of RFC 8805"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-anecdotal-history-of-rfc-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-anecdotal-history-of-rfc-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LAOUAR">[LAOUAR]</dt>
+      <dd>
+<span class="refAuthor">Laouar, A.</span>, <span class="refAuthor">Desgeorges, L.</span>, <span class="refAuthor">Schmitt, P.</span>, and <span class="refAuthor">F. Bronzino</span>, <span class="refTitle">"Rethinking Geolocalization on the Internet"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-rethinking-geolocalization-on-the-internet-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-rethinking-geolocalization-on-the-internet-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="MATHUR">[MATHUR]</dt>
+      <dd>
+<span class="refAuthor">Mathur, S.</span>, <span class="refTitle">"Improvements Ideas from an IP Geolocation API Provider"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-improvements-ideas-from-an-ip-geolocation-api-provider-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-improvements-ideas-from-an-ip-geolocation-api-provider-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="MUKHERJEE">[MUKHERJEE]</dt>
+      <dd>
+<span class="refAuthor">Mukherjee, D.</span>, <span class="refTitle">"Gaps and problems in current IP-Geolocation Approaches"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-gaps-and-problems-in-current-ip-geolocation-approaches-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-gaps-and-problems-in-current-ip-geolocation-approaches-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="NYGREN">[NYGREN]</dt>
+      <dd>
+<span class="refAuthor">Nygren, E.</span> and <span class="refAuthor">R. Dhanidina</span>, <span class="refTitle">"Akamai Position Paper for 2025 IAB Workshop on IP Address Geolocation"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-akamai-position-paper-for-iab-workshop-on-ip-address-geolocation-ip-geo-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-akamai-position-paper-for-iab-workshop-on-ip-address-geolocation-ip-geo-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="OWENS">[OWENS]</dt>
+      <dd>
+<span class="refAuthor">Owens, N.</span>, <span class="refTitle">"Starlink"</span>, <time datetime="2025-10" class="refDate">October 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-position-paper-starlink-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-position-paper-starlink-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="PAN">[PAN]</dt>
+      <dd>
+<span class="refAuthor">Pan, J.</span> and <span class="refAuthor">J. Zhao</span>, <span class="refTitle">"GeoFeed in the wild: A case study on StarlinkISP.net"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-geofeed-in-the-wild-a-case-study-on-starlinkispnet-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-geofeed-in-the-wild-a-case-study-on-starlinkispnet-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="PAULY">[PAULY]</dt>
+      <dd>
+<span class="refAuthor">Pauly, T.</span>, <span class="refAuthor">Schinazi, D.</span>, <span class="refAuthor">McMullin, C.</span>, and <span class="refAuthor">D. Mitchell</span>, <span class="refTitle">"The IP Geolocation HTTP Client Hint"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-the-ip-geolocation-http-client-hint-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-the-ip-geolocation-http-client-hint-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RAMANATHAN">[RAMANATHAN]</dt>
+      <dd>
+<span class="refAuthor">Ramanathan, A.</span> and <span class="refAuthor">S. A. Jyothi</span>, <span class="refTitle">"Systematic Detection and Correction of IP Geolocation Anomalies in Network Measurements"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-systematic-detection-and-correction-of-ip-geolocation-anomalies-in-network-measurements-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-systematic-detection-and-correction-of-ip-geolocation-anomalies-in-network-measurements-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6973">[RFC6973]</dt>
+      <dd>
+<span class="refAuthor">Cooper, A.</span>, <span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Aboba, B.</span>, <span class="refAuthor">Peterson, J.</span>, <span class="refAuthor">Morris, J.</span>, <span class="refAuthor">Hansen, M.</span>, and <span class="refAuthor">R. Smith</span>, <span class="refTitle">"Privacy Considerations for Internet Protocols"</span>, <span class="seriesInfo">RFC 6973</span>, <span class="seriesInfo">DOI 10.17487/RFC6973</span>, <time datetime="2013-07" class="refDate">July 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6973">https://www.rfc-editor.org/rfc/rfc6973</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9614">[RFC9614]</dt>
+      <dd>
+<span class="refAuthor">Kühlewind, M.</span>, <span class="refAuthor">Pauly, T.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Partitioning as an Architecture for Privacy"</span>, <span class="seriesInfo">RFC 9614</span>, <span class="seriesInfo">DOI 10.17487/RFC9614</span>, <time datetime="2024-07" class="refDate">July 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9614">https://www.rfc-editor.org/rfc/rfc9614</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9632">[RFC9632]</dt>
+      <dd>
+<span class="refAuthor">Bush, R.</span>, <span class="refAuthor">Candela, M.</span>, <span class="refAuthor">Kumari, W.</span>, and <span class="refAuthor">R. Housley</span>, <span class="refTitle">"Finding and Using Geofeed Data"</span>, <span class="seriesInfo">RFC 9632</span>, <span class="seriesInfo">DOI 10.17487/RFC9632</span>, <time datetime="2024-08" class="refDate">August 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9632">https://www.rfc-editor.org/rfc/rfc9632</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="SCHATTE">[SCHATTE]</dt>
+      <dd>
+<span class="refAuthor">Schatte, D.</span>, <span class="refTitle">"IAB Workshop on IP Address Geolocation"</span>, <time datetime="2025-12" class="refDate">December 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-iab-workshop-on-ip-address-geolocation-daniel-schatte-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-iab-workshop-on-ip-address-geolocation-daniel-schatte-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="SHARMA">[SHARMA]</dt>
+      <dd>
+<span class="refAuthor">Sharma, O. P.</span>, <span class="refTitle">"Position Paper for IAB Workshop on IP Address Geolocation"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-position-paper-for-iab-workshop-on-ip-address-geolocation-ipgeows-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-position-paper-for-iab-workshop-on-ip-address-geolocation-ipgeows-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="SZAMONEK">[SZAMONEK]</dt>
+      <dd>
+<span class="refAuthor">Szamonek, Z.</span>, <span class="refTitle">"The Need for an Alternative to IP-Based Geolocation"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-the-need-for-an-alternative-to-ip-based-geolocation-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-the-need-for-an-alternative-to-ip-based-geolocation-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="TARIQ">[TARIQ]</dt>
+      <dd>
+<span class="refAuthor">Tariq, M.</span>, <span class="refTitle">"IP Address Geolocation – Use Cases, Gaps, and Future Directions"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-ip-address-geolocation-use-cases-gaps-and-future-directions-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-ip-address-geolocation-use-cases-gaps-and-future-directions-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="VERMEULEN">[VERMEULEN]</dt>
+    <dd>
+<span class="refAuthor">Vermeulen, K.</span>, <span class="refTitle">"IP geolocation through the lens of an academic: Where do we stand?"</span>, <time datetime="2025-11" class="refDate">November 2025</time>, <span>&lt;<a href="https://www.ietf.org/slides/slides-ipgeows-paper-ip-geolocation-through-the-lens-of-an-academic-where-do-we-stand-00.pdf">https://www.ietf.org/slides/slides-ipgeows-paper-ip-geolocation-through-the-lens-of-an-academic-where-do-we-stand-00.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="position-papers">
+<section id="appendix-A">
+      <h2 id="name-position-papers">
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-position-papers" class="section-name selfRef">Position Papers</a>
+      </h2>
+<p id="appendix-A-1">30 position papers were accepted to the workshop. All papers are available at <a href="https://datatracker.ietf.org/group/ipgeows/materials/">https://datatracker.ietf.org/group/ipgeows/materials/</a>.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-2">The position papers are listed here:<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-A-3.1">
+          <p id="appendix-A-3.1.1">J. Abley: Geo-Network Operations at Cloudflare <span>[<a href="#ABLEY" class="cite xref">ABLEY</a>]</span><a href="#appendix-A-3.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.2">
+          <p id="appendix-A-3.2.1">R. Barnes: IP Geolocation is Critical for Compliance <span>[<a href="#BARNES" class="cite xref">BARNES</a>]</span><a href="#appendix-A-3.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.3">
+          <p id="appendix-A-3.3.1">J. Brown: Moving Beyond Geographic Inference <span>[<a href="#BROWN" class="cite xref">BROWN</a>]</span><a href="#appendix-A-3.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.4">
+          <p id="appendix-A-3.4.1">J. Clark: geocomply.com <span>[<a href="#CLARK" class="cite xref">CLARK</a>]</span><a href="#appendix-A-3.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.5">
+          <p id="appendix-A-3.5.1">T. Croghan: The Geolocation Conundrum for Small ISPs <span>[<a href="#CROGHAN" class="cite xref">CROGHAN</a>]</span><a href="#appendix-A-3.5.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.6">
+          <p id="appendix-A-3.6.1">N. Elkins, M. Nguyen, B. Jouris: Bridging the Gaps in IP Geolocation: Strengthening Detection and Defense Against Cyber Threats <span>[<a href="#ELKINS" class="cite xref">ELKINS</a>]</span><a href="#appendix-A-3.6.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.7">
+          <p id="appendix-A-3.7.1">M. Fayed: Does IP geolocation answer the right questions? <span>[<a href="#FAYED" class="cite xref">FAYED</a>]</span><a href="#appendix-A-3.7.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.8">
+          <p id="appendix-A-3.8.1">P. Gao, E. Lee, Y. Zhang: On the Use, Challenges, Alternatives of IP Geolocation Data <span>[<a href="#GAO" class="cite xref">GAO</a>]</span><a href="#appendix-A-3.8.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.9">
+          <p id="appendix-A-3.9.1">O. Gasser, W. Leung, M. Mouchet: Challenges of Working With Geofeeds <span>[<a href="#GASSER" class="cite xref">GASSER</a>]</span><a href="#appendix-A-3.9.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.10">
+          <p id="appendix-A-3.10.1">R. Hosfelt, B. Haberman, J. Jaeggli, S. Strowes: Position paper by Fastly <span>[<a href="#HOSFELT" class="cite xref">HOSFELT</a>]</span><a href="#appendix-A-3.10.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.11">
+          <p id="appendix-A-3.11.1">L. Howard: IP geolocation paper <span>[<a href="#HOWARD" class="cite xref">HOWARD</a>]</span><a href="#appendix-A-3.11.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.12">
+          <p id="appendix-A-3.12.1">G. Huston: Geolocation and Starlink <span>[<a href="#HUSTON" class="cite xref">HUSTON</a>]</span><a href="#appendix-A-3.12.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.13">
+          <p id="appendix-A-3.13.1">K. Izhikevich, B. Du, M. Tran, S. Rao, A. Ukani, L. Izhikevich: Trust, But Verify, Operator-Reported Geolocation <span>[<a href="#IZHIKEVICH" class="cite xref">IZHIKEVICH</a>]</span><a href="#appendix-A-3.13.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.14">
+          <p id="appendix-A-3.14.1">D. Katira, G. Grover: Incorporating user agency in internet geolocation <span>[<a href="#KATIRA" class="cite xref">KATIRA</a>]</span><a href="#appendix-A-3.14.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.15">
+          <p id="appendix-A-3.15.1">K. Khan: From Surveillance to Consent: A Privacy-First Approach to IP Geolocation <span>[<a href="#KHAN" class="cite xref">KHAN</a>]</span><a href="#appendix-A-3.15.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.16">
+          <p id="appendix-A-3.16.1">R. Kisteleki: RIPE IPmap - The RIPE NCC’s Approach to Infrastructure IP Geolocation <span>[<a href="#KISTELEKI" class="cite xref">KISTELEKI</a>]</span><a href="#appendix-A-3.16.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.17">
+          <p id="appendix-A-3.17.1">E. Kline: Anecdotal History of RFC 8805 <span>[<a href="#KLINE" class="cite xref">KLINE</a>]</span><a href="#appendix-A-3.17.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.18">
+          <p id="appendix-A-3.18.1">A. Laouar, L. Desgoerges, P. Schmitt, F. Bronzino: Rethinking Geolocalization on the Internet <span>[<a href="#LAOUAR" class="cite xref">LAOUAR</a>]</span><a href="#appendix-A-3.18.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.19">
+          <p id="appendix-A-3.19.1">S. Mathur: Improvements Ideas from an IP Geolocation API Provider <span>[<a href="#MATHUR" class="cite xref">MATHUR</a>]</span><a href="#appendix-A-3.19.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.20">
+          <p id="appendix-A-3.20.1">D. Mukherjee: Gaps and problems in current IP-Geolocation Approaches <span>[<a href="#MUKHERJEE" class="cite xref">MUKHERJEE</a>]</span><a href="#appendix-A-3.20.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.21">
+          <p id="appendix-A-3.21.1">E. Nygren, R. Dhanidina: Akamai Position Paper for 2025 IAB Workshop on IP Address Geolocation <span>[<a href="#NYGREN" class="cite xref">NYGREN</a>]</span><a href="#appendix-A-3.21.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.22">
+          <p id="appendix-A-3.22.1">N. Owens: Starlink <span>[<a href="#OWENS" class="cite xref">OWENS</a>]</span><a href="#appendix-A-3.22.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.23">
+          <p id="appendix-A-3.23.1">J. Pan, J. Zhao: GeoFeed in the wild: A case study on StarlinkISP.net <span>[<a href="#PAN" class="cite xref">PAN</a>]</span><a href="#appendix-A-3.23.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.24">
+          <p id="appendix-A-3.24.1">T. Pauly, D. Schinazi, C. McMullin, D. Mitchell: The IP Geolocation HTTP Client Hint <span>[<a href="#PAULY" class="cite xref">PAULY</a>]</span><a href="#appendix-A-3.24.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.25">
+          <p id="appendix-A-3.25.1">A. Ramanathan, S. A. Jyothi: Systematic Detection and Correction of IP Geolocation Anomalies in Network Measurements <span>[<a href="#RAMANATHAN" class="cite xref">RAMANATHAN</a>]</span><a href="#appendix-A-3.25.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.26">
+          <p id="appendix-A-3.26.1">D. Schatte: IAB Workshop on IP Address Geolocation <span>[<a href="#SCHATTE" class="cite xref">SCHATTE</a>]</span><a href="#appendix-A-3.26.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.27">
+          <p id="appendix-A-3.27.1">O. P. Sharma: Position Paper for IAB Workshop on IP Address Geolocation <span>[<a href="#SHARMA" class="cite xref">SHARMA</a>]</span><a href="#appendix-A-3.27.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.28">
+          <p id="appendix-A-3.28.1">Z. Szamonek: The Need for an Alternative to IP-Based Geolocation <span>[<a href="#SZAMONEK" class="cite xref">SZAMONEK</a>]</span><a href="#appendix-A-3.28.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.29">
+          <p id="appendix-A-3.29.1">M. Tariq: IP Address Geolocation – Use Cases, Gaps, and Future Directions <span>[<a href="#TARIQ" class="cite xref">TARIQ</a>]</span><a href="#appendix-A-3.29.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.30">
+          <p id="appendix-A-3.30.1">K. Vermeulen: IP geolocation through the lens of an academic: Where do we stand? <span>[<a href="#VERMEULEN" class="cite xref">VERMEULEN</a>]</span><a href="#appendix-A-3.30.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+</section>
+</div>
+<div id="workshop-participatns">
+<section id="appendix-B">
+      <h2 id="name-workshop-participatns">
+<a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-workshop-participatns" class="section-name selfRef">Workshop Participatns</a>
+      </h2>
+<p id="appendix-B-1">The workshop participants were Alagappan Ramanathan, Andrew Chen, Augustin Laouar, Bill Jouris,
+Bob Hinden, Brian Haberman, Calvin Ardi, Carlos Martinez, Christopher Luna, Cindy Morgan,
+Daniel Schatte, David Schinazi, Debayan Mukherjee, Dhruv Dhody, Divyank Katira, Elizabeth Cronan,
+Enock Lee, Erik Kline, Erik Nygren, Francesco Bronzino, Gannon Barnett, Geoff Huston, Glenn Deen,
+Gurshabad Grover, Haniel Abrasos Malik Hayato Kazama, Hiroki Kawabata, James Clark, Jamie Sherry,
+Jana Iyengar, Jason Livingood, Jeff Brown, Jianping Pan, Jinwei Zhao, Joe Abley, Joel Jaeggli,
+Jordan Holland, Julien Gamba, Kaitlyn Pellak, Katherine Izhikevich, Kevin Phair, Lee Howard,
+Loïc Desgeorges, Marwan Fayed, Matthew Wilder, Max Mouchet, Md. Kamruzzaman Khan, Mudassar Tariq,
+Nalini Elkins, Nathan Owens, Nobuhiro Takamizawa, Oliver Gasser, Om Prakash Sharma, Paul Gao,
+Richard Barnes, Ricky Hosfelt, Rob Seastrom, Robert Kisteleki, Sid Mathur, Stephen Strowes,
+Suresh Krishnan, Tommy Croghan, Tommy Pauly, Warren Kumari, William Leung, Yaozhong Zhang,
+Yoshiki Ishida, and Zoltan Szamonek.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="workshop-program-committee">
+<section id="appendix-C">
+      <h2 id="name-workshop-program-committee">
+<a href="#appendix-C" class="section-number selfRef">Appendix C. </a><a href="#name-workshop-program-committee" class="section-name selfRef">Workshop Program Committee</a>
+      </h2>
+<p id="appendix-C-1">The workshop program committee members were Glenn Deen, Jana Iyengar, Mirja Kühlewind,
+Warren Kumari, Jason Livingood, and Tommy Pauly.<a href="#appendix-C-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="acknowledgments">
+<section id="appendix-D">
+      <h2 id="name-acknowledgments">
+<a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
+      </h2>
+<p id="appendix-D-1">Thanks to all of the workshop participants who attended and contributed papers to this effort!<a href="#appendix-D-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="appendix-E">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jana Iyengar</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:jri.ietf@gmail.com" class="email">jri.ietf@gmail.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jason Livingood</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:Jason_Livingood@comcast.com" class="email">Jason_Livingood@comcast.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Tommy Pauly</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:tpauly@apple.com" class="email">tpauly@apple.com</a>
+</div>
+</address>
+</section>
+</div>
+<script>const toc = document.getElementById("toc");
+toc.querySelector("h2").addEventListener("click", e => {
+  toc.classList.toggle("active");
+});
+toc.querySelector("nav").addEventListener("click", e => {
+  toc.classList.remove("active");
+});
+</script>
+</body>
+</html>
