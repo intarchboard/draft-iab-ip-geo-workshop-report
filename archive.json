@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-26T02:02:20.624797+00:00",
+  "timestamp": "2026-03-01T02:20:57.292466+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -49,7 +49,24 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 4,
+      "id": "I_kwDOQr9O0c7ut_3U",
+      "title": "No normative language needed",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/issues/4",
+      "state": "CLOSED",
+      "author": "fluffy",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "One small NIT on this, I do not think it should have references to [RFC2119] & [RFC8174]. We don't use normative words in reports like this and I don't think we should.",
+      "createdAt": "2026-02-28T17:26:53Z",
+      "updatedAt": "2026-02-28T17:59:11Z",
+      "closedAt": "2026-02-28T17:59:11Z",
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
@@ -89,6 +106,104 @@
           "body": "Please approve",
           "createdAt": "2026-02-18T14:30:06Z",
           "updatedAt": "2026-02-18T14:30:06Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOQr9O0c7G0uMX",
+      "title": "Changes per Jana",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/2",
+      "state": "MERGED",
+      "author": "jlivingood",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "remove the \"what/cah/should we do, and the Conclusions section, they seem irrelevant to the flow\r\n\r\n@janaiyengar",
+      "createdAt": "2026-02-27T13:17:52Z",
+      "updatedAt": "2026-02-27T13:18:13Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "4a6cab59d0572e0c182607e0b26647f14eb50fe1",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "jana-patch",
+      "headRefOid": "e72b793b84bc39fa062459790ac3bd118fc22242",
+      "closedAt": "2026-02-27T13:18:13Z",
+      "mergedAt": "2026-02-27T13:18:13Z",
+      "mergedBy": "jlivingood",
+      "mergeCommit": {
+        "oid": "3e80449ce4cdf886d19be621df677a57dc1a1411"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOQr9O0c7G84AI",
+      "title": "Content pass over the document",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/3",
+      "state": "MERGED",
+      "author": "tfpauly",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "This is a pass (by a human!) to take the notes and transcripts from the workshop report and add them in.\r\n\r\nI'll plan to just merge this and we'll take edits are further PRs as needed.",
+      "createdAt": "2026-02-28T00:52:19Z",
+      "updatedAt": "2026-02-28T00:53:43Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "2f018a09ba81d9a3e15289879ec19b3ec4fcfdab",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "tfp/update-content",
+      "headRefOid": "38da20dbb0dd15042c7aac2b4d5f869c1121b951",
+      "closedAt": "2026-02-28T00:53:43Z",
+      "mergedAt": "2026-02-28T00:53:43Z",
+      "mergedBy": "tfpauly",
+      "mergeCommit": {
+        "oid": "72a3e1c8db77296b09544ccd0b6a27ea4ba538dc"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOQr9O0c7HBqrP",
+      "title": "update to remove not use normative lang",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/5",
+      "state": "MERGED",
+      "author": "fluffy",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #4 ",
+      "createdAt": "2026-02-28T17:34:43Z",
+      "updatedAt": "2026-02-28T17:59:10Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "72a3e1c8db77296b09544ccd0b6a27ea4ba538dc",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "no-norm",
+      "headRefOid": "0d7db5699cf25e75f8553400bf435b97e86082cc",
+      "closedAt": "2026-02-28T17:59:10Z",
+      "mergedAt": "2026-02-28T17:59:10Z",
+      "mergedBy": "tfpauly",
+      "mergeCommit": {
+        "oid": "99ca024d785ad5805b540695126f04447821bbb7"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQr9O0c7mtWSI",
+          "commit": {
+            "abbreviatedOid": "0d7db56"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-02-28T17:58:59Z",
+          "updatedAt": "2026-02-28T17:58:59Z",
           "comments": []
         }
       ]
