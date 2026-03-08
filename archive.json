@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-01T02:20:57.292466+00:00",
+  "timestamp": "2026-03-08T02:04:59.678692+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -207,6 +207,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOQr9O0c7IRkOv",
+      "title": "Effects of privacy abuse; diminishing utility of IP geolocation for compliance; consensual geolocation",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/6",
+      "state": "OPEN",
+      "author": "gurshabad",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "(Sorry for the nondescript commit messages!)\r\n\r\nSummary of changes:\r\n- Add language around effects of privacy abuse\r\n- Add point made in discussion about diminishing utlity of IP geolocation for compliance\r\n- Add example of alternate ways of achieving (consensual) geolocation\r\n\r\n",
+      "createdAt": "2026-03-05T17:33:23Z",
+      "updatedAt": "2026-03-05T17:33:24Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "99ca024d785ad5805b540695126f04447821bbb7",
+      "headRepository": "gurshabad/draft-iab-ip-geo-workshop-report",
+      "headRefName": "main",
+      "headRefOid": "f1f4e14a0b53abba633b5649634a13d1010d99ff",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
