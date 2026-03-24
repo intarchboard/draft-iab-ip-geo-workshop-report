@@ -457,9 +457,8 @@ out IPv4 addresses previously.
 
 ### Targeted Advertising
 
-The ad-tech ecosystem relies on geolocation to serve localized advertisements. While
-less critical than rights management, this represents the highest volume of
-geolocation queries globally.
+The ad-tech ecosystem relies on geolocation to serve localized advertisements. This 
+use represents the highest volume of geolocation queries globally.
 
 ### Network Optimization and CDN Selection
 
