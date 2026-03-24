@@ -423,7 +423,7 @@ or network behavior, such as:
 - Optimizing network routes and server selection, generally used to optimize Content Delivery Network (CDNs)
 
 For these use cases, errors in IP geolocation cause annoyance or performance issues,
-but are generally recoverable (the user can change the location or update their search).
+but are generally recoverable (the user can change their location preference or update their search).
 
 Other use cases treat the accuracy of the IP geolocation as a more critical piece of
 information:
