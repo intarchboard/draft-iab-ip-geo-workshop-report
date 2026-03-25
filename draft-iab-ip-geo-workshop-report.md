@@ -367,14 +367,14 @@ the Internet architecture. This long-term planning function of the IAB is comple
 to the ongoing engineering efforts performed by working groups of the
 Internet Engineering Task Force (IETF).
 
-Many services on the Internet use some form of mapping between IP addresses and a
-particular geolocation (such as inferring that traffic originating from a particular
-IP address means the traffic originates from a particular city). This is a widespread
-practice in many aspects of Internet and web traffic, even though IP addresses are
+Many services on the Internet map client IP addresses to a
+particular geolocation. For exmaple, they might infer that traffic originating from a particular
+IP address means the traffic originates from a particular city. This practice is widespread
+even though IP addresses are
 not designed or guaranteed to have a singular or fixed location associated with them.
 
-Thus, practices around IP geolocation have a significant impact on the architecture
-and realities of deploying systems on the Internet, but they frequently not documented
+Use of IP geolocation has significant impact on the architecture
+and realities of deploying systems on the Internet, but is frequently not documented
 or incompletely documented in standards.
 
 The IAB convened a virtual workshop on IP Address Geolocation from December 3-5, 2025.
