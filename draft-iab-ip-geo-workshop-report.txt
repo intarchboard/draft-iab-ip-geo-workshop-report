@@ -5,9 +5,9 @@
 Network Working Group                                         J. Iyengar
 Internet-Draft                                                          
 Intended status: Informational                              J. Livingood
-Expires: 1 September 2026                                               
+Expires: 26 September 2026                                              
                                                                 T. Pauly
-                                                        28 February 2026
+                                                           25 March 2026
 
 
          Report from the IAB Workshop on IP Address Geolocation
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 September 2026.
+   This Internet-Draft will expire on 26 September 2026.
 
 Copyright Notice
 
@@ -178,7 +178,7 @@ Table of Contents
 
    For these use cases, errors in IP geolocation cause annoyance or
    performance issues, but are generally recoverable (the user can
-   change the location or update their search).
+   change their location preference or update their search).
 
    Other use cases treat the accuracy of the IP geolocation as a more
    critical piece of information:
