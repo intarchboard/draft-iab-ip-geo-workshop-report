@@ -218,8 +218,8 @@ Table of Contents
 3.1.2.  Targeted Advertising
 
    The ad-tech ecosystem relies on geolocation to serve localized
-   advertisements.  While less critical than rights management, this
-   represents the highest volume of geolocation queries globally.
+   advertisements.  This use represents the highest volume of
+   geolocation queries globally.
 
 3.1.3.  Network Optimization and CDN Selection
 
