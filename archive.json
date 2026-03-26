@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-08T02:04:59.678692+00:00",
+  "timestamp": "2026-03-26T02:22:54.118117+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -64,6 +64,22 @@
       "createdAt": "2026-02-28T17:26:53Z",
       "updatedAt": "2026-02-28T17:59:11Z",
       "closedAt": "2026-02-28T17:59:11Z",
+      "comments": []
+    },
+    {
+      "number": 10,
+      "id": "I_kwDOQr9O0c7151jd",
+      "title": "Misleading CDN motivation",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/issues/10",
+      "state": "OPEN",
+      "author": "mnot",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "> Content Delivery Networks (CDNs) and cloud providers utilize geolocation data to route end-user traffic to the \"closest\" data center or edge node. While network latency (topological distance) is the ideal metric, physical location is often used as a heuristic for initial server selection. Misalignment here results in suboptimal routing and increased latency for users.\n\nThis is pretty problematic. CDNs (and I presume cloud providers) more often use anycast routing these days. Even When they do use DNS-based routing, they use a topological map (based upon observed performance metrics like ping times), *not* geolocation data. \n",
+      "createdAt": "2026-03-24T06:28:02Z",
+      "updatedAt": "2026-03-24T06:28:02Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -233,6 +249,152 @@
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOQr9O0c7M5Wxo",
+      "title": "Intro editorial suggestions",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/7",
+      "state": "MERGED",
+      "author": "mnot",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-03-24T06:21:29Z",
+      "updatedAt": "2026-03-25T17:07:44Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "99ca024d785ad5805b540695126f04447821bbb7",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "mnot-patch-1",
+      "headRefOid": "f451b7684e76b8dc007074f334568fa468e3c519",
+      "closedAt": "2026-03-25T17:07:44Z",
+      "mergedAt": "2026-03-25T17:07:44Z",
+      "mergedBy": "tfpauly",
+      "mergeCommit": {
+        "oid": "ad953097b1f365a603b5ef084f7822118ea113bc"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQr9O0c7u6swk",
+          "commit": {
+            "abbreviatedOid": "f451b76"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-03-25T17:07:35Z",
+          "updatedAt": "2026-03-25T17:07:35Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOQr9O0c7M5YEq",
+      "title": "Editorial tweak",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/8",
+      "state": "MERGED",
+      "author": "mnot",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-03-24T06:23:21Z",
+      "updatedAt": "2026-03-25T17:06:28Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "99ca024d785ad5805b540695126f04447821bbb7",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "mnot-patch-2",
+      "headRefOid": "7845a5aa588632e4ccde01fd0d452d0cf5496f0e",
+      "closedAt": "2026-03-25T17:06:28Z",
+      "mergedAt": "2026-03-25T17:06:28Z",
+      "mergedBy": "tfpauly",
+      "mergeCommit": {
+        "oid": "9f13f9f4da847ff5b2ee16b665d744e82a205b64"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQr9O0c7u6rL4",
+          "commit": {
+            "abbreviatedOid": "7845a5a"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-03-25T17:06:23Z",
+          "updatedAt": "2026-03-25T17:06:23Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOQr9O0c7M5Yuy",
+      "title": "Comparing 'critical' is a judgement call and not appropriate",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/9",
+      "state": "MERGED",
+      "author": "mnot",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-03-24T06:24:24Z",
+      "updatedAt": "2026-03-25T17:06:55Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "99ca024d785ad5805b540695126f04447821bbb7",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "mnot-patch-3",
+      "headRefOid": "4fde40fb4b5ea17a087096a2f54ece5f0e74cc76",
+      "closedAt": "2026-03-25T17:06:55Z",
+      "mergedAt": "2026-03-25T17:06:55Z",
+      "mergedBy": "tfpauly",
+      "mergeCommit": {
+        "oid": "135e36c6df33ff2143da8e4b0cff7324e22a541f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQr9O0c7u6pTU",
+          "commit": {
+            "abbreviatedOid": "715ddaa"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-03-25T17:05:04Z",
+          "updatedAt": "2026-03-25T17:05:04Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOQr9O0c7u6p0Y",
+          "commit": {
+            "abbreviatedOid": "715ddaa"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-03-25T17:05:25Z",
+          "updatedAt": "2026-03-25T17:05:36Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\nThe ad-tech ecosystem relies on geolocation to serve localized advertisements. This\n```",
+              "createdAt": "2026-03-25T17:05:25Z",
+              "updatedAt": "2026-03-25T17:05:36Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
