@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-26T02:22:54.118117+00:00",
+  "timestamp": "2026-04-02T02:13:02.864026+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -74,13 +74,23 @@
       "state": "OPEN",
       "author": "mnot",
       "authorAssociation": "CONTRIBUTOR",
-      "assignees": [],
+      "assignees": [
+        "mnot"
+      ],
       "labels": [],
       "body": "> Content Delivery Networks (CDNs) and cloud providers utilize geolocation data to route end-user traffic to the \"closest\" data center or edge node. While network latency (topological distance) is the ideal metric, physical location is often used as a heuristic for initial server selection. Misalignment here results in suboptimal routing and increased latency for users.\n\nThis is pretty problematic. CDNs (and I presume cloud providers) more often use anycast routing these days. Even When they do use DNS-based routing, they use a topological map (based upon observed performance metrics like ping times), *not* geolocation data. \n",
       "createdAt": "2026-03-24T06:28:02Z",
-      "updatedAt": "2026-03-24T06:28:02Z",
+      "updatedAt": "2026-04-01T14:09:33Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "jlivingood",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@mnot Seems like a very fair point. Would you mind please submitting a PR with the changes you would like? ",
+          "createdAt": "2026-04-01T14:09:23Z",
+          "updatedAt": "2026-04-01T14:09:23Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -229,26 +239,68 @@
       "id": "PR_kwDOQr9O0c7IRkOv",
       "title": "Effects of privacy abuse; diminishing utility of IP geolocation for compliance; consensual geolocation",
       "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/6",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "gurshabad",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "(Sorry for the nondescript commit messages!)\r\n\r\nSummary of changes:\r\n- Add language around effects of privacy abuse\r\n- Add point made in discussion about diminishing utlity of IP geolocation for compliance\r\n- Add example of alternate ways of achieving (consensual) geolocation\r\n\r\n",
       "createdAt": "2026-03-05T17:33:23Z",
-      "updatedAt": "2026-03-05T17:33:24Z",
+      "updatedAt": "2026-04-01T14:12:20Z",
       "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
       "baseRefName": "main",
       "baseRefOid": "99ca024d785ad5805b540695126f04447821bbb7",
       "headRepository": "gurshabad/draft-iab-ip-geo-workshop-report",
       "headRefName": "main",
       "headRefOid": "f1f4e14a0b53abba633b5649634a13d1010d99ff",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-04-01T14:12:20Z",
+      "mergedAt": "2026-04-01T14:12:20Z",
+      "mergedBy": "jlivingood",
+      "mergeCommit": {
+        "oid": "89a7748d8616908526f2bb4e60732ba9ae0810c8"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOQr9O0c7xEgFh",
+          "commit": {
+            "abbreviatedOid": "f1f4e14"
+          },
+          "author": "jlivingood",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2026-04-01T14:10:39Z",
+          "updatedAt": "2026-04-01T14:10:39Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOQr9O0c7xEhXE",
+          "commit": {
+            "abbreviatedOid": "f1f4e14"
+          },
+          "author": "jlivingood",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "also good",
+          "createdAt": "2026-04-01T14:11:24Z",
+          "updatedAt": "2026-04-01T14:11:37Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOQr9O0c7xEims",
+          "commit": {
+            "abbreviatedOid": "f1f4e14"
+          },
+          "author": "jlivingood",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "Also good",
+          "createdAt": "2026-04-01T14:12:11Z",
+          "updatedAt": "2026-04-01T14:12:11Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 7,
