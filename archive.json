@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-02T02:13:02.864026+00:00",
+  "timestamp": "2026-04-07T02:25:09.753475+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -80,7 +80,7 @@
       "labels": [],
       "body": "> Content Delivery Networks (CDNs) and cloud providers utilize geolocation data to route end-user traffic to the \"closest\" data center or edge node. While network latency (topological distance) is the ideal metric, physical location is often used as a heuristic for initial server selection. Misalignment here results in suboptimal routing and increased latency for users.\n\nThis is pretty problematic. CDNs (and I presume cloud providers) more often use anycast routing these days. Even When they do use DNS-based routing, they use a topological map (based upon observed performance metrics like ping times), *not* geolocation data. \n",
       "createdAt": "2026-03-24T06:28:02Z",
-      "updatedAt": "2026-04-01T14:09:33Z",
+      "updatedAt": "2026-04-06T22:43:57Z",
       "closedAt": null,
       "comments": [
         {
@@ -89,6 +89,20 @@
           "body": "@mnot Seems like a very fair point. Would you mind please submitting a PR with the changes you would like? ",
           "createdAt": "2026-04-01T14:09:23Z",
           "updatedAt": "2026-04-01T14:09:23Z"
+        },
+        {
+          "author": "janaiyengar",
+          "authorAssociation": "NONE",
+          "body": "@mnot -- my understanding is that geolocation data is used for routing, despite my thinking that it shouldn't be. I don't think we should remove that text.",
+          "createdAt": "2026-04-06T18:36:13Z",
+          "updatedAt": "2026-04-06T18:36:13Z"
+        },
+        {
+          "author": "mnot",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Jana - can you explain exactly what you mean? I don't dispute that CDNs and cloud providers use a 'map' of the Internet to determine how to route requests to a network-nearby server, but I don't know of any case where a GeoIP database is used in that process. Typical practice is that it's a _topological_ map, not a geographic one.",
+          "createdAt": "2026-04-06T22:43:57Z",
+          "updatedAt": "2026-04-06T22:43:57Z"
         }
       ]
     }
@@ -447,6 +461,32 @@
           ]
         }
       ]
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDOQr9O0c7QFrpY",
+      "title": "Remove misleading CDN/cloud text",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/11",
+      "state": "OPEN",
+      "author": "mnot",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #10.",
+      "createdAt": "2026-04-05T23:52:41Z",
+      "updatedAt": "2026-04-05T23:52:42Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "89a7748d8616908526f2bb4e60732ba9ae0810c8",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "mnot-patch-4",
+      "headRefOid": "5a904338dd57c6ea5a660cfb8292c2b8f8f2d26f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
