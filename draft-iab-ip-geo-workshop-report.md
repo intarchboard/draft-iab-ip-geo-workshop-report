@@ -482,12 +482,12 @@ out IPv4 addresses previously.
 The ad-tech ecosystem relies on geolocation to serve localized advertisements. This
 use represents the highest volume of geolocation queries globally.
 
-### Network Optimization and CDN Selection
+### Network Optimization and Server Selection
 
-Content Delivery Networks (CDNs) and cloud providers utilize geolocation data to
-route end-user traffic to the "closest" data center or edge node. While network
-latency (topological distance) is the ideal metric, physical location is often
-used as a heuristic for initial server selection. Misalignment here results in
+In general, Content Delivery Networks (CDNs) and cloud providers route traffic
+from clients based on optimizing network topological distance, but IP geolocation
+is also used as part of DNS-based routing systems to select servers for clients
+to reach (see {{NYGREN}} and {{BROWN}}). Misalignment here results in
 suboptimal routing and increased latency for users.
 
 ### Content Rights Management and Licensing
