@@ -582,8 +582,8 @@ stable location or a one-to-one relationship with users.
 - Privacy and lack of consent; the passive nature of looking at IP
 addresses and mapping them to locations means that users can have
 their location targeted without their knowledge, consent, or ability
-to opt out. Non-consensual geolocation also has the second-order effect 
-of IP geolocation providers profiling internet users through undisclosed 
+to opt out. Non-consensual geolocation also has the second-order effect
+of IP geolocation providers profiling internet users through undisclosed
 mechanisms to increase geolocation accuracy.
 
 - Lack of support in standardization; IP geolocation is a very impactful
@@ -624,8 +624,8 @@ location associated with the address is much bigger than the city
 inaccuracies
 - Geofeeds may be out of date or stale, without a time-to-live or refresh mechanism
 
-Some participants also expressed the diminishing utility of IP geolocation for 
-compliance due to issues with accuracy and ease of circumvention. 
+Some participants also expressed the diminishing utility of IP geolocation for
+compliance due to issues with accuracy and ease of circumvention.
 {{CLARK}}
 
 Some of the biggest challenges for providing an accurate geofeed are in dealing
@@ -676,19 +676,19 @@ As discussed in {{?RFC6973}}, IP addresses can be used as identifiers to correla
 user activity and reveal user identity. IP addresses are often considered
 Personally Identifiable Information (PII), and the correlation to geolocation
 makes this very sensitive information that can be correlated to other metadata
-that identifies users. 
+that identifies users.
 
-Commercial services enrich their datasets to improve 
-their location estimates, and can often succeed in pinpointing approximate 
+Commercial services enrich their datasets to improve
+their location estimates, and can often succeed in pinpointing approximate
 geographical coordinates and postal code of a user.
 
 The source IP addresses of a connection established by a client device working
 on behalf of a user does not come along with any specific consent for how the IP
 address will be used, and does not imply intent for geolocation or otherwise.
-In essence: 
+In essence:
 Since IP addresses were not designed for geolocating end-users, IP geolocation
- amounts to abuse of network-layer metadata to derive private information 
- about internet users without their knowledge or consent. 
+ amounts to abuse of network-layer metadata to derive private information
+ about internet users without their knowledge or consent.
 
 Virtual Private Networks (VPNs) or proxies (such as privacy proxies discussed in
 {{?RFC9614}}) allow users to anonymize their specific IP addresses to avoid
@@ -727,7 +727,7 @@ are stretching and challenging the status quo mechanisms
 assessment of client location, which IP addresses cannot always provide
 - The bar for security and privacy is increasing, challenging the
 use of passive identifiers like IP addresses being used to tag location
-- There are already ways to perform consensual geolocation at 
+- There are already ways to perform consensual geolocation at
 the application layer, such as with APIs that meet the W3C Geolocation
 specifications.
 
