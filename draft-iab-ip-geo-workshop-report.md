@@ -486,8 +486,8 @@ use represents the highest volume of geolocation queries globally.
 
 In general, Content Delivery Networks (CDNs) and cloud providers route traffic
 from clients based on optimizing network topological distance, but IP geolocation
-is also used as part of DNS-based routing systems to select servers for clients
-to reach (see {{NYGREN}} and {{BROWN}}). Misalignment here results in
+is sometimes used as an input to DNS-based routing systems to assist in server selection
+(see {{NYGREN}} and {{BROWN}}). Misalignment here results in
 suboptimal routing and increased latency for users.
 
 ### Content Rights Management and Licensing
