@@ -72,7 +72,7 @@ Table of Contents
      3.1.  Why is IP geolocation used?
        3.1.1.  Localized and Relevant Content
        3.1.2.  Targeted Advertising
-       3.1.3.  Network Optimization and CDN Selection
+       3.1.3.  Network Optimization and Server Selection
        3.1.4.  Content Rights Management and Licensing
        3.1.5.  Fraud Detection and Security
        3.1.6.  Regulatory and Legal Compliance
@@ -219,14 +219,14 @@ Table of Contents
    advertisements.  This use represents the highest volume of
    geolocation queries globally.
 
-3.1.3.  Network Optimization and CDN Selection
+3.1.3.  Network Optimization and Server Selection
 
-   Content Delivery Networks (CDNs) and cloud providers utilize
-   geolocation data to route end-user traffic to the "closest" data
-   center or edge node.  While network latency (topological distance) is
-   the ideal metric, physical location is often used as a heuristic for
-   initial server selection.  Misalignment here results in suboptimal
-   routing and increased latency for users.
+   In general, Content Delivery Networks (CDNs) and cloud providers
+   route traffic from clients based on optimizing network topological
+   distance, but IP geolocation is sometimes used as an input to DNS-
+   based routing systems to assist in server selection (see [NYGREN] and
+   [BROWN]).  Misalignment here results in suboptimal routing and
+   increased latency for users.
 
 3.1.4.  Content Rights Management and Licensing
 

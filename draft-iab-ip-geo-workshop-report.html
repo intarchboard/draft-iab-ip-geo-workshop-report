@@ -1179,7 +1179,7 @@ and opportunities to improve or replace the current practices.<a href="#section-
                     <p id="section-toc.1-1.3.2.1.2.2.1"><a href="#section-3.1.2" class="auto internal xref">3.1.2</a>.  <a href="#name-targeted-advertising" class="internal xref">Targeted Advertising</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.3">
-                    <p id="section-toc.1-1.3.2.1.2.3.1"><a href="#section-3.1.3" class="auto internal xref">3.1.3</a>.  <a href="#name-network-optimization-and-cd" class="internal xref">Network Optimization and CDN Selection</a></p>
+                    <p id="section-toc.1-1.3.2.1.2.3.1"><a href="#section-3.1.3" class="auto internal xref">3.1.3</a>.  <a href="#name-network-optimization-and-se" class="internal xref">Network Optimization and Server Selection</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.4">
                     <p id="section-toc.1-1.3.2.1.2.4.1"><a href="#section-3.1.4" class="auto internal xref">3.1.4</a>.  <a href="#name-content-rights-management-a" class="internal xref">Content Rights Management and Licensing</a></p>
@@ -1405,15 +1405,15 @@ out IPv4 addresses previously.<a href="#section-3.1.1-2" class="pilcrow">¶</a><
 use represents the highest volume of geolocation queries globally.<a href="#section-3.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="network-optimization-and-cdn-selection">
+<div id="network-optimization-and-server-selection">
 <section id="section-3.1.3">
-          <h4 id="name-network-optimization-and-cd">
-<a href="#section-3.1.3" class="section-number selfRef">3.1.3. </a><a href="#name-network-optimization-and-cd" class="section-name selfRef">Network Optimization and CDN Selection</a>
+          <h4 id="name-network-optimization-and-se">
+<a href="#section-3.1.3" class="section-number selfRef">3.1.3. </a><a href="#name-network-optimization-and-se" class="section-name selfRef">Network Optimization and Server Selection</a>
           </h4>
-<p id="section-3.1.3-1">Content Delivery Networks (CDNs) and cloud providers utilize geolocation data to
-route end-user traffic to the "closest" data center or edge node. While network
-latency (topological distance) is the ideal metric, physical location is often
-used as a heuristic for initial server selection. Misalignment here results in
+<p id="section-3.1.3-1">In general, Content Delivery Networks (CDNs) and cloud providers route traffic
+from clients based on optimizing network topological distance, but IP geolocation
+is sometimes used as an input to DNS-based routing systems to assist in server selection
+(see <span>[<a href="#NYGREN" class="cite xref">NYGREN</a>]</span> and <span>[<a href="#BROWN" class="cite xref">BROWN</a>]</span>). Misalignment here results in
 suboptimal routing and increased latency for users.<a href="#section-3.1.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
