@@ -5,9 +5,9 @@
 Network Working Group                                         J. Iyengar
 Internet-Draft                                                          
 Intended status: Informational                              J. Livingood
-Expires: 26 September 2026                                              
+Expires: 10 October 2026                                                
                                                                 T. Pauly
-                                                           25 March 2026
+                                                            8 April 2026
 
 
          Report from the IAB Workshop on IP Address Geolocation
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 September 2026.
+   This Internet-Draft will expire on 10 October 2026.
 
 Copyright Notice
 
@@ -337,7 +337,10 @@ Table of Contents
    *  Privacy and lack of consent; the passive nature of looking at IP
       addresses and mapping them to locations means that users can have
       their location targeted without their knowledge, consent, or
-      ability to opt out.
+      ability to opt out.  Non-consensual geolocation also has the
+      second-order effect of IP geolocation providers profiling internet
+      users through undisclosed mechanisms to increase geolocation
+      accuracy.
 
    *  Lack of support in standardization; IP geolocation is a very
       impactful part of deployment realities and heavily influences the
@@ -386,6 +389,10 @@ Table of Contents
 
    *  Geofeeds may be out of date or stale, without a time-to-live or
       refresh mechanism
+
+   Some participants also expressed the diminishing utility of IP
+   geolocation for compliance due to issues with accuracy and ease of
+   circumvention.  [CLARK]
 
    Some of the biggest challenges for providing an accurate geofeed are
    in dealing with satellite networks or mobile networks using Carrier-
@@ -443,20 +450,27 @@ Table of Contents
    correlation to geolocation makes this very sensitive information that
    can be correlated to other metadata that identifies users.
 
+   Commercial services enrich their datasets to improve their location
+   estimates, and can often succeed in pinpointing approximate
+   geographical coordinates and postal code of a user.
+
    The source IP addresses of a connection established by a client
    device working on behalf of a user does not come along with any
    specific consent for how the IP address will be used, and does not
-   imply intent.
+   imply intent for geolocation or otherwise.  In essence: Since IP
+   addresses were not designed for geolocating end-users, IP geolocation
+   amounts to abuse of network-layer metadata to derive private
+   information about internet users without their knowledge or consent.
 
    Virtual Private Networks (VPNs) or proxies (such as privacy proxies
    discussed in [RFC9614]) allow users to anonymize their specific IP
-   addresses to avoid correlation.  However, this can also come with a
-   degredation in behavior by servers that rely on IP geolocation
-   services to determine how to serve content.  Sometimes VPNs or
-   proxies intentionally obfuscate or change how the user is represented
-   to IP geolocation providers; but other deployments of privacy
-   services do use geofeeds to preserve the general user location to
-   avoid user experience or compliance issues.
+   addresses to avoid correlation, and are often used partly for this
+   purpose.  [DUTKOWSKA-ZUK]
+
+   Sometimes VPNs or proxies intentionally obfuscate or change how the
+   user is represented to IP geolocation providers; but other
+   deployments of privacy services do use geofeeds to preserve the
+   general user location to avoid user experience or compliance issues.
 
 5.  Considering the future of geolocation
 
@@ -493,6 +507,10 @@ Table of Contents
    *  The bar for security and privacy is increasing, challenging the
       use of passive identifiers like IP addresses being used to tag
       location
+
+   *  There are already ways to perform consensual geolocation at the
+      application layer, such as with APIs that meet the W3C Geolocation
+      specifications.
 
    These various motivations and pressures are often in conflict, and
    create requirements in different directions.  Economic and regulatory
@@ -632,6 +650,13 @@ Table of Contents
               November 2025, <https://www.ietf.org/slides/slides-
               ipgeows-paper-the-geolocation-conundrum-for-small-isps-
               00.pdf>.
+
+   [DUTKOWSKA-ZUK]
+              Dutkowska-Zuk, A., Hounsel, A., Morrill, A., Xiong, A.,
+              Chetty, M., and N. Feamster, "How and Why People Use
+              Virtual Private Networks", August 2022,
+              <https://www.usenix.org/system/files/sec22-dutkowska-
+              zuk.pdf>.
 
    [ELKINS]   Elkins, N., Nguyen, M., and B. Jouris, "Bridging the Gaps
               in IP Geolocation: Strengthening Detection and Defense
