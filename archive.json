@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-09T02:12:28.396568+00:00",
+  "timestamp": "2026-05-17T03:24:16.020887+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -673,6 +673,59 @@
               "body": "```suggestion\nis sometimes used as an input to DNS-based routing systems to assist in server selection\n(see {{NYGREN}} and {{BROWN}}). Misalignment here results in\n```",
               "createdAt": "2026-04-08T22:33:45Z",
               "updatedAt": "2026-04-08T22:33:45Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDOQr9O0c7bgCuJ",
+      "title": "Fix typos and enhance clarity in workshop report",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/14",
+      "state": "OPEN",
+      "author": "acbegen",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Corrected typos and improved clarity in the draft report.",
+      "createdAt": "2026-05-14T11:40:50Z",
+      "updatedAt": "2026-05-14T11:42:53Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "f23733a17896e2d9b1cf4eba47b706efa61f6a90",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "acbegen-patch-1",
+      "headRefOid": "00c3189ebd18d668bb36c93332966c6c860fb5f5",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQr9O0c7_rigQ",
+          "commit": {
+            "abbreviatedOid": "00c3189"
+          },
+          "author": "copilot-pull-request-reviewer",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "## Pull request overview\n\nThis PR corrects typos and improves phrasing in the IP geolocation workshop report draft.\n\n**Changes:**\n- Fixes spelling errors and capitalization of Internet-related terminology.\n- Improves sentence clarity and grammar across several report sections.\n- Normalizes citation placement and some terminology.\n\n\n\n\n\n---\n\n\ud83d\udca1 <a href=\"/intarchboard/draft-iab-ip-geo-workshop-report/new/main?filename=.github/instructions/*.instructions.md\" class=\"Link--inTextBlock\" target=\"_blank\" rel=\"noopener noreferrer\">Add Copilot custom instructions</a> for smarter, more guided reviews. <a href=\"https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot\" class=\"Link--inTextBlock\" target=\"_blank\" rel=\"noopener noreferrer\">Learn how to get started</a>.",
+          "createdAt": "2026-05-14T11:42:52Z",
+          "updatedAt": "2026-05-14T11:42:53Z",
+          "comments": [
+            {
+              "originalPosition": 229,
+              "body": "The updated sentence still has a comma separating the compound subject from its verb: \u201cThe technical community and the various stakeholders in the ecosystem, play\u2026\u201d. Remove this comma so the subject flows directly into \u201cplay\u201d.\n",
+              "createdAt": "2026-05-14T11:42:52Z",
+              "updatedAt": "2026-05-14T11:42:53Z"
+            },
+            {
+              "originalPosition": 69,
+              "body": "\u201cMapping from IP address to the location\u201d is grammatically unclear because \u201cthe location\u201d has no specific antecedent here. Consider using \u201ca location\u201d or restoring the more general \u201clocation\u201d phrasing.\n",
+              "createdAt": "2026-05-14T11:42:53Z",
+              "updatedAt": "2026-05-14T11:42:53Z"
             }
           ]
         }
