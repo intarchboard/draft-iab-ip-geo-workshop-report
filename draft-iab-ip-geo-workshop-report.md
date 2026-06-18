@@ -390,12 +390,12 @@ to the ongoing engineering efforts performed by working groups of the
 Internet Engineering Task Force (IETF).
 
 Many services on the Internet map client IP addresses to a
-particular geolocation. For exmaple, they might infer that traffic originating from a particular
+particular geolocation. For example, they might infer that traffic originating from a particular
 IP address means the traffic originates from a particular city. This practice is widespread
 even though IP addresses are
 not designed or guaranteed to have a singular or fixed location associated with them.
 
-Use of IP geolocation has significant impact on the architecture
+Use of IP geolocation has a significant impact on the architecture
 and realities of deploying systems on the Internet, but is frequently not documented
 or incompletely documented in standards.
 
@@ -426,18 +426,18 @@ Throughout this document, the following terms are used:
 to one or more physical locations.
 
 - A "geofeed" refers to a file that provides IP geolocation information.
-In this document, this is usually specifically referring to the format defined
+In this document, this usually refers specifically to the format defined
 in {{?GEOFEED=RFC8805}}.
 
 # Current uses of IP geolocation {#use-cases}
 
 The initial discussion of the workshop focused on identifying the current
 use cases for IP geolocation, and how they interact with today's mechanisms
-and ecosystem around IP geolocation.
+and the ecosystem around IP geolocation.
 
 ## Why is IP geolocation used?
 
-Some of the identified use cases were focused on optimizations to user experience
+Some of the identified use cases were focused on optimizations to the user experience
 or network behavior, such as:
 
 - Automatically choosing appropriate language or regional settings for content
@@ -469,7 +469,7 @@ of the current geofeed format {{GEOFEED}} was to improve how search results
 were displayed based on client IP addresses. When users are performing
 searches or accessing sites that localize content, and the IP geolocation is
 incorrect, the user may be presented with content that is not relevant
-(seeing results for a far away city when searching for "pizza near me")
+(seeing results for a faraway city when searching for "pizza near me")
 or isn't localized appropriately (seeing content in an unexpected language,
 or prices in an unexpected currency).
 
@@ -484,7 +484,7 @@ use represents the highest volume of geolocation queries globally.
 
 ### Network Optimization and Server Selection
 
-In general, Content Delivery Networks (CDNs) and cloud providers route traffic
+In general, CDNs and cloud providers route traffic
 from clients based on optimizing network topological distance, but IP geolocation
 is sometimes used as an input to DNS-based routing systems to assist in server selection
 (see {{NYGREN}} and {{BROWN}}). Misalignment here results in
@@ -494,7 +494,7 @@ suboptimal routing and increased latency for users.
 
 A primary driver for IP geolocation remains the enforcement of territorial licensing
 agreements for streaming video, which is the largest volume of data at peak hour on
-the internet today. Streaming services and media broadcasters rely heavily on
+the Internet today. Streaming services and media broadcasters rely heavily on
 IP-to-location mapping to restrict content availability based on country or region
 (Geo-blocking). Participants noted that this creates a high-stakes environment where accuracy is directly tied to contractual compliance.
 
@@ -523,7 +523,7 @@ Resource Public Key Infrastructure (RPKI).
 Often, servers that are checking IP geolocation information are not directly
 consuming geofeed information, but instead use the services of one or more
 IP geolocation providers. These services provide not only a mapping from IP
-address to location, but add in other information, such as notions of
+address to the location, but add in other information, such as notions of
 IP address "reputation" (indicating if they think this IP address represents
 traffic from a human user, an automated bot, or a malicious attacker) or
 a categorization (indicating if an address is associated with proxied or
@@ -532,7 +532,7 @@ VPN traffic).
 IP geolocation providers use various signals to improve the
 accuracy of their mapping from IP address to location, and have notions
 of confidence in the validity of the mapping. The workshop noted that
-various providers won't necessarily agree on mappings; and, even when
+various providers won't necessarily agree on mappings, and even when
 they do agree, that does not guarantee that the mapping is accurate.
 Additionally, the certainty around a location mapping is not something
 expressed in a standard format for geofeeds, so ambiguity is hidden.
@@ -545,7 +545,7 @@ users at different locations behind a single address.
 
 ## What does IP geolocation mean?
 
-One of the key points that was raised in discussion was that different use cases
+One of the key points that was raised in the discussion was that different use cases
 and different parties involved in using IP geolocation can have vastly different assumptions
 about what a particular IP-address-to-location mapping means. For any use case or
 deployment, a question needs to be asked: what is the claim being made about
@@ -563,7 +563,7 @@ any ontology to describe what these mappings are claiming.
 
 # IP geolocation gaps & issues {#gaps-issues}
 
-The workshop also focused discussion around identifying challenges with
+The workshop also focused on identifying challenges with
 the status quo mechanisms, specifically looking at gaps in current solutions
 and issues that they raise.
 
@@ -571,7 +571,7 @@ These issues fall into different categories, detailed here.
 
 ## Architectural issues
 
-At an achitectural level, IP addresses are not designed to be indications
+At an architectural level, IP addresses are not designed to be indications
 of physical location. This point was brought up in many contexts. This
 underlying issue causes various problems:
 
@@ -582,8 +582,8 @@ stable location or a one-to-one relationship with users.
 - Privacy and lack of consent; the passive nature of looking at IP
 addresses and mapping them to locations means that users can have
 their location targeted without their knowledge, consent, or ability
-to opt out. Non-consensual geolocation also has the second-order effect
-of IP geolocation providers profiling internet users through undisclosed
+to opt out. Non-consensual geolocation also has a second-order effect
+of IP geolocation providers profiling Internet users through undisclosed
 mechanisms to increase geolocation accuracy.
 
 - Lack of support in standardization; IP geolocation is a very impactful
@@ -606,7 +606,7 @@ but ends up being used as such in some scenarios.
 
 ## Geofeed gaps and inaccuracies
 
-Many of the issues raised were concerned with specifics of geofeeds.
+Many of the issues raised were concerned with the specifics of geofeeds.
 These take various forms, such as details that cannot currently be expressed
 in geofeeds, or inaccurate content in feeds.
 
@@ -625,13 +625,12 @@ inaccuracies
 - Geofeeds may be out of date or stale, without a time-to-live or refresh mechanism
 
 Some participants also expressed the diminishing utility of IP geolocation for
-compliance due to issues with accuracy and ease of circumvention.
-{{CLARK}}
+compliance due to issues with accuracy and ease of circumvention {{CLARK}}.
 
 Some of the biggest challenges for providing an accurate geofeed are in dealing
 with satellite networks or mobile networks using Carrier-Grade NATs (CGNAT).
 A client device may have a particular true location, but its traffic may exit
-to the internet via a gateway in a different region. Geo-locating the IP
+to the Internet via a gateway in a different region. Geo-locating the IP
 identifies the gateway, not the user, rendering the data coarse or misleading
 for hyper-local applications.
 
@@ -639,7 +638,7 @@ While country-level accuracy in geofeedds is generally high (estimated >95%), ci
 or coordinate-level accuracy degrades significantly. Participants noted instances
 where IP geolocation defaults to the geographical center of a country or state
 when specific data is missing, creating "digital sinkholes" (e.g., a farm in
-Kansas mapped to millions of IP addresses).
+Kansas is mapped to millions of IP addresses).
 
 ## Ecosystem issues
 
@@ -651,8 +650,8 @@ techniques. Methodologies for determining location are proprietary, and
 there is no standardized feedback loop for Internet Service Providers (ISPs)
 to correct erroneous data in third-party databases.
 
-Additionally, updating the version of a IP geolocation database used by a server
-is asynchronous, and can be a manual process. When there is a major change, such
+Additionally, updating the version of an IP geolocation database used by a server
+is asynchronous and can be a manual process. When there is a major change, such
 as when an IP address block is transferred from an ISP in Asia to one in Europe,
 the addresses may remain "located" in Asia in some databases for weeks or months.
 
@@ -663,7 +662,7 @@ leading to persistent misidentification of the new owners' locations.
 
 ## Location-based issues
 
-Assigning geolocation to addresses is fraught with issues around location borders.
+Assigning geolocation to addresses is fraught with issues related to location boundaries.
 The discussion covered anecdotes of incorrect behavior that came from mobile
 devices being used near jurisdictional borders between two countries, where
 the device's IP geolocation could frequently "jump" between countries. Similarly,
@@ -688,20 +687,20 @@ address will be used, and does not imply intent for geolocation or otherwise.
 In essence:
 Since IP addresses were not designed for geolocating end-users, IP geolocation
  amounts to abuse of network-layer metadata to derive private information
- about internet users without their knowledge or consent.
+ about Internet users without their knowledge or consent.
 
 Virtual Private Networks (VPNs) or proxies (such as privacy proxies discussed in
 {{?RFC9614}}) allow users to anonymize their specific IP addresses to avoid
-correlation, and are often used partly for this purpose. {{DUTKOWSKA-ZUK}}
+correlation, and are often used partly for this purpose {{DUTKOWSKA-ZUK}}.
 
 Sometimes VPNs or proxies intentionally obfuscate or change how the user is
-represented to IP geolocation providers; but other deployments of privacy services
+represented to IP geolocation providers, but other deployments of privacy services
 do use geofeeds to preserve the general user location to avoid user experience
 or compliance issues.
 
 # Considering the future of geolocation {#future}
 
-The final day of the workshop focused on next steps around IP geolocation,
+The final day of the workshop focused on the next steps around IP geolocation,
 both in how to improve mechanisms and in how to build mechanisms that address
 the use cases in new ways.
 
@@ -712,7 +711,7 @@ parts of how the Internet functions have been established based on assumptions.
 
 However, it was also recognized that the role and functionality of IP geolocation
 can change, and in many ways ought to change. This section discusses some
-of the considerations raised, and suggests next steps.
+of the considerations raised and suggests next steps.
 
 ## Why should IP geolocation change?
 
@@ -723,20 +722,20 @@ were raised:
 to scale well and continue to be used effectively
 - New network deployments, such as satellite networks and privacy proxies,
 are stretching and challenging the status quo mechanisms
-- Pressure from new policies or regulations add requirements for accurate
+- Pressure from new policies or regulations adds requirements for accurate
 assessment of client location, which IP addresses cannot always provide
 - The bar for security and privacy is increasing, challenging the
-use of passive identifiers like IP addresses being used to tag location
+use of passive identifiers, like IP addresses being used to tag location
 - There are already ways to perform consensual geolocation at
 the application layer, such as with APIs that meet the W3C Geolocation
 specifications.
 
-These various motivations and pressures are often in conflict, and create
+These various motivations and pressures are often in conflict and create
 requirements in different directions. Economic and regulatory incentives
 have shaped the status quo mechanisms, and will continue to shape the evolution
 of this space.
 
-The technical community, and the various stakeholders in the ecosystem,
+The technical community and the various stakeholders in the ecosystem,
 play an important role in deciding how to handle these pressures and drive
 the change in the space of IP geolocation.
 
@@ -776,7 +775,7 @@ able to solve, and what problems they are ill-suited for.
 there need to be clear plans for transitions and incremental adoption.
 - New solutions need to avoid "ossification" and build in ways to continue to evolve
 and update.
-- New solutions should be careful designed to avoid creating worse privacy problems. For example,
+- New solutions should be carefully designed to avoid creating worse privacy problems. For example,
 a pressure to have explicit signals for location could lead to increased sharing of more
 specific user location coordinates (such as from GPS data).
 - It is unlikely that any one new technical solution can address the various use cases
@@ -803,7 +802,7 @@ Some of the stakeholders include, but are not limited to:
 - VPN / proxy operators and vendors
 - IP address leasers
 - Policymakers
-- End users
+- End-users
 
 The exact shape of a forum for this community is not yet determined, but this
 report encourages further work and discussion in this space.
@@ -855,7 +854,7 @@ The position papers are listed here:
 * M. Tariq: IP Address Geolocation – Use Cases, Gaps, and Future Directions {{TARIQ}}
 * K. Vermeulen: IP geolocation through the lens of an academic: Where do we stand? {{VERMEULEN}}
 
-# Workshop Participatns
+# Workshop Participants
 
 The workshop participants were Alagappan Ramanathan, Andrew Chen, Augustin Laouar, Bill Jouris,
 Bob Hinden, Brian Haberman, Calvin Ardi, Carlos Martinez, Christopher Luna, Cindy Morgan,
