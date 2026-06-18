@@ -15,24 +15,25 @@ using IP addresses as indicators of geolocation, explored various problems and
 challenges that exist in that ecosystem, and discussed future directions
 and opportunities to improve or replace the current practices. 
     " name="description">
-<meta content="xml2rfc 3.32.0" name="generator">
+<meta content="xml2rfc 3.34.0" name="generator">
 <meta content="geolocation" name="keyword">
 <meta content="privacy" name="keyword">
 <meta content="geofeed" name="keyword">
 <meta content="draft-iab-ip-geo-workshop-report-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.32.0
-    Python 3.12.12
-    ConfigArgParse 1.7
+  xml2rfc 3.34.0
+    Python 3.14.5
+    ConfigArgParse 1.7.5
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 6.0.2
-    platformdirs 4.9.4
+    lxml 6.1.1
+    natsort 8.4.0
+    platformdirs 4.10.0
     pycountry 24.6.1
     PyYAML 6.0.3
-    requests 2.32.5
-    wcwidth 0.6.0
+    requests 2.33.1
+    wcwidth 0.8.1
 -->
 <link href="draft-iab-ip-geo-workshop-report.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -299,16 +300,19 @@ h1, h2, h3, h4, h5, h6 {
   font-size-adjust: 0.5;
   color: var(--title-color);
 }
-h1#title {
-  font-size: 32px;
-  line-height: 40px;
-  clear: both;
-}
-h1#title, h1#rfcnum {
-  margin: 1.5em 0 0.2em;
-}
-h1#rfcnum + h1#title {
-  margin: 0.2em 0;
+h1 {
+  &#title {
+    font-size: 32px;
+    line-height: 40px;
+    clear: both;
+    margin: 1.5em 0 0.2em;
+  }
+  &#rfcnum {
+    margin: 1.5em 0 0.2em;
+    & + h1#title {
+      margin: 0.2em 0;
+    }
+  }
 }
 
 h1, h2, h3 {
@@ -328,10 +332,10 @@ h4, h5, h6 {
 #abstract+p {
   font-size: 18px;
   line-height: 24px;
-}
-#abstract+p code, #abstract+p samp, #abstract+p tt {
-  font-size: 16px;
-  line-height: 0;
+  & code, & samp, & tt {
+    font-size: 16px;
+    line-height: 0;
+  }
 }
 
 p {
@@ -342,59 +346,59 @@ p {
 div {
   margin: 0;
 }
-.alignRight.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignRight.art-text pre {
-  padding: 0;
-  width: auto;
-}
 .alignRight {
   margin: 1em 0;
-}
-.alignRight > *:first-child {
-  border: none;
-  margin: 0;
-  float: right;
-  clear: both;
-}
-.alignRight > *:nth-child(2) {
-  clear: both;
-  display: block;
-  border: none;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    margin: 0;
+    float: right;
+    clear: both;
+  }
+  & > *:nth-child(2) {
+    clear: both;
+    display: block;
+    border: none;
+  }
 }
 svg {
   display: block;
-}
-/* font-family isn't space-separated, but =~ will have to do */
-svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
-  font-family: var(--font-mono);
-}
-.alignCenter.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignCenter.art-text pre {
-  padding: 0;
-  width: auto;
+  /* font-family isn't space-separated, but =~ will have to do */
+  &[font-family~="monospace" i], & [font-family~="monospace" i] {
+    font-family: var(--font-mono);
+  }
 }
 .alignCenter {
   margin: 1em 0;
-}
-.alignCenter > *:first-child {
-  border: none;
-  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
-     support flexbox yet.
-  */
-  display: table;
-  margin: 0 auto;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+       support flexbox yet.
+    */
+    display: table;
+    margin: 0 auto;
+  }
 }
 
 /* lists */
@@ -432,26 +436,25 @@ dl {
     --indent: 5ch;
     & > dt {
       min-width: calc(var(--indent) - 2ch);
+      float: none;
     }
-  }
-  &.olPercent > dt {
-    float: none;
   }
 
   dl > dd > & {
     margin-top: 0.5em;
     margin-bottom: 0;
   }
-}
-dl:not(.dlNewline) > dt {
-  float: left;
-  margin-right: 2ch;
-  min-width: 8ch;
-}
-dl > dd {
-  margin-bottom: .8em;
-  margin-left: var(--indent) !important; /* stupid element overrides */
-  min-height: 2ex;
+
+  &:not(.dlNewline) > dt {
+    float: left;
+    margin-right: 2ch;
+    min-width: 8ch;
+  }
+  & > dd {
+    margin-bottom: .8em;
+    margin-left: var(--indent) !important; /* stupid element overrides */
+    min-height: 2ex;
+  }
 }
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
@@ -467,20 +470,22 @@ dl > dd {
 }
 
 /* links */
-a, a[href].selfRef:hover {
+a {
   text-decoration: none;
+  &[href] {
+    color: var(--link-color);
+    &:hover { text-decoration: underline; }
+    &.selfRef {
+      color: var(--text-color);
+      &:hover {
+        text-decoration: none;
+        background-color: var(--highlight-color);
+      }
+    }
+  }
 }
-a[href] {
-  color: var(--link-color);
-}
-a[href].selfRef, .iref + a[href].internal {
+.iref + a[href].internal {
   color: var(--text-color);
-}
-a[href]:hover {
-  text-decoration: underline;
-}
-a[href].selfRef:hover {
-  background-color: var(--highlight-color);
 }
 a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
   white-space: nowrap;
@@ -516,9 +521,9 @@ img {
 figure {
   margin: 0.5em 0;
   padding: 0;
-}
-figure blockquote {
-  margin: 0.8em 0.4em 0.4em;
+  & blockquote {
+    margin: 0.8em 0.4em 0.4em;
+  }
 }
 figcaption, caption {
   font-style: italic;
@@ -528,17 +533,19 @@ figcaption, caption {
 }
 @media screen {
   /* Auto-collapse boilerplate. */
-  :is(#status-of-memo, #copyright) p {
-    margin: -2px 0;
-    max-height: 0;
-    transition: max-height 2s ease, margin 0.5s ease 0.5s;
-    overflow: hidden;
-  }
-  :is(#status-of-memo, #copyright):hover p,
-  :is(#status-of-memo, #copyright) h2:target ~ p {
-    margin: 0.5em 0;
-    max-height: 500px;
-    overflow: auto;
+  :is(#status-of-memo, #copyright) {
+    & p {
+      margin: -2px 0;
+      max-height: 0;
+      transition: max-height 2s ease, margin 0.5s ease 0.5s;
+      overflow: hidden;
+    }
+    &:hover p,
+    & h2:target ~ p {
+      margin: 0.5em 0;
+      max-height: 500px;
+      overflow: auto;
+    }
   }
   pre, svg {
     display: inline-block;
@@ -588,25 +595,17 @@ table {
   max-width: 100%;
   margin: 0 0 1em;
   border-collapse: collapse;
-}
-table.right {
-  margin-left: auto;
-}
-table.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-table.left {
-  margin-right: auto;
-}
-table .text-left {
-  text-align: left;
-}
-table .text-center {
-  text-align: center;
-}
-table .text-right {
-  text-align: right;
+  &.right { margin-left: auto; }
+  &.center { margin-left: auto; margin-right: auto; }
+  &.left { margin-right: auto; }
+  & .text-left { text-align: left; }
+  & .text-center { text-align: center; }
+  & .text-right { text-align: right; }
+  & caption {
+    margin: 0;
+    padding: 3px 0 3px 1em;
+  }
+  & p { margin: 0; }
 }
 
 thead, tbody {
@@ -626,13 +625,6 @@ th {
 :is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
   background-color: var(--highlight-color);
 }
-table caption {
-  margin: 0;
-  padding: 3px 0 3px 1em;
-}
-table p {
-  margin: 0;
-}
 
 /* pilcrow */
 a.pilcrow {
@@ -643,18 +635,16 @@ a.pilcrow {
     color: var(--pilcrow-weak);
     &:hover { text-decoration: none; }
   }
-}
-@media not print {
-  :hover > a.pilcrow, a.pilcrow:focus {
-    opacity: 1;
+  @media not print {
+    :hover > &, &:focus {
+      opacity: 1;
+    }
+    &[href]:hover {
+      color: var(--pilcrow-strong);
+      background-color: transparent;
+    }
   }
-  a.pilcrow[href]:hover {
-    color: var(--pilcrow-strong);
-    background-color: transparent;
-  }
-}
-@media print {
-  a.pilcrow {
+  @media print {
     display: none;
   }
 }
@@ -713,9 +703,9 @@ sub, sup {
   font-size: 0.9em;
   font-style: italic;
   margin-top: 2em;
-}
-.docInfo .prepared {
-  float: right;
+  & .prepared {
+    float: right;
+  }
 }
 
 /* table of contents */
@@ -805,23 +795,27 @@ hr.addr {
   max-width: calc(100% - 16px);
 }
 @media (min-width: 500px) {
-  #authors-addresses > section {
-    column-count: 2;
-    column-gap: 20px;
-  }
-  #authors-addresses > section > h2 {
-    column-span: all;
-  }
-  /* hack for break-inside: avoid-column */
-  #authors-addresses address {
-    display: inline-block;
-    break-inside: avoid-column;
+  #authors-addresses {
+    & > section {
+      column-count: 2;
+      column-gap: 20px;
+    }
+    & > section > h2 {
+      column-span: all;
+    }
+    /* hack for break-inside: avoid-column */
+    & address {
+      display: inline-block;
+      break-inside: avoid-column;
+    }
   }
 }
 
 /* Comments */
-.rfcEditorRemove p:first-of-type {
-  font-style: italic;
+.rfcEditorRemove {
+  & p:first-of-type {
+    font-style: italic;
+  }
 }
 .cref {
   background-color: rgba(249, 232, 105, 0.3);
@@ -832,19 +826,21 @@ hr.addr {
 }
 
 @media screen {
-  #toc nav {
-    font-family: var(--font-title);
-    font-weight: 360;
-    & > ul { margin-bottom: 2em; }
-    & ul {
-      margin: 0 0 0 4px;
-      & :is(p, li) {
-        margin: 2px 0;
+  #toc {
+    & nav {
+      font-family: var(--font-title);
+      font-weight: 360;
+      & > ul { margin-bottom: 2em; }
+      & ul {
+        margin: 0 0 0 4px;
+        & :is(p, li) {
+          margin: 2px 0;
+        }
       }
     }
-  }
-  #toc a.toplink {
-    float: right;
+    & a.toplink {
+      float: right;
+    }
   }
 }
 @media not screen {
@@ -865,54 +861,54 @@ hr.addr {
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 2px 0 2px 6px;
-    padding-right: 1em;
-    font-size: 18px;
-    line-height: 24px;
-    min-width: 190px;
-    text-align: right;
-    background-color: #444;
-    color: white;
-    cursor: pointer;
-    &::before { /* css hamburger */
-      float: right;
-      position: relative;
-      width: 1em;
-      height: 1px;
-      left: -164px;
-      margin: 8px 0 0 0;
-      background: white none repeat scroll 0 0;
-      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
-      content: "";
+    & h2 {
+      margin: 0;
+      padding: 2px 0 2px 6px;
+      padding-right: 1em;
+      font-size: 18px;
+      line-height: 24px;
+      min-width: 190px;
+      text-align: right;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      &::before { /* css hamburger */
+        float: right;
+        position: relative;
+        width: 1em;
+        height: 1px;
+        left: -164px;
+        margin: 8px 0 0 0;
+        background: white none repeat scroll 0 0;
+        box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+        content: "";
+      }
     }
-  }
-  #toc nav {
-    display: none;
-    background-color: var(--background-color);
-    padding: 0.5em 1em 1em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    height: calc(100vh - 48px);
-    border-left: 1px solid #ddd;
-  }
-  #toc.active {
-    opacity: 1;
-    & nav { display: block; }
-  }
-  /* Make the collapsed ToC header render white on gray also when it's a link */
-  #toc h2 a,
-  #toc h2 a:is(:link, :focus, :hover),
-  #toc a.toplink,
-  #toc a.toplink:hover {
-    color: white;
-    background-color: #444;
-    text-decoration: none;
-  }
-  #toc a.toplink {
-    margin: 2px 0.5em 0;
+    & nav {
+      display: none;
+      background-color: var(--background-color);
+      padding: 0.5em 1em 1em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      height: calc(100vh - 48px);
+      border-left: 1px solid #ddd;
+    }
+    &.active {
+      opacity: 1;
+      & nav { display: block; }
+    }
+    /* Make the collapsed ToC header render white on gray also when it's a link */
+    & h2 a,
+    & h2 a:is(:link, :focus, :hover),
+    & a.toplink,
+    & a.toplink:hover {
+      color: white;
+      background-color: #444;
+      text-decoration: none;
+    }
+    & a.toplink {
+      margin: 2px 0.5em 0;
+    }
   }
 }
 
@@ -931,26 +927,26 @@ hr.addr {
     margin: 0;
     padding: 0;
     z-index: 1;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 0.25em 1em 1em 0;
-  }
-  #toc nav {
-    display: block;
-    height: calc(90vh - 84px);
-    bottom: 0;
-    padding: 0.5em 0 2em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
+    & h2 {
+      margin: 0;
+      padding: 0.25em 1em 1em 0;
+    }
+    & nav {
+      display: block;
+      height: calc(90vh - 84px);
+      bottom: 0;
+      padding: 0.5em 0 2em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+    & a.toplink {
+      margin: 8px 0.5em 0;
+    }
   }
   img { /* future proofing */
     max-width: 100%;
     height: auto;
-  }
-  #toc a.toplink {
-    margin: 8px 0.5em 0;
   }
 }
 
@@ -966,12 +962,13 @@ hr.addr {
   #n-copyright-notice {
     border-bottom: none;
   }
-  #toc, #n-introduction {
-    page-break-before: always;
-  }
   #toc {
+    page-break-before: always;
     border-top: none;
     padding-top: 0;
+  }
+  #n-introduction {
+    page-break-before: always;
   }
   figure, pre, .vcard {
     page-break-inside: avoid;
@@ -1033,17 +1030,19 @@ hr.addr {
 }
 
 /* SVG Trick: a prefix match works because only black and white are allowed */
-svg :is([stroke="black"], [stroke^="#000"]) {
-  stroke: var(--text-color);
-}
-svg :is([stroke="white"], [stroke^="#fff"]) {
-  stroke: var(--background-color);
-}
-svg :is([fill="black"], [fill^="#000"], :not([fill])) {
-  fill: var(--text-color);
-}
-svg :is([fill="white"], [fill^="#fff"]) {
-  fill: var(--background-color);
+svg {
+  & :is([stroke="black"], [stroke^="#000"]) {
+    stroke: var(--text-color);
+  }
+  & :is([stroke="white"], [stroke^="#fff"]) {
+    stroke: var(--background-color);
+  }
+  & :is([fill="black"], [fill^="#000"], :not([fill])) {
+    fill: var(--text-color);
+  }
+  & :is([fill="white"], [fill^="#fff"]) {
+    fill: var(--background-color);
+  }
 }
 </style>
 
@@ -1053,11 +1052,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">IP-Geo Workshop</td>
-<td class="right">April 2026</td>
+<td class="right">June 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Iyengar, et al.</td>
-<td class="center">Expires 10 October 2026</td>
+<td class="center">Expires 20 December 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1070,12 +1069,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-iab-ip-geo-workshop-report-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-04-08" class="published">8 April 2026</time>
+<time datetime="2026-06-18" class="published">18 June 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-10-10">10 October 2026</time></dd>
+<dd class="expires"><time datetime="2026-12-20">20 December 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1129,7 +1128,7 @@ and opportunities to improve or replace the current practices.<a href="#section-
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 10 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 20 December 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1250,7 +1249,7 @@ and opportunities to improve or replace the current practices.<a href="#section-
             <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-position-papers" class="internal xref">Position Papers</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-workshop-participatns" class="internal xref">Workshop Participatns</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-workshop-participants" class="internal xref">Workshop Participants</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
             <p id="section-toc.1-1.11.1"><a href="#appendix-C" class="auto internal xref">Appendix C</a>.  <a href="#name-workshop-program-committee" class="internal xref">Workshop Program Committee</a></p>
@@ -1276,11 +1275,11 @@ the Internet architecture. This long-term planning function of the IAB is comple
 to the ongoing engineering efforts performed by working groups of the
 Internet Engineering Task Force (IETF).<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">Many services on the Internet map client IP addresses to a
-particular geolocation. For exmaple, they might infer that traffic originating from a particular
+particular geolocation. For example, they might infer that traffic originating from a particular
 IP address means the traffic originates from a particular city. This practice is widespread
 even though IP addresses are
 not designed or guaranteed to have a singular or fixed location associated with them.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">Use of IP geolocation has significant impact on the architecture
+<p id="section-1-3">Use of IP geolocation has a significant impact on the architecture
 and realities of deploying systems on the Internet, but is frequently not documented
 or incompletely documented in standards.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">The IAB convened a virtual workshop on IP Address Geolocation from December 3-5, 2025.
@@ -1326,7 +1325,7 @@ to one or more physical locations.<a href="#section-2-2.1.1" class="pilcrow">¶<
 </li>
         <li class="normal" id="section-2-2.2">
           <p id="section-2-2.2.1">A "geofeed" refers to a file that provides IP geolocation information.
-In this document, this is usually specifically referring to the format defined
+In this document, this usually refers specifically to the format defined
 in <span>[<a href="#GEOFEED" class="cite xref">GEOFEED</a>]</span>.<a href="#section-2-2.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
@@ -1339,13 +1338,13 @@ in <span>[<a href="#GEOFEED" class="cite xref">GEOFEED</a>]</span>.<a href="#sec
       </h2>
 <p id="section-3-1">The initial discussion of the workshop focused on identifying the current
 use cases for IP geolocation, and how they interact with today's mechanisms
-and ecosystem around IP geolocation.<a href="#section-3-1" class="pilcrow">¶</a></p>
+and the ecosystem around IP geolocation.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div id="why-is-ip-geolocation-used">
 <section id="section-3.1">
         <h3 id="name-why-is-ip-geolocation-used">
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-why-is-ip-geolocation-used" class="section-name selfRef">Why is IP geolocation used?</a>
         </h3>
-<p id="section-3.1-1">Some of the identified use cases were focused on optimizations to user experience
+<p id="section-3.1-1">Some of the identified use cases were focused on optimizations to the user experience
 or network behavior, such as:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.1-2.1">
@@ -1388,7 +1387,7 @@ of the current geofeed format <span>[<a href="#GEOFEED" class="cite xref">GEOFEE
 were displayed based on client IP addresses. When users are performing
 searches or accessing sites that localize content, and the IP geolocation is
 incorrect, the user may be presented with content that is not relevant
-(seeing results for a far away city when searching for "pizza near me")
+(seeing results for a faraway city when searching for "pizza near me")
 or isn't localized appropriately (seeing content in an unexpected language,
 or prices in an unexpected currency).<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.1.1-2">In the case of the development of <span>[<a href="#GEOFEED" class="cite xref">GEOFEED</a>]</span>, these issues were seen
@@ -1410,7 +1409,7 @@ use represents the highest volume of geolocation queries globally.<a href="#sect
           <h4 id="name-network-optimization-and-se">
 <a href="#section-3.1.3" class="section-number selfRef">3.1.3. </a><a href="#name-network-optimization-and-se" class="section-name selfRef">Network Optimization and Server Selection</a>
           </h4>
-<p id="section-3.1.3-1">In general, Content Delivery Networks (CDNs) and cloud providers route traffic
+<p id="section-3.1.3-1">In general, CDNs and cloud providers route traffic
 from clients based on optimizing network topological distance, but IP geolocation
 is sometimes used as an input to DNS-based routing systems to assist in server selection
 (see <span>[<a href="#NYGREN" class="cite xref">NYGREN</a>]</span> and <span>[<a href="#BROWN" class="cite xref">BROWN</a>]</span>). Misalignment here results in
@@ -1424,7 +1423,7 @@ suboptimal routing and increased latency for users.<a href="#section-3.1.3-1" cl
           </h4>
 <p id="section-3.1.4-1">A primary driver for IP geolocation remains the enforcement of territorial licensing
 agreements for streaming video, which is the largest volume of data at peak hour on
-the internet today. Streaming services and media broadcasters rely heavily on
+the Internet today. Streaming services and media broadcasters rely heavily on
 IP-to-location mapping to restrict content availability based on country or region
 (Geo-blocking). Participants noted that this creates a high-stakes environment where accuracy is directly tied to contractual compliance.<a href="#section-3.1.4-1" class="pilcrow">¶</a></p>
 </section>
@@ -1473,7 +1472,7 @@ Resource Public Key Infrastructure (RPKI).<a href="#section-3.2-1" class="pilcro
 <p id="section-3.2-2">Often, servers that are checking IP geolocation information are not directly
 consuming geofeed information, but instead use the services of one or more
 IP geolocation providers. These services provide not only a mapping from IP
-address to location, but add in other information, such as notions of
+address to the location, but add in other information, such as notions of
 IP address "reputation" (indicating if they think this IP address represents
 traffic from a human user, an automated bot, or a malicious attacker) or
 a categorization (indicating if an address is associated with proxied or
@@ -1481,7 +1480,7 @@ VPN traffic).<a href="#section-3.2-2" class="pilcrow">¶</a></p>
 <p id="section-3.2-3">IP geolocation providers use various signals to improve the
 accuracy of their mapping from IP address to location, and have notions
 of confidence in the validity of the mapping. The workshop noted that
-various providers won't necessarily agree on mappings; and, even when
+various providers won't necessarily agree on mappings, and even when
 they do agree, that does not guarantee that the mapping is accurate.
 Additionally, the certainty around a location mapping is not something
 expressed in a standard format for geofeeds, so ambiguity is hidden.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
@@ -1497,7 +1496,7 @@ users at different locations behind a single address.<a href="#section-3.2-4" cl
         <h3 id="name-what-does-ip-geolocation-me">
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-what-does-ip-geolocation-me" class="section-name selfRef">What does IP geolocation mean?</a>
         </h3>
-<p id="section-3.3-1">One of the key points that was raised in discussion was that different use cases
+<p id="section-3.3-1">One of the key points that was raised in the discussion was that different use cases
 and different parties involved in using IP geolocation can have vastly different assumptions
 about what a particular IP-address-to-location mapping means. For any use case or
 deployment, a question needs to be asked: what is the claim being made about
@@ -1528,7 +1527,7 @@ any ontology to describe what these mappings are claiming.<a href="#section-3.3-
       <h2 id="name-ip-geolocation-gaps-issues">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-ip-geolocation-gaps-issues" class="section-name selfRef">IP geolocation gaps &amp; issues</a>
       </h2>
-<p id="section-4-1">The workshop also focused discussion around identifying challenges with
+<p id="section-4-1">The workshop also focused on identifying challenges with
 the status quo mechanisms, specifically looking at gaps in current solutions
 and issues that they raise.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <p id="section-4-2">These issues fall into different categories, detailed here.<a href="#section-4-2" class="pilcrow">¶</a></p>
@@ -1537,7 +1536,7 @@ and issues that they raise.<a href="#section-4-1" class="pilcrow">¶</a></p>
         <h3 id="name-architectural-issues">
 <a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-architectural-issues" class="section-name selfRef">Architectural issues</a>
         </h3>
-<p id="section-4.1-1">At an achitectural level, IP addresses are not designed to be indications
+<p id="section-4.1-1">At an architectural level, IP addresses are not designed to be indications
 of physical location. This point was brought up in many contexts. This
 underlying issue causes various problems:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -1550,8 +1549,8 @@ stable location or a one-to-one relationship with users.<a href="#section-4.1-2.
             <p id="section-4.1-2.2.1">Privacy and lack of consent; the passive nature of looking at IP
 addresses and mapping them to locations means that users can have
 their location targeted without their knowledge, consent, or ability
-to opt out. Non-consensual geolocation also has the second-order effect
-of IP geolocation providers profiling internet users through undisclosed
+to opt out. Non-consensual geolocation also has a second-order effect
+of IP geolocation providers profiling Internet users through undisclosed
 mechanisms to increase geolocation accuracy.<a href="#section-4.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.1-2.3">
@@ -1583,7 +1582,7 @@ but ends up being used as such in some scenarios.<a href="#section-4.1-2.5.1" cl
         <h3 id="name-geofeed-gaps-and-inaccuraci">
 <a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-geofeed-gaps-and-inaccuraci" class="section-name selfRef">Geofeed gaps and inaccuracies</a>
         </h3>
-<p id="section-4.2-1">Many of the issues raised were concerned with specifics of geofeeds.
+<p id="section-4.2-1">Many of the issues raised were concerned with the specifics of geofeeds.
 These take various forms, such as details that cannot currently be expressed
 in geofeeds, or inaccurate content in feeds.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.2-2">The issues raised include:<a href="#section-4.2-2" class="pilcrow">¶</a></p>
@@ -1613,19 +1612,18 @@ inaccuracies<a href="#section-4.2-3.5.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-4.2-4">Some participants also expressed the diminishing utility of IP geolocation for
-compliance due to issues with accuracy and ease of circumvention.
-<span>[<a href="#CLARK" class="cite xref">CLARK</a>]</span><a href="#section-4.2-4" class="pilcrow">¶</a></p>
+compliance due to issues with accuracy and ease of circumvention <span>[<a href="#CLARK" class="cite xref">CLARK</a>]</span>.<a href="#section-4.2-4" class="pilcrow">¶</a></p>
 <p id="section-4.2-5">Some of the biggest challenges for providing an accurate geofeed are in dealing
 with satellite networks or mobile networks using Carrier-Grade NATs (CGNAT).
 A client device may have a particular true location, but its traffic may exit
-to the internet via a gateway in a different region. Geo-locating the IP
+to the Internet via a gateway in a different region. Geo-locating the IP
 identifies the gateway, not the user, rendering the data coarse or misleading
 for hyper-local applications.<a href="#section-4.2-5" class="pilcrow">¶</a></p>
 <p id="section-4.2-6">While country-level accuracy in geofeedds is generally high (estimated &gt;95%), city-level
 or coordinate-level accuracy degrades significantly. Participants noted instances
 where IP geolocation defaults to the geographical center of a country or state
 when specific data is missing, creating "digital sinkholes" (e.g., a farm in
-Kansas mapped to millions of IP addresses).<a href="#section-4.2-6" class="pilcrow">¶</a></p>
+Kansas is mapped to millions of IP addresses).<a href="#section-4.2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="ecosystem-issues">
@@ -1639,8 +1637,8 @@ IP geolocation ecosystem.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
 techniques. Methodologies for determining location are proprietary, and
 there is no standardized feedback loop for Internet Service Providers (ISPs)
 to correct erroneous data in third-party databases.<a href="#section-4.3-2" class="pilcrow">¶</a></p>
-<p id="section-4.3-3">Additionally, updating the version of a IP geolocation database used by a server
-is asynchronous, and can be a manual process. When there is a major change, such
+<p id="section-4.3-3">Additionally, updating the version of an IP geolocation database used by a server
+is asynchronous and can be a manual process. When there is a major change, such
 as when an IP address block is transferred from an ISP in Asia to one in Europe,
 the addresses may remain "located" in Asia in some databases for weeks or months.<a href="#section-4.3-3" class="pilcrow">¶</a></p>
 <p id="section-4.3-4">With IPv4 exhaustion, the secondary market for address space is active and exacerbates
@@ -1654,7 +1652,7 @@ leading to persistent misidentification of the new owners' locations.<a href="#s
         <h3 id="name-location-based-issues">
 <a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-location-based-issues" class="section-name selfRef">Location-based issues</a>
         </h3>
-<p id="section-4.4-1">Assigning geolocation to addresses is fraught with issues around location borders.
+<p id="section-4.4-1">Assigning geolocation to addresses is fraught with issues related to location boundaries.
 The discussion covered anecdotes of incorrect behavior that came from mobile
 devices being used near jurisdictional borders between two countries, where
 the device's IP geolocation could frequently "jump" between countries. Similarly,
@@ -1681,12 +1679,12 @@ address will be used, and does not imply intent for geolocation or otherwise.
 In essence:
 Since IP addresses were not designed for geolocating end-users, IP geolocation
  amounts to abuse of network-layer metadata to derive private information
- about internet users without their knowledge or consent.<a href="#section-4.5-3" class="pilcrow">¶</a></p>
+ about Internet users without their knowledge or consent.<a href="#section-4.5-3" class="pilcrow">¶</a></p>
 <p id="section-4.5-4">Virtual Private Networks (VPNs) or proxies (such as privacy proxies discussed in
 <span>[<a href="#RFC9614" class="cite xref">RFC9614</a>]</span>) allow users to anonymize their specific IP addresses to avoid
-correlation, and are often used partly for this purpose. <span>[<a href="#DUTKOWSKA-ZUK" class="cite xref">DUTKOWSKA-ZUK</a>]</span><a href="#section-4.5-4" class="pilcrow">¶</a></p>
+correlation, and are often used partly for this purpose <span>[<a href="#DUTKOWSKA-ZUK" class="cite xref">DUTKOWSKA-ZUK</a>]</span>.<a href="#section-4.5-4" class="pilcrow">¶</a></p>
 <p id="section-4.5-5">Sometimes VPNs or proxies intentionally obfuscate or change how the user is
-represented to IP geolocation providers; but other deployments of privacy services
+represented to IP geolocation providers, but other deployments of privacy services
 do use geofeeds to preserve the general user location to avoid user experience
 or compliance issues.<a href="#section-4.5-5" class="pilcrow">¶</a></p>
 </section>
@@ -1698,7 +1696,7 @@ or compliance issues.<a href="#section-4.5-5" class="pilcrow">¶</a></p>
       <h2 id="name-considering-the-future-of-g">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-considering-the-future-of-g" class="section-name selfRef">Considering the future of geolocation</a>
       </h2>
-<p id="section-5-1">The final day of the workshop focused on next steps around IP geolocation,
+<p id="section-5-1">The final day of the workshop focused on the next steps around IP geolocation,
 both in how to improve mechanisms and in how to build mechanisms that address
 the use cases in new ways.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <p id="section-5-2">One key recognition from the workshop was that IP geolocation, and the
@@ -1707,7 +1705,7 @@ not necessarily an intentional part of the Internet architecture, large
 parts of how the Internet functions have been established based on assumptions.<a href="#section-5-2" class="pilcrow">¶</a></p>
 <p id="section-5-3">However, it was also recognized that the role and functionality of IP geolocation
 can change, and in many ways ought to change. This section discusses some
-of the considerations raised, and suggests next steps.<a href="#section-5-3" class="pilcrow">¶</a></p>
+of the considerations raised and suggests next steps.<a href="#section-5-3" class="pilcrow">¶</a></p>
 <div id="why-should-ip-geolocation-change">
 <section id="section-5.1">
         <h3 id="name-why-should-ip-geolocation-c">
@@ -1725,12 +1723,12 @@ to scale well and continue to be used effectively<a href="#section-5.1-2.1.1" cl
 are stretching and challenging the status quo mechanisms<a href="#section-5.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-5.1-2.3">
-            <p id="section-5.1-2.3.1">Pressure from new policies or regulations add requirements for accurate
+            <p id="section-5.1-2.3.1">Pressure from new policies or regulations adds requirements for accurate
 assessment of client location, which IP addresses cannot always provide<a href="#section-5.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-5.1-2.4">
             <p id="section-5.1-2.4.1">The bar for security and privacy is increasing, challenging the
-use of passive identifiers like IP addresses being used to tag location<a href="#section-5.1-2.4.1" class="pilcrow">¶</a></p>
+use of passive identifiers, like IP addresses being used to tag location<a href="#section-5.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-5.1-2.5">
             <p id="section-5.1-2.5.1">There are already ways to perform consensual geolocation at
@@ -1738,11 +1736,11 @@ the application layer, such as with APIs that meet the W3C Geolocation
 specifications.<a href="#section-5.1-2.5.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-5.1-3">These various motivations and pressures are often in conflict, and create
+<p id="section-5.1-3">These various motivations and pressures are often in conflict and create
 requirements in different directions. Economic and regulatory incentives
 have shaped the status quo mechanisms, and will continue to shape the evolution
 of this space.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
-<p id="section-5.1-4">The technical community, and the various stakeholders in the ecosystem,
+<p id="section-5.1-4">The technical community and the various stakeholders in the ecosystem,
 play an important role in deciding how to handle these pressures and drive
 the change in the space of IP geolocation.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
 </section>
@@ -1809,7 +1807,7 @@ there need to be clear plans for transitions and incremental adoption.<a href="#
 and update.<a href="#section-5.3-2.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-5.3-2.4">
-            <p id="section-5.3-2.4.1">New solutions should be careful designed to avoid creating worse privacy problems. For example,
+            <p id="section-5.3-2.4.1">New solutions should be carefully designed to avoid creating worse privacy problems. For example,
 a pressure to have explicit signals for location could lead to increased sharing of more
 specific user location coordinates (such as from GPS data).<a href="#section-5.3-2.4.1" class="pilcrow">¶</a></p>
 </li>
@@ -1864,7 +1862,7 @@ working on improvements in this space.<a href="#section-5.4-1" class="pilcrow">�
             <p id="section-5.4-3.10.1">Policymakers<a href="#section-5.4-3.10.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-5.4-3.11">
-            <p id="section-5.4-3.11.1">End users<a href="#section-5.4-3.11.1" class="pilcrow">¶</a></p>
+            <p id="section-5.4-3.11.1">End-users<a href="#section-5.4-3.11.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-5.4-4">The exact shape of a forum for this community is not yet determined, but this
@@ -2139,10 +2137,10 @@ report encourages further work and discussion in this space.<a href="#section-5.
       </ul>
 </section>
 </div>
-<div id="workshop-participatns">
+<div id="workshop-participants">
 <section id="appendix-B">
-      <h2 id="name-workshop-participatns">
-<a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-workshop-participatns" class="section-name selfRef">Workshop Participatns</a>
+      <h2 id="name-workshop-participants">
+<a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-workshop-participants" class="section-name selfRef">Workshop Participants</a>
       </h2>
 <p id="appendix-B-1">The workshop participants were Alagappan Ramanathan, Andrew Chen, Augustin Laouar, Bill Jouris,
 Bob Hinden, Brian Haberman, Calvin Ardi, Carlos Martinez, Christopher Luna, Cindy Morgan,
