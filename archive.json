@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-17T03:24:16.020887+00:00",
+  "timestamp": "2026-06-21T04:09:39.523565+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -683,24 +683,26 @@
       "id": "PR_kwDOQr9O0c7bgCuJ",
       "title": "Fix typos and enhance clarity in workshop report",
       "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/14",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "acbegen",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Corrected typos and improved clarity in the draft report.",
       "createdAt": "2026-05-14T11:40:50Z",
-      "updatedAt": "2026-05-14T11:42:53Z",
+      "updatedAt": "2026-06-18T15:13:32Z",
       "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
       "baseRefName": "main",
       "baseRefOid": "f23733a17896e2d9b1cf4eba47b706efa61f6a90",
       "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
       "headRefName": "acbegen-patch-1",
       "headRefOid": "00c3189ebd18d668bb36c93332966c6c860fb5f5",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-06-18T15:13:31Z",
+      "mergedAt": "2026-06-18T15:13:31Z",
+      "mergedBy": "jlivingood",
+      "mergeCommit": {
+        "oid": "d74a811e6e4aa0ae60c5d03f0156a742d2d99037"
+      },
       "comments": [],
       "reviews": [
         {
