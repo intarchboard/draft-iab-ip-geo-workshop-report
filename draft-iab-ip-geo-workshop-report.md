@@ -757,12 +757,27 @@ able to express certainty levels
 
 Second, and more ambitiously, the community can consider alternative solutions
 to the use cases behind IP geolocation that do not rely on IP address mapping.
-{{SZAMONEK}}, {{LAOUAR}}, and {{PAULY}} propose various ways forward here. These
-explore ways to let users provide location hints with consent, and involve
-trying to provide explicit signals that involve trust and verifiability.
+Some of the workshop contributions proposed possible ways forward here:
 
-Across both of these categories, communicating information with more intentionality
-and clarity is a key change.
+- {{SZAMONEK}} describes a model where a "Trusted Verifier" can attest to
+user location and issue a certificate of some form that is bound to the
+requesting user. A user device can then present that proof to a service
+that needs to validate location.
+- {{LAOUAR}} proposes a similar model with a trusted third party as a "Geo-CA"
+(geolocation certificate authority) that can provide proof of location separate
+from IP geolocation.
+- {{PAULY}} proposes sending coard geographic information (city or region)
+in HTTP headers. This can either be a signed and trusted signal for cases
+that require it, or an untrusted signal to satisfy use cases that don't require
+proof of location.
+
+Collectively, these proposals explore ways to let users provide location hints
+with consent, and involve trying to provide explicit signals that are based on
+trust and verifiability.
+
+Across both cases of (1) incremental improvements and (2) entirely new architectures,
+there is a common theme of communicating information with more intentionality
+and clarity.
 
 ## Considerations for future work
 
