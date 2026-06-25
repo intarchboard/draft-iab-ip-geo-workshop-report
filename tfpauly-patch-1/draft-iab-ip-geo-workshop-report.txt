@@ -5,9 +5,9 @@
 Network Working Group                                         J. Iyengar
 Internet-Draft                                                          
 Intended status: Informational                              J. Livingood
-Expires: 26 December 2026                                               
+Expires: 27 December 2026                                               
                                                                 T. Pauly
-                                                            24 June 2026
+                                                            25 June 2026
 
 
          Report from the IAB Workshop on IP Address Geolocation
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 December 2026.
+   This Internet-Draft will expire on 27 December 2026.
 
 Copyright Notice
 
@@ -555,9 +555,9 @@ Table of Contents
 
    *  [LAOUAR] proposes a similar model with a trusted third party as a
       "Geo-CA" (geolocation certificate authority) that can provide
-      proof of location separate from IP geolocation.
+      proof of location separate from IP address.
 
-   *  [PAULY] proposes sending coard geographic information (city or
+   *  [PAULY] proposes sending coarse geographic information (city or
       region) in HTTP headers.  This can either be a signed and trusted
       signal for cases that require it, or an untrusted signal to
       satisfy use cases that don't require proof of location.
