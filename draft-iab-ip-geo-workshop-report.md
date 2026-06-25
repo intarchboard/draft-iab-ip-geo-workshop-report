@@ -765,8 +765,8 @@ requesting user. A user device can then present that proof to a service
 that needs to validate location.
 - {{LAOUAR}} proposes a similar model with a trusted third party as a "Geo-CA"
 (geolocation certificate authority) that can provide proof of location separate
-from IP geolocation.
-- {{PAULY}} proposes sending coard geographic information (city or region)
+from IP address.
+- {{PAULY}} proposes sending coarse geographic information (city or region)
 in HTTP headers. This can either be a signed and trusted signal for cases
 that require it, or an untrusted signal to satisfy use cases that don't require
 proof of location.
