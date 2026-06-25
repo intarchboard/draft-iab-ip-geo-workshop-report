@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-06-21T04:09:39.523565+00:00",
+  "timestamp": "2026-06-25T03:30:44.003543+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -168,6 +168,22 @@
           "updatedAt": "2026-04-08T22:34:08Z"
         }
       ]
+    },
+    {
+      "number": 15,
+      "id": "I_kwDOQr9O0c8AAAABGgKJSA",
+      "title": "Add more details on solution proposals",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/issues/15",
+      "state": "CLOSED",
+      "author": "tfpauly",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "From Eliot Lear's review:\n\n> First, the following sentence in Section 5.2 leaves me just a little bit unsatisfied:\n> \n>     [SZAMONEK], [LAOUAR], and [PAULY] propose\n>    various ways forward here.  These explore ways to let users provide\n>    location hints with consent, and involve trying to provide explicit\n>    signals that involve trust and verifiability.\n> Could you please add at least one sentence more about each of these papers to explain what they do?  On the whole, the report is long on problems and short on solutions.  \n> \n> ",
+      "createdAt": "2026-06-24T03:16:32Z",
+      "updatedAt": "2026-06-25T02:02:14Z",
+      "closedAt": "2026-06-25T02:02:14Z",
+      "comments": []
     }
   ],
   "pulls": [
@@ -728,6 +744,69 @@
               "body": "\u201cMapping from IP address to the location\u201d is grammatically unclear because \u201cthe location\u201d has no specific antecedent here. Consider using \u201ca location\u201d or restoring the more general \u201clocation\u201d phrasing.\n",
               "createdAt": "2026-05-14T11:42:53Z",
               "updatedAt": "2026-05-14T11:42:53Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "id": "PR_kwDOQr9O0c7p7kJJ",
+      "title": "Provide more details on proposed solutions",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/16",
+      "state": "MERGED",
+      "author": "tfpauly",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #15",
+      "createdAt": "2026-06-24T03:28:39Z",
+      "updatedAt": "2026-06-25T02:02:13Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "d74a811e6e4aa0ae60c5d03f0156a742d2d99037",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "tfpauly-patch-1",
+      "headRefOid": "a25c7f6fcd682f419764728ac597009d7c38ce43",
+      "closedAt": "2026-06-25T02:02:13Z",
+      "mergedAt": "2026-06-25T02:02:13Z",
+      "mergedBy": "tfpauly",
+      "mergeCommit": {
+        "oid": "b71baa487fb79a0e8c8f0c9f2aa0bcbc1a6eb491"
+      },
+      "comments": [
+        {
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks, applied!",
+          "createdAt": "2026-06-25T02:01:51Z",
+          "updatedAt": "2026-06-25T02:01:51Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQr9O0c8AAAABEDgjYg",
+          "commit": {
+            "abbreviatedOid": "97b6f22"
+          },
+          "author": "janaiyengar",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "Couple of nits, LGTM otherwise",
+          "createdAt": "2026-06-25T01:04:44Z",
+          "updatedAt": "2026-06-25T01:07:58Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "```suggestion\n- {{PAULY}} proposes sending coarse geographic information (city or region)\n```",
+              "createdAt": "2026-06-25T01:04:44Z",
+              "updatedAt": "2026-06-25T01:07:58Z"
+            },
+            {
+              "originalPosition": 18,
+              "body": "```suggestion\nfrom IP address.\n```",
+              "createdAt": "2026-06-25T01:07:43Z",
+              "updatedAt": "2026-06-25T01:07:58Z"
             }
           ]
         }
