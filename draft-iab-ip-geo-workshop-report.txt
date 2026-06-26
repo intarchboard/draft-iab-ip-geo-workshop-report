@@ -5,9 +5,9 @@
 Network Working Group                                         J. Iyengar
 Internet-Draft                                                          
 Intended status: Informational                              J. Livingood
-Expires: 27 December 2026                                               
+Expires: 28 December 2026                                               
                                                                 T. Pauly
-                                                            25 June 2026
+                                                            26 June 2026
 
 
          Report from the IAB Workshop on IP Address Geolocation
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 December 2026.
+   This Internet-Draft will expire on 28 December 2026.
 
 Copyright Notice
 
@@ -259,6 +259,11 @@ Table of Contents
 
    *  Law Enforcement: Investigating cybercrime by mapping IP addresses
       to physical jurisdictions for warrant service.
+
+   *  Age-based content restrictions: As various juridictions [RFC9998]
+      define regulation to restrict access to content based on age, IP
+      geolocation is being used to determine which regulations apply
+      (see [BARNES]).
 
 3.2.  What are the current IP geolocation mechanisms?
 
@@ -803,6 +808,11 @@ Table of Contents
               "Finding and Using Geofeed Data", RFC 9632,
               DOI 10.17487/RFC9632, August 2024,
               <https://www.rfc-editor.org/rfc/rfc9632>.
+
+   [RFC9998]  Nottingham, M. and M. Thomson, "Report from the IAB/W3C
+              Workshop on Age-Based Restrictions on Content Access",
+              RFC 9998, DOI 10.17487/RFC9998, June 2026,
+              <https://www.rfc-editor.org/rfc/rfc9998>.
 
    [SCHATTE]  Schatte, D., "IAB Workshop on IP Address Geolocation",
               December 2025, <https://www.ietf.org/slides/slides-
