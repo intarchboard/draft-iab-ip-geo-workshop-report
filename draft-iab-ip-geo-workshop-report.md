@@ -512,6 +512,8 @@ Operators increasingly use IP geolocation to comply with local laws, including:
 - Gambling and Betting regulations: Restricting access to users within specific jurisdictions.
 - Taxation: Determining the applicable VAT or sales tax based on the consumer's location.
 - Law Enforcement: Investigating cybercrime by mapping IP addresses to physical jurisdictions for warrant service.
+- Age-based content restrictions: As various juridictions {{?RFC9998}} define regulation to restrict access
+to content based on age, IP geolocation is being used to determine which regulations apply (see {{BARNES}}).
 
 ## What are the current IP geolocation mechanisms?
 
