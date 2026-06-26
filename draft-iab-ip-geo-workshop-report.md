@@ -410,7 +410,7 @@ geolocation data ({{use-cases}})
 ## About this workshop report content
 
 This document is a report on the proceedings of the workshop. The views and positions
-documented in this report are expressed during the workshop by participants and do not
+documented in this report were expressed during the workshop by participants and do not
 necessarily reflect IAB's views and positions.
 
 Furthermore, the content of the report comes from presentations given by workshop
@@ -442,7 +442,7 @@ or network behavior, such as:
 
 - Automatically choosing appropriate language or regional settings for content
 - Providing relevant nearby content (for searches or serving advertisements)
-- Optimizing network routes and server selection, generally used to optimize Content Delivery Network (CDNs)
+- Optimizing network routes and server selection, generally used to optimize Content Delivery Networks (CDNs)
 
 For these use cases, errors in IP geolocation cause annoyance or performance issues,
 but are generally recoverable (the user can change their location preference or update their search).
