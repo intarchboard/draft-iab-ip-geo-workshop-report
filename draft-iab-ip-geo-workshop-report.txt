@@ -133,7 +133,7 @@ Table of Contents
 1.1.  About this workshop report content
 
    This document is a report on the proceedings of the workshop.  The
-   views and positions documented in this report are expressed during
+   views and positions documented in this report were expressed during
    the workshop by participants and do not necessarily reflect IAB's
    views and positions.
 
@@ -172,7 +172,7 @@ Table of Contents
       advertisements)
 
    *  Optimizing network routes and server selection, generally used to
-      optimize Content Delivery Network (CDNs)
+      optimize Content Delivery Networks (CDNs)
 
    For these use cases, errors in IP geolocation cause annoyance or
    performance issues, but are generally recoverable (the user can
