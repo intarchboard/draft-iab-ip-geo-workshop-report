@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-06-25T03:30:44.003543+00:00",
+  "timestamp": "2026-06-28T03:44:57.688186+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -183,6 +183,22 @@
       "createdAt": "2026-06-24T03:16:32Z",
       "updatedAt": "2026-06-25T02:02:14Z",
       "closedAt": "2026-06-25T02:02:14Z",
+      "comments": []
+    },
+    {
+      "number": 17,
+      "id": "I_kwDOQr9O0c8AAAABGvqewg",
+      "title": "Review from EKR",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/issues/17",
+      "state": "OPEN",
+      "author": "tfpauly",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://mailarchive.ietf.org/arch/msg/architecture-discuss/-wRkqUf6cd6fqB52ag4pxUCq0eM/\n\n> As I noted in the plenary, I wish the IAB would take a stronger position\n> on geolocation, but as this is just a report on proceedings, I recognize\n> that this is not the place for it. To that end, I've focused on a few minor\n> issues that seem to me to be not quite right.\n> \n> S 3.1.6.\n> I'm surprised to see you not including age assurance in this\n> list. Was this really not mentioned in the workshop?\n> \n> \n> S 4.2.\n>    *  False specificity occurs when feeds map an address to a city, but\n>       the location associated with the address is much bigger than the\n>       city\n> \n> Don't geoloc providers typically provide some confidence\n> estimate?\n> \n> S 4.5.\n>    Sometimes VPNs or proxies intentionally obfuscate or change how the\n>    user is represented to IP geolocation providers, but other\n>    deployments of privacy services do use geofeeds to preserve the\n>    general user location to avoid user experience or compliance issues.\n> \n> You might mention that this is actually an advertised feature\n> of a number of VPN providers, typically for geoblocking\n> evasion.\n> \n> \n> S 5.2.\n> \n>    *  More accurately represent the granularity and specificity of\n>       geolocation mappings; be able to express certainty levels\n> \n> As I noted above, some providers already provide confidence.\n> For example, MaxMind provides an accuracy radius:\n> \n> https://dev.maxmind.com/geoip/docs/web-services/responses/#location\n> \n> This may not be a feature of GEOFEED, but that's different\n> from providers not being able to do so.\n> \n> \n>    *  Rely more on the RPKI to more reliably verify location claims\n> \n> What does this mean?",
+      "createdAt": "2026-06-25T21:42:46Z",
+      "updatedAt": "2026-06-25T21:42:46Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -809,6 +825,98 @@
               "updatedAt": "2026-06-25T01:07:58Z"
             }
           ]
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDOQr9O0c7qwmto",
+      "title": "Reference age-based restrictions",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/18",
+      "state": "MERGED",
+      "author": "tfpauly",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Based on #17",
+      "createdAt": "2026-06-25T22:09:01Z",
+      "updatedAt": "2026-06-26T16:34:54Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "b71baa487fb79a0e8c8f0c9f2aa0bcbc1a6eb491",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "tfpauly-patch-2",
+      "headRefOid": "1510ff7ee1d804edac05d624164643b7b9785831",
+      "closedAt": "2026-06-26T16:34:54Z",
+      "mergedAt": "2026-06-26T16:34:54Z",
+      "mergedBy": "tfpauly",
+      "mergeCommit": {
+        "oid": "cc6debf5150d732c6ef9640e5e42877c3d71e17d"
+      },
+      "comments": [
+        {
+          "author": "ekr",
+          "authorAssociation": "NONE",
+          "body": "LGTM",
+          "createdAt": "2026-06-26T00:16:27Z",
+          "updatedAt": "2026-06-26T00:16:27Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQr9O0c8AAAABEQ1WiQ",
+          "commit": {
+            "abbreviatedOid": "1510ff7"
+          },
+          "author": "janaiyengar",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-06-26T16:28:41Z",
+          "updatedAt": "2026-06-26T16:28:41Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "PR_kwDOQr9O0c7rEgdc",
+      "title": "Fix couple of typos",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/19",
+      "state": "MERGED",
+      "author": "sureshkrishnan",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Changed tense for opinions expressed, and pluralized CDN expansion",
+      "createdAt": "2026-06-26T17:20:37Z",
+      "updatedAt": "2026-06-26T20:04:27Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "cc6debf5150d732c6ef9640e5e42877c3d71e17d",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "sureshkrishnan-patch-1",
+      "headRefOid": "f9b5d321aecbb8baaa25d0c4a6f6b283ad8fd0e8",
+      "closedAt": "2026-06-26T20:04:27Z",
+      "mergedAt": "2026-06-26T20:04:27Z",
+      "mergedBy": "janaiyengar",
+      "mergeCommit": {
+        "oid": "1b263ce55add4227eb6b72421c08541f416ebfd0"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQr9O0c8AAAABESIIEA",
+          "commit": {
+            "abbreviatedOid": "f9b5d32"
+          },
+          "author": "janaiyengar",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-06-26T20:04:08Z",
+          "updatedAt": "2026-06-26T20:04:08Z",
+          "comments": []
         }
       ]
     }
