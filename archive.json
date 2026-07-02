@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-06-28T03:44:57.688186+00:00",
+  "timestamp": "2026-07-02T03:31:51.683738+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -190,16 +190,24 @@
       "id": "I_kwDOQr9O0c8AAAABGvqewg",
       "title": "Review from EKR",
       "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/issues/17",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "tfpauly",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "https://mailarchive.ietf.org/arch/msg/architecture-discuss/-wRkqUf6cd6fqB52ag4pxUCq0eM/\n\n> As I noted in the plenary, I wish the IAB would take a stronger position\n> on geolocation, but as this is just a report on proceedings, I recognize\n> that this is not the place for it. To that end, I've focused on a few minor\n> issues that seem to me to be not quite right.\n> \n> S 3.1.6.\n> I'm surprised to see you not including age assurance in this\n> list. Was this really not mentioned in the workshop?\n> \n> \n> S 4.2.\n>    *  False specificity occurs when feeds map an address to a city, but\n>       the location associated with the address is much bigger than the\n>       city\n> \n> Don't geoloc providers typically provide some confidence\n> estimate?\n> \n> S 4.5.\n>    Sometimes VPNs or proxies intentionally obfuscate or change how the\n>    user is represented to IP geolocation providers, but other\n>    deployments of privacy services do use geofeeds to preserve the\n>    general user location to avoid user experience or compliance issues.\n> \n> You might mention that this is actually an advertised feature\n> of a number of VPN providers, typically for geoblocking\n> evasion.\n> \n> \n> S 5.2.\n> \n>    *  More accurately represent the granularity and specificity of\n>       geolocation mappings; be able to express certainty levels\n> \n> As I noted above, some providers already provide confidence.\n> For example, MaxMind provides an accuracy radius:\n> \n> https://dev.maxmind.com/geoip/docs/web-services/responses/#location\n> \n> This may not be a feature of GEOFEED, but that's different\n> from providers not being able to do so.\n> \n> \n>    *  Rely more on the RPKI to more reliably verify location claims\n> \n> What does this mean?",
       "createdAt": "2026-06-25T21:42:46Z",
-      "updatedAt": "2026-06-25T21:42:46Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-07-02T01:12:49Z",
+      "closedAt": "2026-07-02T01:12:49Z",
+      "comments": [
+        {
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Replied to the rest of these via email",
+          "createdAt": "2026-07-02T01:12:49Z",
+          "updatedAt": "2026-07-02T01:12:49Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -919,6 +927,34 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOQr9O0c7s7FSs",
+      "title": "Clarification from shepherd review",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/20",
+      "state": "MERGED",
+      "author": "tfpauly",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-07-02T01:32:04Z",
+      "updatedAt": "2026-07-02T02:23:46Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "1b263ce55add4227eb6b72421c08541f416ebfd0",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "tfpauly-patch-3",
+      "headRefOid": "db702321c17d07a9b739001eafad6fcddbe8a467",
+      "closedAt": "2026-07-02T02:23:46Z",
+      "mergedAt": "2026-07-02T02:23:46Z",
+      "mergedBy": "tfpauly",
+      "mergeCommit": {
+        "oid": "79a2de3e3b0e25d6d247a6235ac2deeffffbfe19"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
