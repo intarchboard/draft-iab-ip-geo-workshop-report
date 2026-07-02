@@ -5,9 +5,9 @@
 Network Working Group                                         J. Iyengar
 Internet-Draft                                                          
 Intended status: Informational                              J. Livingood
-Expires: 28 December 2026                                               
+Expires: 3 January 2027                                                 
                                                                 T. Pauly
-                                                            26 June 2026
+                                                             2 July 2026
 
 
          Report from the IAB Workshop on IP Address Geolocation
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 December 2026.
+   This Internet-Draft will expire on 3 January 2027.
 
 Copyright Notice
 
@@ -348,11 +348,13 @@ Table of Contents
    *  Lack of support in standardization; IP geolocation is a very
       impactful part of deployment realities and heavily influences the
       experience users have, but changes to network protocols don't
-      necessarily account for the impact on IP geolocation.  This is
-      seen in cases where deployments as varied as IPv6 address support
-      on servers and privacy proxy systems all needed significant work
-      and engagement with IP geolocation providers to ensure that user
-      experiences still functioned.
+      necessarily account for the impact on IP geolocation.  This lack
+      of explicit standardization support has led to deployment
+      challenges in various scenarios: adding IPv6 address support to
+      servers, deploying privacy proxy systems, and more.  These
+      deployments required significant work and engagement with multiple
+      IP geolocation providers to ensure that user experiences were
+      still functional.
 
    *  Assumptions about the usefulness of geolocation; physical location
       does not necessarily correspond to network topologies, so systems
