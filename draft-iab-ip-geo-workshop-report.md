@@ -591,10 +591,11 @@ mechanisms to increase geolocation accuracy.
 - Lack of support in standardization; IP geolocation is a very impactful
 part of deployment realities and heavily influences the experience users
 have, but changes to network protocols don't necessarily account for
-the impact on IP geolocation. This is seen in cases where deployments as
-varied as IPv6 address support on servers and privacy proxy systems all
-needed significant work and engagement with IP geolocation providers
-to ensure that user experiences still functioned.
+the impact on IP geolocation. This lack of explicit standardization support
+has led to deployment challenges in various scenarios: adding IPv6 address
+support to servers, deploying privacy proxy systems, and more. These
+deployments required significant work and engagement with multiple
+IP geolocation providers to ensure that user experiences were still functional.
 
 - Assumptions about the usefulness of geolocation; physical location
 does not necessarily correspond to network topologies, so systems assuming
