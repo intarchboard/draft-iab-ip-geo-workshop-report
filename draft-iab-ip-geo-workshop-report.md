@@ -378,6 +378,7 @@ using IP addresses as indicators of geolocation, explored various problems and
 challenges that exist in that ecosystem, and discussed future directions
 and opportunities to improve or replace the current practices.
 
+Note that this document is a report on the proceedings of the workshop. The views and positions documented in this report are those of the workshop participants and do not necessarily reflect IAB views and positions.
 
 --- middle
 
@@ -891,6 +892,25 @@ Yoshiki Ishida, and Zoltan Szamonek.
 
 The workshop program committee members were Glenn Deen, Jana Iyengar, Mirja Kühlewind,
 Warren Kumari, Jason Livingood, and Tommy Pauly.
+
+# IAB Members at the Time of Approval
+{:numbered="false"}
+
+Internet Architecture Board members at the time this document was approved for publication were:
+
+- Ali C. Begen
+- Matthew Bocci
+- Roman Danyliw
+- Dhruv Dhody
+- Jana Iyengar
+- Suresh Krishnan
+- Jason Livingood
+- Warren Kumari
+- Mark Nottingham
+- Yingzhen Qu
+- Alvaro Retana
+- Yaroslav Rosomakho
+- Nick Sullivan
 
 # Acknowledgments
 {:numbered="false"}
