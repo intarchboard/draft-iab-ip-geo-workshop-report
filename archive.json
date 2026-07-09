@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-02T03:31:51.683738+00:00",
+  "timestamp": "2026-07-09T02:55:21.906518+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -955,6 +955,59 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 21,
+      "id": "PR_kwDOQr9O0c7vMMFS",
+      "title": "Include IAB members in the report and disclaimer in abstract",
+      "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/21",
+      "state": "OPEN",
+      "author": "dhruvdhody",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Added a section listing IAB members at the time of approval and the needed disclaimer in the abstract",
+      "createdAt": "2026-07-08T08:34:37Z",
+      "updatedAt": "2026-07-08T17:41:58Z",
+      "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "baseRefName": "main",
+      "baseRefOid": "79a2de3e3b0e25d6d247a6235ac2deeffffbfe19",
+      "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
+      "headRefName": "dhruvdhody-patch-1",
+      "headRefOid": "6381dd83e0c54b270cc5562fd64641066aea8e38",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQr9O0c8AAAABFYtNLw",
+          "commit": {
+            "abbreviatedOid": "6381dd8"
+          },
+          "author": "janaiyengar",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-07-08T17:12:37Z",
+          "updatedAt": "2026-07-08T17:12:37Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOQr9O0c8AAAABFY5SIQ",
+          "commit": {
+            "abbreviatedOid": "6381dd8"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-07-08T17:41:58Z",
+          "updatedAt": "2026-07-08T17:41:58Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
