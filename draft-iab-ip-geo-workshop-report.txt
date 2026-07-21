@@ -5,9 +5,9 @@
 Network Working Group                                         J. Iyengar
 Internet-Draft                                                          
 Intended status: Informational                              J. Livingood
-Expires: 3 January 2027                                                 
+Expires: 22 January 2027                                                
                                                                 T. Pauly
-                                                             2 July 2026
+                                                            21 July 2026
 
 
          Report from the IAB Workshop on IP Address Geolocation
@@ -21,6 +21,11 @@ Abstract
    geolocation, explored various problems and challenges that exist in
    that ecosystem, and discussed future directions and opportunities to
    improve or replace the current practices.
+
+   Note that this document is a report on the proceedings of the
+   workshop.  The views and positions documented in this report are
+   those of the workshop participants and do not necessarily reflect IAB
+   views and positions.
 
 About This Document
 
@@ -50,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 January 2027.
+   This Internet-Draft will expire on 22 January 2027.
 
 Copyright Notice
 
@@ -95,6 +100,7 @@ Table of Contents
    Appendix A.  Position Papers
    Appendix B.  Workshop Participants
    Appendix C.  Workshop Program Committee
+   IAB Members at the Time of Approval
    Acknowledgments
    Authors' Addresses
 
@@ -960,6 +966,37 @@ Appendix C.  Workshop Program Committee
 
    The workshop program committee members were Glenn Deen, Jana Iyengar,
    Mirja Kühlewind, Warren Kumari, Jason Livingood, and Tommy Pauly.
+
+IAB Members at the Time of Approval
+
+   Internet Architecture Board members at the time this document was
+   approved for publication were:
+
+   *  Ali C.  Begen
+
+   *  Matthew Bocci
+
+   *  Roman Danyliw
+
+   *  Dhruv Dhody
+
+   *  Jana Iyengar
+
+   *  Suresh Krishnan
+
+   *  Jason Livingood
+
+   *  Warren Kumari
+
+   *  Mark Nottingham
+
+   *  Yingzhen Qu
+
+   *  Alvaro Retana
+
+   *  Yaroslav Rosomakho
+
+   *  Nick Sullivan
 
 Acknowledgments
 
