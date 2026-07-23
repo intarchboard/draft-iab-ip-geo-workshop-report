@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-09T02:55:21.906518+00:00",
+  "timestamp": "2026-07-23T02:39:30.691274+00:00",
   "repo": "intarchboard/draft-iab-ip-geo-workshop-report",
   "labels": [
     {
@@ -961,24 +961,26 @@
       "id": "PR_kwDOQr9O0c7vMMFS",
       "title": "Include IAB members in the report and disclaimer in abstract",
       "url": "https://github.com/intarchboard/draft-iab-ip-geo-workshop-report/pull/21",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "dhruvdhody",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Added a section listing IAB members at the time of approval and the needed disclaimer in the abstract",
       "createdAt": "2026-07-08T08:34:37Z",
-      "updatedAt": "2026-07-08T17:41:58Z",
+      "updatedAt": "2026-07-21T07:41:36Z",
       "baseRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
       "baseRefName": "main",
       "baseRefOid": "79a2de3e3b0e25d6d247a6235ac2deeffffbfe19",
       "headRepository": "intarchboard/draft-iab-ip-geo-workshop-report",
       "headRefName": "dhruvdhody-patch-1",
       "headRefOid": "6381dd83e0c54b270cc5562fd64641066aea8e38",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-07-21T07:41:36Z",
+      "mergedAt": "2026-07-21T07:41:36Z",
+      "mergedBy": "tfpauly",
+      "mergeCommit": {
+        "oid": "87420f83719305e3fe7fb72a4ce0a16b68d83f5f"
+      },
       "comments": [],
       "reviews": [
         {
